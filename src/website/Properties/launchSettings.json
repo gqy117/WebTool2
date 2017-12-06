@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "AdvancedPeoplePerformanceTest": {
+    "AdvancedPeopleDashboard": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
