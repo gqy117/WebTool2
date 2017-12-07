@@ -153,27 +153,28 @@ h3 {
 .widget-build-window {
     background-color: #999999;
     border-radius: 15px;
+
+    .title {
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    .value {
+        color: white;
+    }
+
+    .more-info {
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    .updated-at {
+        color: rgba(0, 0, 0, 0.3);
+    }
+
+    .small {
+        font-size: 0.6em;
+    }
 }
 
-.widget-build-window .title {
-    color: rgba(255, 255, 255, 0.7);
-}
-
-.widget-build-window .value {
-    color: white;
-}
-
-.widget-build-window .more-info {
-    color: rgba(255, 255, 255, 0.7);
-}
-
-.widget-build-window .updated-at {
-    color: rgba(0, 0, 0, 0.3);
-}
-
-.widget-build-window .small {
-    font-size: 0.6em;
-}
 
 .widget.status-warning {
   background-color: $background-warning-color-1;
