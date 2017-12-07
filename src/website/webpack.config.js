@@ -26,11 +26,14 @@ module.exports = (env) => {
 
     // Configuration for client-side bundle suitable for running in browsers
     const clientBundleOutputDir = './wwwroot/dist';
+    const cssLoaderSuffix = isDevBuild ? '' : '?minimize';
+    const cssLoader = `css-loader${cssLoaderSuffix}`;
+
     const clientBundleConfig = merge(sharedConfig(), {
         entry: { 'main-client': './ClientApp/boot-client.tsx' },
         module: {
             rules: [
-                { test: /\.(css|scss)$/, use: ExtractTextPlugin.extract({ use: isDevBuild ? ['css-loader','sass-loader'] : ['sass-loader?minimize'] }) }
+                { test: /\.(css|scss)$/, use: ExtractTextPlugin.extract({ use: [ cssLoader, 'sass-loader'] }) }
             ]
         },
         output: { path: path.join(__dirname, clientBundleOutputDir) },
