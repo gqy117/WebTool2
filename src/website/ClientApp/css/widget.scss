@@ -1,0 +1,82 @@
+﻿@import 'common.scss';
+
+.widget {
+    padding: 25px 12px;
+    text-align: center;
+    width: 386px;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.widget-build-window {
+    background-color: #999999;
+    border-radius: 15px;
+
+    .title {
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    .value {
+        color: white;
+    }
+
+    .more-info {
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    .updated-at {
+        color: rgba(0, 0, 0, 0.3);
+    }
+
+    .small {
+        font-size: 0.6em;
+    }
+}
+
+
+.widget.status-warning {
+    background-color: $background-warning-color-1;
+    @include animation(status-warning-background, 2s, ease, infinite);
+
+    .icon-warning-sign {
+        display: inline-block;
+    }
+
+    .title, .more-info {
+        color: $text-warning-color;
+    }
+}
+
+.widget.status-danger {
+    color: $text-danger-color;
+    background-color: $background-danger-color-1;
+    @include animation(status-danger-background, 2s, ease, infinite);
+
+    .icon-warning-sign {
+        display: inline-block;
+    }
+
+    .title, .more-info {
+        color: $text-danger-color;
+    }
+}
+
+.more-info {
+    font-size: 15px;
+    bottom: 32px;
+    left: 0;
+    right: 0;
+}
+
+.context-info {
+    @extend .more-info;
+    font-size: 10px;
+    bottom: 60px;
+}
+
+.updated-at {
+    font-size: 15px;
+    bottom: 12px;
+    left: 0;
+    right: 0;
+}
