@@ -1,4 +1,4 @@
-import './css/site.css';
+import './css/site.scss';
 import './css/application.scss';
 import 'bootstrap';
 import * as React from 'react';
