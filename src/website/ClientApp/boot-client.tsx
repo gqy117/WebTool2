@@ -1,6 +1,4 @@
-import './css/site.scss';
-import './css/application.scss';
-import './css/widget.scss';
+import './css';
 import 'bootstrap';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
