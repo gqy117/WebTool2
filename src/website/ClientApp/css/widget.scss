@@ -11,6 +11,8 @@
 .widget-build-window {
     background-color: #999999;
     border-radius: 15px;
+    float: left;
+    margin: 2px;
 
     .title {
         color: rgba(255, 255, 255, 0.7);
@@ -68,6 +70,7 @@
 .more-info {
     font-size: 15px;
     bottom: 32px;
+    cursor: pointer;
 }
 
 .context-info {

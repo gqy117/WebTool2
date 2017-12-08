@@ -4,6 +4,9 @@ import BuildWindow from './BuildWindow';
 
 export default class BuildWindows extends React.Component<RouteComponentProps<{}>, {}> {
     public render() {
-        return <BuildWindow />;
+        return <div>
+            <BuildWindow />
+            <BuildWindow />
+        </div>;
     }
 }
