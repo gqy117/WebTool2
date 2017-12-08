@@ -20,8 +20,17 @@
     <Content Remove="ClientApp\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="ClientApp\components\BuildWindows\index.tsx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\components\BuildWindows\index.tsx" />
+    <TypeScriptCompile Include="ClientApp\css\index.tsx" />
+  </ItemGroup>
+
   <Target Name="Cleanwwwroot" AfterTargets="Clean">
-    <Message Importance="high" Text="Cleaning 'wwwroot' and 'ClientApp\dist' folders..."/>
+    <Message Importance="high" Text="Cleaning 'wwwroot' and 'ClientApp\dist' folders..." />
     <RemoveDir Directories="wwwroot; ClientApp\dist" />
 	</Target>
 

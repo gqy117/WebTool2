@@ -1,5 +1,4 @@
-import './css/site.css';
-import './css/application.css';
+import './css';
 import 'bootstrap';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
