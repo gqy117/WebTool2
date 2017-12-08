@@ -2,9 +2,9 @@ import * as React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 const healthImg = require('../images/health-60to79.svg') as string;
 
-export default class Home extends React.Component<RouteComponentProps<{}>, {}> {
+export default class BuildWindows extends React.Component<RouteComponentProps<{}>, {}> {
     public render() {
-        return <div className="widget widget-build-window sinatra/sinatra" style={{backgroundColor: "rgb(3, 160, 110)"}}>
+        return <div className="widget widget-build-window" style={{backgroundColor: "rgb(3, 160, 110)"}}>
             <h1 className="title" data-bind="name">DCE Postman Tests</h1>
 
             <h3 data-bind="status">Successful</h3>
@@ -19,7 +19,7 @@ export default class Home extends React.Component<RouteComponentProps<{}>, {}> {
                 <span data-showif="time" data-bind="time | dateFormat">6 days ago</span>
             </p>
             <p className="more-info"><a data-bind-href="link">View on <span data-bind="server">TeamCity</span></a></p>
-            <p className="updated-at" data-bind="updatedAtMessage">Last updated at 19:31</p>
+            <p className="updated-at" data-bind="updatedAtMessage">Last updated at 19:32</p>
         </div>;
     }
 }
