@@ -21,6 +21,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\components\BuildWindows\index.tsx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\components\BuildWindows\index.tsx" />
     <TypeScriptCompile Include="ClientApp\css\index.tsx" />
   </ItemGroup>
 

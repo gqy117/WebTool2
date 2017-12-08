@@ -1,8 +1,7 @@
 import * as React from 'react';
-import { RouteComponentProps } from 'react-router-dom';
-const healthImg = require('../images/health-60to79.svg') as string;
+const healthImg = require('../../images/health-60to79.svg') as string;
 
-export default class BuildWindows extends React.Component<RouteComponentProps<{}>, {}> {
+export default class BuildWindow extends React.Component<any, any> {
     public render() {
         return <div className="widget widget-build-window" style={{backgroundColor: "rgb(3, 160, 110)"}}>
             <h1 className="title" data-bind="name">DCE Postman Tests</h1>
