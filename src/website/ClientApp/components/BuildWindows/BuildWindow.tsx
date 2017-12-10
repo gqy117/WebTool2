@@ -1,24 +1,58 @@
 import * as React from 'react';
-const healthImg = require('../../images/health-60to79.svg') as string;
+import * as Model from "../../models/Builds";
+import * as Actions from "../../actions/Builds";
+import { Images } from "../../images";
 
-export default class BuildWindow extends React.Component<any, any> {
+type BuildProps =
+    Model.BuildConfigration
+    & Model.BuildViewDTO
+    & Model.BuildState
+    & typeof Actions.actionCreators
+    ;
+
+export default class BuildWindow extends React.Component<BuildProps, {}> {
+    private queryLoop: number;
+
+    componentWillMount() {
+        //console.log(`componentWillMount`);
+        this.props.requestBuilds(this.props.buildId);
+    }
+
+    componentWillReceiveProps(nextProps: BuildProps) {
+        //console.log(`componentWillReceiveProps`);
+        this.startPoll();
+    }
+
+    componentWillUnmount() {
+        clearTimeout(this.queryLoop);
+    }
+
+    startPoll() {
+        clearTimeout(this.queryLoop);
+        this.queryLoop = setTimeout(() => this.props.requestBuilds(this.props.buildId), this.props.refreshInverval);
+    }
+
     public render() {
-        return <div className="widget widget-build-window" style={{backgroundColor: "rgb(3, 160, 110)"}}>
-            <h1 className="title" data-bind="name">DCE Postman Tests</h1>
+        const build = this.props.view as Model.BuildView;
 
-            <h3 data-bind="status">Successful</h3>
+        return <div>
+            <div className="widget widget-build-window" style={{ backgroundColor: "rgb(3, 160, 110)" }}>
+                <h1 className="title" data-bind="name"> {build.buildName} </h1>
 
-            <p data-showif="show-health">
-                <img data-bind-src="image" src={healthImg}></img>
-                <strong data-bind="health">64</strong>% <span className="small">of recent builds passed</span>
-            </p>
+                <h3 data-bind="status"> {build.buildStatus} </h3>
 
-            <p className="context-info">
-                <span data-showif="duration">Ran for <span data-bind="duration | durationFormat">an hour</span>,</span>
-                <span data-showif="time" data-bind="time | dateFormat">6 days ago</span>
-            </p>
-            <p className="more-info"><a data-bind-href="link">View on <span data-bind="server">TeamCity</span></a></p>
-            <p className="updated-at" data-bind="updatedAtMessage">Last updated at 19:32</p>
+                <p data-showif="show-health">
+                    <img data-bind-src="image" src={Images.health60to79}></img>
+                    <strong data-bind="health">64</strong>% <span className="small">of recent builds passed</span>
+                </p>
+
+                <p className="context-info">
+                    <span data-showif="duration">Ran for <span data-bind="duration | durationFormat">an hour</span>,</span>
+                    <span data-showif="time" data-bind="time | dateFormat">6 days ago</span>
+                </p>
+                <p className="more-info"><a data-bind-href="link">View on <span data-bind="server">TeamCity</span></a></p>
+                <p className="updated-at" data-bind="updatedAtMessage">Last updated at {build.lastUpdated}</p>
+            </div>
         </div>;
     }
 }
