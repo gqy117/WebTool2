@@ -1,6 +1,6 @@
-import { fetch, addTask } from 'domain-task';
-import { Action, Reducer, ActionCreator } from 'redux';
-import { AppThunkAction } from './';
+import { fetch, addTask } from "domain-task/index";
+import { Action, Reducer, ActionCreator } from "redux/index";
+import { AppThunkAction } from "./index";
 
 // -----------------
 // STATE - This defines the type of data maintained in the Redux store.

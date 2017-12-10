@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
-    <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>2.4</TypeScriptToolsVersion>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
@@ -21,12 +21,19 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\actions\Builds.ts" />
     <None Remove="ClientApp\components\BuildWindows\index.tsx" />
+    <None Remove="ClientApp\containers\BuildWindows\BuildWindow.tsx" />
+    <None Remove="ClientApp\images\index.ts" />
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\actions\Builds.ts" />
+    <TypeScriptCompile Include="ClientApp\components\BuildWindows\TeamCityBuildWindow.tsx" />
     <TypeScriptCompile Include="ClientApp\components\BuildWindows\index.tsx" />
+    <TypeScriptCompile Include="ClientApp\containers\BuildWindows\BuildWindow.tsx" />
     <TypeScriptCompile Include="ClientApp\css\index.tsx" />
+    <TypeScriptCompile Include="ClientApp\images\index.ts" />
   </ItemGroup>
 
   <Target Name="Cleanwwwroot" AfterTargets="Clean">
