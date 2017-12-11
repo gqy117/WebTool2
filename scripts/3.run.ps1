@@ -1,2 +1,2 @@
-cd ../src/website/bin/Debug/netcoreapp2.0/publish
+cd ../src/website/publish
 dotnet ./AdvancedPeopleDashboard.dll

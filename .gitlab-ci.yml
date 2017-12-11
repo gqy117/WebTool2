@@ -1,0 +1,17 @@
+image : microsoft/aspnetcore-build:2.0.3-stretch
+
+stages: 
+  - build
+
+cache:
+  paths:
+  - ./src/website/node_modules
+
+before_script:
+  - 'cd ./scripts; chmod +x -R .'
+
+build:
+ stage: build
+ script:
+  - './1.setup.ps1'
+  - './2.build.ps1'
