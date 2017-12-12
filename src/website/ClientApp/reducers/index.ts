@@ -1,7 +1,7 @@
-import * as WeatherForecasts from "./WeatherForecasts";
-import * as Counter from "./Counter";
-import * as Builds from "./Builds";
 import * as Model from "../models/Builds";
+import * as Builds from "./Builds";
+import * as Counter from "./Counter";
+import * as WeatherForecasts from "./WeatherForecasts";
 
 // The top-level state object
 export interface ApplicationState {
@@ -11,16 +11,14 @@ export interface ApplicationState {
 }
 
 // Whenever an action is dispatched, Redux will update each top-level application state property using
-// the reducer with the matching name. It's important that the names match exactly, and that the reducer
+// the reducer with the matching name. It"s important that the names match exactly, and that the reducer
 // acts on the corresponding ApplicationState property type.
 export const reducers = {
+    builds: Builds.reducer,
     counter: Counter.reducer,
     weatherForecasts: WeatherForecasts.reducer,
-    builds: Builds.reducer
 };
 
-// This type can be used as a hint on action creators so that its 'dispatch' and 'getState' params are
+// This type can be used as a hint on action creators so that its "dispatch" and "getState" params are
 // correctly typed to match your store.
-export interface AppThunkAction<TAction> {
-    (dispatch: (action: TAction) => void, getState: () => ApplicationState): void;
-}
+export type AppThunkAction<TAction> = (dispatch: (action: TAction) => void, getState: () => ApplicationState) => void;

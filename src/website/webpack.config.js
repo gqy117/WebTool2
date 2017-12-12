@@ -16,8 +16,10 @@ module.exports = (env) => {
             publicPath: 'dist/' // Webpack dev middleware, if enabled, handles requests for this URL prefix
         },
         module: {
+
             rules: [
-                { test: /\.tsx?$/, include: /ClientApp/, use: 'awesome-typescript-loader?silent=true' },
+                { test: /\.ts|\.tsx$/, enforce: 'pre', loader: 'tslint-loader', options: { emitErrors: false, failOnHint: true, }},
+                { test: /\.tsx?$/, include: /ClientApp/, use: ['awesome-typescript-loader?silent=true'] },
                 { test: /\.(png|jpg|jpeg|gif|svg)$/, use: 'url-loader?limit=25000' }
             ]
         },

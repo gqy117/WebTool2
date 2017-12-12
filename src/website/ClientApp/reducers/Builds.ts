@@ -6,7 +6,7 @@ const initialState: Model.BuildState = { buildState: [] };
 export const reducer: Reducer<Model.BuildState> = (state: Model.BuildState = initialState, action: Model.KnownAction) => {
     switch (action.type) {
         case Model.ActionType.RECEIVE_BUILD:
-            const buildWithoutCurrent = (state.buildState as Model.Build[]).filter(x => x.buildId !== action.build.buildId);
+            const buildWithoutCurrent = (state.buildState as Model.Build[]).filter((x) => x.buildId !== action.build.buildId);
 
             state = {
                 buildState: [
@@ -20,6 +20,6 @@ export const reducer: Reducer<Model.BuildState> = (state: Model.BuildState = ini
         default:
             break;
     }
-    //console.log(state);
+    // console.log(state);
     return state;
 };

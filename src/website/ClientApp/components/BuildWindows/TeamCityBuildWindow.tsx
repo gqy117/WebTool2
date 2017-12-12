@@ -1,7 +1,7 @@
-﻿import * as React from 'react';
-import * as Model from "../../models/Builds";
+import * as React from "react";
 import * as Actions from "../../actions/Builds";
 import BuildWindow from "../../containers/BuildWindows/BuildWindow";
+import * as Model from "../../models/Builds";
 
 export default class TeamCityBuildWindow extends React.Component<Model.BuildConfigration, {}> {
     public static defaultProps: Partial<Model.BuildConfigration> = {

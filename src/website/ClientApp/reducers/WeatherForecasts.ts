@@ -1,5 +1,5 @@
-import { fetch, addTask } from "domain-task/index";
-import { Action, Reducer, ActionCreator } from "redux/index";
+import { addTask, fetch } from "domain-task/index";
+import { Action, ActionCreator, Reducer } from "redux/index";
 import { AppThunkAction } from "./index";
 
 // -----------------
@@ -23,36 +23,36 @@ export interface WeatherForecast {
 // They do not themselves have any side-effects; they just describe something that is going to happen.
 
 interface RequestWeatherForecastsAction {
-    type: 'REQUEST_WEATHER_FORECASTS';
+    type: "REQUEST_WEATHER_FORECASTS";
     startDateIndex: number;
 }
 
 interface ReceiveWeatherForecastsAction {
-    type: 'RECEIVE_WEATHER_FORECASTS';
+    type: "RECEIVE_WEATHER_FORECASTS";
     startDateIndex: number;
     forecasts: WeatherForecast[];
 }
 
-// Declare a 'discriminated union' type. This guarantees that all references to 'type' properties contain one of the
+// Declare a "discriminated union" type. This guarantees that all references to "type" properties contain one of the
 // declared type strings (and not any other arbitrary string).
 type KnownAction = RequestWeatherForecastsAction | ReceiveWeatherForecastsAction;
 
 // ----------------
 // ACTION CREATORS - These are functions exposed to UI components that will trigger a state transition.
-// They don't directly mutate state, but they can have external side-effects (such as loading data).
+// They don"t directly mutate state, but they can have external side-effects (such as loading data).
 
 export const actionCreators = {
     requestWeatherForecasts: (startDateIndex: number): AppThunkAction<KnownAction> => (dispatch, getState) => {
-        // Only load data if it's something we don't already have (and are not already loading)
+        // Only load data if it"s something we don"t already have (and are not already loading)
         if (startDateIndex !== getState().weatherForecasts.startDateIndex) {
-            let fetchTask = fetch(`api/SampleData/WeatherForecasts?startDateIndex=${ startDateIndex }`)
-                .then(response => response.json() as Promise<WeatherForecast[]>)
-                .then(data => {
-                    dispatch({ type: 'RECEIVE_WEATHER_FORECASTS', startDateIndex: startDateIndex, forecasts: data });
+            const fetchTask = fetch(`api/SampleData/WeatherForecasts?startDateIndex=${ startDateIndex }`)
+                .then((response) => response.json() as Promise<WeatherForecast[]>)
+                .then((data) => {
+                    dispatch({ type: "RECEIVE_WEATHER_FORECASTS", startDateIndex, forecasts: data });
                 });
 
             addTask(fetchTask); // Ensure server-side prerendering waits for this to complete
-            dispatch({ type: 'REQUEST_WEATHER_FORECASTS', startDateIndex: startDateIndex });
+            dispatch({ type: "REQUEST_WEATHER_FORECASTS", startDateIndex });
         }
     }
 };
@@ -65,20 +65,20 @@ const unloadedState: WeatherForecastsState = { forecasts: [], isLoading: false }
 export const reducer: Reducer<WeatherForecastsState> = (state: WeatherForecastsState, incomingAction: Action) => {
     const action = incomingAction as KnownAction;
     switch (action.type) {
-        case 'REQUEST_WEATHER_FORECASTS':
+        case "REQUEST_WEATHER_FORECASTS":
             return {
-                startDateIndex: action.startDateIndex,
                 forecasts: state.forecasts,
-                isLoading: true
+                isLoading: true,
+                startDateIndex: action.startDateIndex,
             };
-        case 'RECEIVE_WEATHER_FORECASTS':
+        case "RECEIVE_WEATHER_FORECASTS":
             // Only accept the incoming data if it matches the most recent request. This ensures we correctly
             // handle out-of-order responses.
             if (action.startDateIndex === state.startDateIndex) {
                 return {
-                    startDateIndex: action.startDateIndex,
                     forecasts: action.forecasts,
-                    isLoading: false
+                    isLoading: false,
+                    startDateIndex: action.startDateIndex,
                 };
             }
             break;

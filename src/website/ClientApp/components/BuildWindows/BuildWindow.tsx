@@ -1,7 +1,7 @@
-import * as React from 'react';
-import * as Model from "../../models/Builds";
+import * as React from "react";
 import * as Actions from "../../actions/Builds";
 import { Images } from "../../images";
+import * as Model from "../../models/Builds";
 
 type BuildProps =
     Model.BuildConfigration
@@ -13,21 +13,21 @@ type BuildProps =
 export default class BuildWindow extends React.Component<BuildProps, {}> {
     private queryLoop: number;
 
-    componentWillMount() {
-        //console.log(`componentWillMount`);
+    public componentWillMount() {
+        // console.log(`componentWillMount`);
         this.props.requestBuilds(this.props.buildId);
     }
 
-    componentWillReceiveProps(nextProps: BuildProps) {
-        //console.log(`componentWillReceiveProps`);
+    public componentWillReceiveProps(nextProps: BuildProps) {
+        // console.log(`componentWillReceiveProps`);
         this.startPoll();
     }
 
-    componentWillUnmount() {
+    public componentWillUnmount() {
         clearTimeout(this.queryLoop);
     }
 
-    startPoll() {
+    public startPoll() {
         clearTimeout(this.queryLoop);
         this.queryLoop = setTimeout(() => this.props.requestBuilds(this.props.buildId), this.props.refreshInverval);
     }
@@ -47,10 +47,15 @@ export default class BuildWindow extends React.Component<BuildProps, {}> {
                 </p>
 
                 <p className="context-info">
-                    <span data-showif="duration">Ran for <span data-bind="duration | durationFormat">an hour</span>,</span>
+                    <span data-showif="duration">Ran for
+                        <span data-bind="duration | durationFormat">an hour</span>
+                        ,
+                    </span>
                     <span data-showif="time" data-bind="time | dateFormat">6 days ago</span>
                 </p>
-                <p className="more-info"><a data-bind-href="link">View on <span data-bind="server">TeamCity</span></a></p>
+                <p className="more-info">
+                    <a data-bind-href="link">View on <span data-bind="server">TeamCity</span></a>
+                </p>
                 <p className="updated-at" data-bind="updatedAtMessage">Last updated at {build.lastUpdated}</p>
             </div>
         </div>;

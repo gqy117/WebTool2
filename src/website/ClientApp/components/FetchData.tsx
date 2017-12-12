@@ -1,25 +1,25 @@
-import * as React from 'react';
-import { Link, RouteComponentProps } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { ApplicationState }  from '../reducers';
+import * as React from "react";
+import { connect } from "react-redux";
+import { Link, RouteComponentProps } from "react-router-dom";
+import { ApplicationState } from "../reducers";
 import * as WeatherForecastsState from "../reducers/WeatherForecasts";
 
 // At runtime, Redux will merge together...
 type WeatherForecastProps =
-    WeatherForecastsState.WeatherForecastsState        // ... state we've requested from the Redux store
-    & typeof WeatherForecastsState.actionCreators      // ... plus action creators we've requested
+    WeatherForecastsState.WeatherForecastsState        // ... state we"ve requested from the Redux store
+    & typeof WeatherForecastsState.actionCreators      // ... plus action creators we"ve requested
     & RouteComponentProps<{ startDateIndex: string }>; // ... plus incoming routing parameters
 
 class FetchData extends React.Component<WeatherForecastProps, {}> {
-    componentWillMount() {
+    public componentWillMount() {
         // This method runs when the component is first added to the page
-        let startDateIndex = parseInt(this.props.match.params.startDateIndex) || 0;
+        const startDateIndex = parseInt(this.props.match.params.startDateIndex, 10) || 0;
         this.props.requestWeatherForecasts(startDateIndex);
     }
 
-    componentWillReceiveProps(nextProps: WeatherForecastProps) {
+    public componentWillReceiveProps(nextProps: WeatherForecastProps) {
         // This method runs when incoming props (e.g., route params) change
-        let startDateIndex = parseInt(nextProps.match.params.startDateIndex) || 0;
+        const startDateIndex = parseInt(nextProps.match.params.startDateIndex, 10) || 0;
         this.props.requestWeatherForecasts(startDateIndex);
     }
 
@@ -33,7 +33,7 @@ class FetchData extends React.Component<WeatherForecastProps, {}> {
     }
 
     private renderForecastsTable() {
-        return <table className='table'>
+        return <table className="table">
             <thead>
                 <tr>
                     <th>Date</th>
@@ -43,7 +43,7 @@ class FetchData extends React.Component<WeatherForecastProps, {}> {
                 </tr>
             </thead>
             <tbody>
-            {this.props.forecasts.map(forecast =>
+            {this.props.forecasts.map((forecast) =>
                 <tr key={ forecast.dateFormatted }>
                     <td>{ forecast.dateFormatted }</td>
                     <td>{ forecast.temperatureC }</td>
@@ -56,18 +56,20 @@ class FetchData extends React.Component<WeatherForecastProps, {}> {
     }
 
     private renderPagination() {
-        let prevStartDateIndex = (this.props.startDateIndex || 0) - 5;
-        let nextStartDateIndex = (this.props.startDateIndex || 0) + 5;
+        const prevStartDateIndex = (this.props.startDateIndex || 0) - 5;
+        const nextStartDateIndex = (this.props.startDateIndex || 0) + 5;
 
-        return <p className='clearfix text-center'>
-            <Link className='btn btn-default pull-left' to={ `/fetchdata/${ prevStartDateIndex }` }>Previous</Link>
-            <Link className='btn btn-default pull-right' to={ `/fetchdata/${ nextStartDateIndex }` }>Next</Link>
+        return <p className="clearfix text-center">
+            <Link className="btn btn-default pull-left" to={ `/fetchdata/${ prevStartDateIndex }` }>Previous</Link>
+            <Link className="btn btn-default pull-right" to={ `/fetchdata/${ nextStartDateIndex }` }>Next</Link>
             { this.props.isLoading ? <span>Loading...</span> : [] }
         </p>;
     }
 }
 
 export default connect(
-    (state: ApplicationState) => state.weatherForecasts, // Selects which state properties are merged into the component's props
-    WeatherForecastsState.actionCreators                 // Selects which action creators are merged into the component's props
+    // Selects which state properties are merged into the component"s props
+    (state: ApplicationState) => state.weatherForecasts,
+    // Selects which action creators are merged into the component"s props
+    WeatherForecastsState.actionCreators
 )(FetchData) as typeof FetchData;
