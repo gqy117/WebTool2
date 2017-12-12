@@ -1,10 +1,10 @@
-﻿export interface BuildConfigration {
+export interface BuildConfigration {
     buildId: string;
     refreshInverval?: number;
 }
 
 export interface BuildViewDTO {
-    view?: BuildView
+    view?: BuildView;
 }
 
 export interface BuildView {

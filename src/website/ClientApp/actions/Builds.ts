@@ -1,13 +1,13 @@
-﻿import { fetch, addTask } from "domain-task/index";
-import { AppThunkAction } from "../reducers";
+﻿import { addTask, fetch } from "domain-task/index";
 import * as Model from "../models/Builds";
+import { AppThunkAction } from "../reducers";
 
 export const actionCreators = {
     requestBuilds: (buildId?: string): AppThunkAction<Model.KnownAction> => (dispatch) => {
-        let fetchTask = fetch(`api/TeamCity/Build?buildId=${buildId}`)
-            .then(response => response.json() as Promise<Model.Build>)
-            .then(data => {
-                //console.log(data);
+        const fetchTask = fetch(`api/TeamCity/Build?buildId=${buildId}`)
+            .then((response) => response.json() as Promise<Model.Build>)
+            .then((data) => {
+                // console.log(data);
                 dispatch({ type: Model.ActionType.RECEIVE_BUILD, build: data });
             });
 
