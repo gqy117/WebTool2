@@ -1,0 +1,13 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: microsoft/aspnetcore-build:2.0.3-stretch
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+      - run: cd ./scripts; chmod +x -R .
+      - run: ./1.setup.ps1
+      - run: ./2.build.ps1
