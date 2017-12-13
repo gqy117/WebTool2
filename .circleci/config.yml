@@ -3,11 +3,30 @@ jobs:
   build:
     docker:
       - image: microsoft/aspnetcore-build:2.0.3-stretch
-
     working_directory: ~/repo
+    environment:
+       SCRIPTS: scripts
 
     steps:
       - checkout
-      - run: cd ./scripts; chmod +x -R .
-      - run: ./1.setup.ps1
-      - run: ./2.build.ps1
+      - restore_cache:
+          keys:
+            - npm-cache-{{ arch }}-{{ .Branch }}-{{ checksum "src/website/package.json" }}
+
+      - restore_cache:
+          keys:
+            - nuget-cache-{{ arch }}-{{ .Branch }}
+
+      - run: chmod +x -R ./$SCRIPTS;
+      - run: cd ./$SCRIPTS; ./1.setup.ps1
+      - run: cd ./$SCRIPTS; ./2.build.ps1
+
+      - save_cache:
+          key: npm-cache-{{ arch }}-{{ .Branch }}-{{ checksum "src/website/package.json" }}
+          paths:
+            - src/website/node_modules
+
+      - save_cache:
+          key: nuget-cache-{{ arch }}-{{ .Branch }}
+          paths:
+            - ~/.nuget
