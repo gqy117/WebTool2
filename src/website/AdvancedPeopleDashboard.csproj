@@ -25,6 +25,8 @@
     <None Remove="ClientApp\components\BuildWindows\index.tsx" />
     <None Remove="ClientApp\containers\BuildWindows\BuildWindow.tsx" />
     <None Remove="ClientApp\images\index.ts" />
+    <None Remove="ClientApp\utilities\Dictionary.ts" />
+    <None Remove="ClientApp\utilities\index.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,6 +36,8 @@
     <TypeScriptCompile Include="ClientApp\containers\BuildWindows\BuildWindow.tsx" />
     <TypeScriptCompile Include="ClientApp\css\index.tsx" />
     <TypeScriptCompile Include="ClientApp\images\index.ts" />
+    <TypeScriptCompile Include="ClientApp\utilities\Dictionary.ts" />
+    <TypeScriptCompile Include="ClientApp\utilities\index.ts" />
   </ItemGroup>
 
   <Target Name="Cleanwwwroot" AfterTargets="Clean">
