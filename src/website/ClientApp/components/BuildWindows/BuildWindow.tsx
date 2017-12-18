@@ -36,19 +36,18 @@ export default class BuildWindow extends React.Component<BuildProps, {}> {
         const build = this.props.view as Model.BuildView;
 
         return <div>
-            <div className="widget widget-build-window" style={{ backgroundColor: "rgb(3, 160, 110)" }}>
+            <div className={`widget widget-build-window ${build.cssStatus}`}>
                 <h1 className="title" data-bind="name"> {build.buildName} </h1>
 
                 <h3 data-bind="status"> {build.buildStatus} </h3>
 
                 <p data-showif="show-health">
-                    <img data-bind-src="image" src={Images.health60to79}></img>
-                    <strong data-bind="health">64</strong>% <span className="small">of recent builds passed</span>
+                    <img data-bind-src="image" src={build.imageSrc}></img>
                 </p>
 
                 <p className="context-info">
                     <span data-showif="duration">Ran for
-                        <span data-bind="duration | durationFormat">an hour</span>
+                        <span data-bind="duration | durationFormat"> an hour</span>
                         ,
                     </span>
                     <span data-showif="time" data-bind="time | dateFormat">6 days ago</span>

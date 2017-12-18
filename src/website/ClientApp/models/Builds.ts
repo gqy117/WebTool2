@@ -12,6 +12,8 @@ export interface BuildView {
     buildStatus?: string;
     buildName?: string;
     lastUpdated?: string;
+    cssStatus: string;
+    imageSrc: string;
 }
 
 export interface BuildState {
@@ -28,6 +30,16 @@ export interface Build {
 export const enum ActionType {
     REQUEST_BUILD = "REQUEST_BUILD",
     RECEIVE_BUILD = "RECEIVE_BUILD",
+}
+
+export const enum BuildStatus {
+    SUCCESSFUL = "Successful",
+    FAILED = "Failed",
+}
+
+export const enum CssStatus {
+    SUCCESSFUL = "status-successful",
+    WARNING = "status-warning",
 }
 
 export interface RequestBuildsAction {

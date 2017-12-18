@@ -9,7 +9,6 @@
 }
 
 .widget-build-window {
-    background-color: #999999;
     border-radius: 15px;
     float: left;
     margin: 2px;
@@ -39,14 +38,26 @@
     }
 }
 
-
-.widget.status-warning {
-    background-color: $background-warning-color-1;
-    @include animation(status-warning-background, 2s, ease, infinite);
-
+.status {
     .icon-warning-sign {
         display: inline-block;
     }
+}
+
+.widget.status-successful {
+    @extend .status;
+    background-color: $background-successful-color-1;
+    @include animation(status-successful-background, 2s, ease, infinite);
+
+    .title, .more-info {
+        color: $text-color;
+    }
+}
+
+.widget.status-warning {
+    @extend .status;
+    background-color: $background-warning-color-1;
+    @include animation(status-warning-background, 2s, ease, infinite);
 
     .title, .more-info {
         color: $text-warning-color;
@@ -54,13 +65,10 @@
 }
 
 .widget.status-danger {
+    @extend .status;
     color: $text-danger-color;
     background-color: $background-danger-color-1;
     @include animation(status-danger-background, 2s, ease, infinite);
-
-    .icon-warning-sign {
-        display: inline-block;
-    }
 
     .title, .more-info {
         color: $text-danger-color;
