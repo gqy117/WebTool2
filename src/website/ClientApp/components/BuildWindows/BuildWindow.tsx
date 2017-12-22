@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as Actions from "../../actions/Builds";
-import { Images } from "../../images";
 import * as Model from "../../models/Builds";
+import { Polling } from "../../utilities";
 
 type BuildProps =
     Model.BuildConfigration
@@ -11,25 +11,20 @@ type BuildProps =
     ;
 
 export default class BuildWindow extends React.Component<BuildProps, {}> {
-    private queryLoop: number;
+    private polling: Polling;
 
     public componentWillMount() {
-        // console.log(`componentWillMount`);
         this.props.requestBuilds(this.props.buildId);
+
+        this.preparePolling();
     }
 
     public componentWillReceiveProps(nextProps: BuildProps) {
-        // console.log(`componentWillReceiveProps`);
-        this.startPoll();
+        this.polling.start();
     }
 
     public componentWillUnmount() {
-        clearTimeout(this.queryLoop);
-    }
-
-    public startPoll() {
-        clearTimeout(this.queryLoop);
-        this.queryLoop = setTimeout(() => this.props.requestBuilds(this.props.buildId), this.props.refreshInverval);
+        this.polling.stop();
     }
 
     public render() {
@@ -58,5 +53,9 @@ export default class BuildWindow extends React.Component<BuildProps, {}> {
                 <p className="updated-at" data-bind="updatedAtMessage">Last updated at {build.lastUpdated}</p>
             </div>
         </div>;
+    }
+
+    private preparePolling() {
+        this.polling = new Polling(() => this.props.requestBuilds(this.props.buildId), this.props.refreshInverval);
     }
 }

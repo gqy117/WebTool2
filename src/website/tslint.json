@@ -2,6 +2,7 @@
   "extends": "tslint:recommended",
   "rules": {
     "no-var-requires": false,
+    "no-console": [ false ],
     "max-line-length": [ false ],
     "interface-name": false,
     "no-string-literal": false,

@@ -27,6 +27,7 @@
     <None Remove="ClientApp\images\index.ts" />
     <None Remove="ClientApp\utilities\Dictionary.ts" />
     <None Remove="ClientApp\utilities\index.ts" />
+    <None Remove="ClientApp\utilities\Polling.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,6 +38,7 @@
     <TypeScriptCompile Include="ClientApp\css\index.tsx" />
     <TypeScriptCompile Include="ClientApp\images\index.ts" />
     <TypeScriptCompile Include="ClientApp\utilities\Dictionary.ts" />
+    <TypeScriptCompile Include="ClientApp\utilities\Polling.ts" />
     <TypeScriptCompile Include="ClientApp\utilities\index.ts" />
   </ItemGroup>
 
