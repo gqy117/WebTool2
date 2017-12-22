@@ -1,6 +1,6 @@
 export interface BuildConfigration {
     buildId: string;
-    refreshInverval?: number;
+    refreshInverval?: number ;
 }
 
 export interface BuildViewDTO {
