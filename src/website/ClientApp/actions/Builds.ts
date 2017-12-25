@@ -1,17 +1,12 @@
-﻿import { addTask, fetch } from "domain-task/index";
-import * as Model from "../models/Builds";
-import { AppThunkAction } from "../reducers";
+﻿import * as Model from "../models/Builds";
 
 export const actionCreators = {
-    requestBuilds: (buildId?: string): AppThunkAction<Model.KnownAction> => (dispatch) => {
-        const fetchTask = fetch(`api/TeamCity/Build?buildId=${buildId}`)
-            .then((response) => response.json() as Promise<Model.Build>)
-            .then((data) => {
-                // console.log(data);
-                dispatch({ type: Model.ActionType.RECEIVE_BUILD, build: data });
-            });
-
-        addTask(fetchTask);
-        dispatch({ type: Model.ActionType.REQUEST_BUILD });
+    startPolling: (buildId: string, interval: number = 300 * 1000) => (dispatch: any, getState: any) => {
+        const action: Model.RequestBuildsAction = { type: Model.ActionType.REQUEST_BUILD, buildId, interval };
+        dispatch(action);
+    },
+    stopPolling: () => (dispatch: any, getState: any) => {
+        const action: Model.StopPollingAction = { type: Model.ActionType.STOP_POLLING };
+        dispatch(action);
     }
 };

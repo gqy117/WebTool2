@@ -21,6 +21,7 @@ export interface BuildState {
 }
 
 export interface Build {
+    interval?: number;
     buildId?: string;
     buildStatus?: string;
     buildName?: string;
@@ -30,6 +31,7 @@ export interface Build {
 export const enum ActionType {
     REQUEST_BUILD = "REQUEST_BUILD",
     RECEIVE_BUILD = "RECEIVE_BUILD",
+    STOP_POLLING = "STOP_POLLING",
 }
 
 export const enum BuildStatus {
@@ -44,11 +46,17 @@ export const enum CssStatus {
 
 export interface RequestBuildsAction {
     type: ActionType.REQUEST_BUILD;
+    buildId: string;
+    interval: number;
 }
 
 export interface ReceiveBuildsAction {
     type: ActionType.RECEIVE_BUILD;
     build: Build;
+}
+
+export interface StopPollingAction {
+    type: ActionType.STOP_POLLING;
 }
 
 export type KnownAction = RequestBuildsAction | ReceiveBuildsAction;

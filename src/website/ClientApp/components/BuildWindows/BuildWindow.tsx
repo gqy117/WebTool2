@@ -14,17 +14,11 @@ export default class BuildWindow extends React.Component<BuildProps, {}> {
     private polling: Polling;
 
     public componentWillMount() {
-        this.props.requestBuilds(this.props.buildId);
-
-        this.preparePolling();
-    }
-
-    public componentWillReceiveProps(nextProps: BuildProps) {
-        this.polling.start();
+        this.props.startPolling(this.props.buildId, this.props.refreshInverval);
     }
 
     public componentWillUnmount() {
-        this.polling.stop();
+        this.props.stopPolling();
     }
 
     public render() {
@@ -53,9 +47,5 @@ export default class BuildWindow extends React.Component<BuildProps, {}> {
                 <p className="updated-at" data-bind="updatedAtMessage">Last updated at {build.lastUpdated}</p>
             </div>
         </div>;
-    }
-
-    private preparePolling() {
-        this.polling = new Polling(() => this.props.requestBuilds(this.props.buildId), this.props.refreshInverval);
     }
 }
