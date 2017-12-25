@@ -25,6 +25,8 @@
     <None Remove="ClientApp\components\BuildWindows\index.tsx" />
     <None Remove="ClientApp\containers\BuildWindows\BuildWindow.tsx" />
     <None Remove="ClientApp\images\index.ts" />
+    <None Remove="ClientApp\sagas\index.ts" />
+    <None Remove="ClientApp\sagas\teamcity.ts" />
     <None Remove="ClientApp\utilities\Dictionary.ts" />
     <None Remove="ClientApp\utilities\index.ts" />
     <None Remove="ClientApp\utilities\Polling.ts" />
@@ -37,6 +39,8 @@
     <TypeScriptCompile Include="ClientApp\containers\BuildWindows\BuildWindow.tsx" />
     <TypeScriptCompile Include="ClientApp\css\index.tsx" />
     <TypeScriptCompile Include="ClientApp\images\index.ts" />
+    <TypeScriptCompile Include="ClientApp\sagas\index.ts" />
+    <TypeScriptCompile Include="ClientApp\sagas\TeamCity.ts" />
     <TypeScriptCompile Include="ClientApp\utilities\Dictionary.ts" />
     <TypeScriptCompile Include="ClientApp\utilities\Polling.ts" />
     <TypeScriptCompile Include="ClientApp\utilities\index.ts" />
