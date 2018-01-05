@@ -4,10 +4,31 @@
   "version": "0.0.0",
   "scripts": {
     "ts": "node_modules/.bin/tsc",
-    "lint": "node_modules/.bin/tslint --project ."
+    "lint": "node_modules/.bin/tslint --project .",
+    "test": "jest --coverage"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testMatch": [
+      "**/?(*.)(spec|test).(ts|tsx|js)"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|jpg|png|svg)$": "<rootDir>/__tests__/empty-module.ts"
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ]
   },
   "devDependencies": {
     "@types/history": "4.6.0",
+    "@types/jest": "^21.1.9",
+    "@types/moment": "^2.13.0",
+    "@types/moment-timezone": "^0.5.3",
     "@types/query-string": "^5.0.1",
     "@types/react": "15.0.35",
     "@types/react-dom": "15.5.1",
@@ -16,6 +37,7 @@
     "@types/react-router": "4.0.12",
     "@types/react-router-dom": "4.0.5",
     "@types/react-router-redux": "5.0.3",
+    "@types/react-test-renderer": "^16.0.0",
     "@types/webpack": "2.2.15",
     "@types/webpack-env": "1.13.0",
     "aspnet-prerendering": "^3.0.1",
@@ -29,21 +51,27 @@
     "extract-text-webpack-plugin": "2.1.2",
     "file-loader": "0.11.2",
     "history": "4.6.3",
+    "jest": "^22.0.4",
     "jquery": "3.2.1",
+    "moment": "^2.20.1",
+    "moment-timezone": "^0.5.14",
     "node-noop": "1.0.0",
     "node-sass": "^4.7.2",
     "query-string": "^5.0.1",
     "react": "15.6.1",
+    "react-addons-test-utils": "^15.4.2",
     "react-dom": "15.6.1",
     "react-hot-loader": "3.0.0-beta.7",
     "react-redux": "5.0.5",
     "react-router-dom": "4.1.1",
     "react-router-redux": "5.0.0-alpha.6",
+    "react-test-renderer": "^16.2.0",
     "redux": "3.7.1",
     "redux-saga": "^0.16.0",
     "redux-thunk": "2.2.0",
     "sass-loader": "^6.0.6",
     "style-loader": "0.18.2",
+    "ts-jest": "^22.0.0",
     "tslint": "^5.7.0",
     "tslint-loader": "^3.5.3",
     "tslint-microsoft-contrib": "^5.0.1",

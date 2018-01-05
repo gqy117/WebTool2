@@ -9,3 +9,4 @@ pipelines:
           - 'cd ./scripts; chmod +x -R .'
           - './1.setup.ps1'
           - './2.build.ps1'
+          - './4.test.ps1'

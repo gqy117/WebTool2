@@ -1,3 +1,4 @@
+import * as moment from "moment-timezone";
 import * as React from "react";
 import { connect } from "react-redux";
 import * as Actions from "../../actions/Builds";
@@ -19,6 +20,8 @@ export default connect(
 )(BuildWindow) as typeof BuildWindow;
 
 export class BuildWindowConverter {
+    public Timezone: string;
+
     public CssStatusDic = new Dictionary<Model.CssStatus>([
         { k: Model.BuildStatus.FAILED, v: Model.CssStatus.WARNING },
         { k: Model.BuildStatus.SUCCESSFUL, v: Model.CssStatus.SUCCESSFUL },
@@ -51,6 +54,20 @@ export class BuildWindowConverter {
     }
 
     public convertLastUpdated(lastUpdated?: string): string {
-        return lastUpdated ? new Date(Date.parse(lastUpdated)).toLocaleTimeString() : "";
+        let result = "";
+
+        if (lastUpdated) {
+            let d = moment(lastUpdated);
+
+            if (this.Timezone) {
+                d = d.tz(this.Timezone);
+            } else {
+                d = d.local();
+            }
+
+            result = d.format("HH:mm:ss");
+        }
+
+        return result;
     }
 }

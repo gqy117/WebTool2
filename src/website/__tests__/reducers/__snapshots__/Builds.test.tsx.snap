@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`reducers/Builds 1. Add 'DCE_MAIN_Successful' 1`] = `
+Object {
+  "buildState": Array [
+    Object {
+      "buildId": "DCEMAIN",
+      "buildName": "DCE MAIN",
+      "buildStatus": "Successful",
+      "interval": 60000,
+      "lastUpdated": "2017-01-05T18:38:23.2244277+13:00",
+    },
+  ],
+}
+`;
+
+exports[`reducers/Builds 2. Add 'DCE_POSTMAN_Successful' 1`] = `
+Object {
+  "buildState": Array [
+    Object {
+      "buildId": "DCEMAIN",
+      "buildName": "DCE MAIN",
+      "buildStatus": "Successful",
+      "interval": 60000,
+      "lastUpdated": "2017-01-05T18:38:23.2244277+13:00",
+    },
+    Object {
+      "buildId": "DCEPOSTMAN",
+      "buildName": "DCE POSTMAN",
+      "buildStatus": "Successful",
+      "interval": 60000,
+      "lastUpdated": "2016-01-05T18:38:23.2244277+13:00",
+    },
+  ],
+}
+`;
+
+exports[`reducers/Builds 3. UPDATE 'DCE_MAIN_Failed' 1`] = `
+Object {
+  "buildState": Array [
+    Object {
+      "buildId": "DCEPOSTMAN",
+      "buildName": "DCE POSTMAN",
+      "buildStatus": "Successful",
+      "interval": 60000,
+      "lastUpdated": "2016-01-05T18:38:23.2244277+13:00",
+    },
+    Object {
+      "buildId": "DCEMAIN",
+      "buildName": "DCE MAIN",
+      "buildStatus": "Failed",
+      "interval": 5000,
+      "lastUpdated": "2018-01-05T18:38:23.2244277+13:00",
+    },
+  ],
+}
+`;

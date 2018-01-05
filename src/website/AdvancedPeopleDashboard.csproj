@@ -17,7 +17,11 @@
 
   <ItemGroup>
     <!-- Files not to publish (note that the 'dist' subfolders are re-added below) -->
+    <Compile Remove="__tests__\__snapshots__\**" />
     <Content Remove="ClientApp\**" />
+    <Content Remove="__tests__\__snapshots__\**" />
+    <EmbeddedResource Remove="__tests__\__snapshots__\**" />
+    <None Remove="__tests__\__snapshots__\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -30,6 +34,10 @@
     <None Remove="ClientApp\utilities\Dictionary.ts" />
     <None Remove="ClientApp\utilities\index.ts" />
     <None Remove="ClientApp\utilities\Polling.ts" />
+    <None Remove="__tests__\containers\BuildWindows\BuildWindow.test.tsx" />
+    <None Remove="__tests__\empty-module.ts" />
+    <None Remove="__tests__\reducers\Builds.ts" />
+    <None Remove="__tests__\sagas\Teamcity.test.tsx" />
   </ItemGroup>
 
   <ItemGroup>
@@ -44,6 +52,19 @@
     <TypeScriptCompile Include="ClientApp\utilities\Dictionary.ts" />
     <TypeScriptCompile Include="ClientApp\utilities\Polling.ts" />
     <TypeScriptCompile Include="ClientApp\utilities\index.ts" />
+    <TypeScriptCompile Include="__tests__\components\BuildWindows\BuildWindow.test.tsx" />
+    <TypeScriptCompile Include="__tests__\consts\Builds.ts" />
+    <TypeScriptCompile Include="__tests__\containers\BuildWindows\BuildWindow.test.tsx" />
+    <TypeScriptCompile Include="__tests__\empty-module.ts" />
+    <TypeScriptCompile Include="__tests__\sagas\index.test.tsx" />
+    <TypeScriptCompile Include="__tests__\sagas\Teamcity.test.tsx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="__tests__\components\BuildWindows\__snapshots__\" />
+    <Folder Include="__tests__\containers\BuildWindows\__snapshots__\" />
+    <Folder Include="__tests__\reducers\__snapshots__\" />
+    <Folder Include="__tests__\sagas\__snapshots__\" />
   </ItemGroup>
 
   <Target Name="Cleanwwwroot" AfterTargets="Clean">
@@ -67,7 +88,7 @@
 
   <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
     <!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
-    <Exec Command="npm install" />
+    <Exec Command="npm i --no-optional" />
     <Exec Command="node node_modules/webpack/bin/webpack.js --config webpack.config.vendor.js --env.prod" />
     <Exec Command="node node_modules/webpack/bin/webpack.js --env.prod" />
 

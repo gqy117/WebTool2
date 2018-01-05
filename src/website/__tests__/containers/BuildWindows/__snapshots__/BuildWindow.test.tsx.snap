@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`containers/BuildWindows/BuildWindow.tsx convertBuildView 1`] = `
+Object {
+  "view": Object {
+    "buildId": "DCEMAIN",
+    "buildName": "DCE MAIN",
+    "buildStatus": "Failed",
+    "cssStatus": "status-warning",
+    "imageSrc": "",
+    "lastUpdated": "18:38:23",
+  },
+}
+`;

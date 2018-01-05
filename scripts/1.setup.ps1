@@ -1,3 +1,3 @@
 #!/bin/bash
 cd ../src/website
-npm install
+npm i --no-optional
