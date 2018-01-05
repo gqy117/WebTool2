@@ -11,10 +11,10 @@ namespace AdvancedPeopleDashboard.Controllers
     {
         private IList<Build> Builds = new List<Build>
         {
-            new Build { BuildId = "DCEMAIN", BuildName = "DCE Main", LastUpdated = DateTime.Now },
-            new Build { BuildId = "DCEUNITTESTS", BuildName = "DCE Unit Tests", LastUpdated = DateTime.Now },
-            new Build { BuildId = "DCEPOSTMAN", BuildName = "DCE Postman", LastUpdated = DateTime.Now },
-            new Build { BuildId = "ADVANCEDMAIN", BuildName = "Advanced Main", LastUpdated = DateTime.Now },
+            new Build { BuildId = "DCEMAIN", BuildName = "DCE Main", LastUpdated = DateTime.UtcNow },
+            new Build { BuildId = "DCEUNITTESTS", BuildName = "DCE Unit Tests", LastUpdated = DateTime.UtcNow },
+            new Build { BuildId = "DCEPOSTMAN", BuildName = "DCE Postman", LastUpdated = DateTime.UtcNow },
+            new Build { BuildId = "ADVANCEDMAIN", BuildName = "Advanced Main", LastUpdated = DateTime.UtcNow },
         };
 
         private static int randomIndex = 0;

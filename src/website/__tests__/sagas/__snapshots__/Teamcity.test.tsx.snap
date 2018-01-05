@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`sagas/Teamcity pollingRaceCondition 1`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "RACE": Object {
+    "keepPolling": Object {
+      "next": [Function],
+      "return": [Function],
+      "throw": [Function],
+      Symbol(Symbol.iterator): [Function],
+    },
+    "stopPolling": Object {
+      "@@redux-saga/IO": true,
+      "TAKE": Object {
+        "pattern": "STOP_POLLING",
+      },
+    },
+  },
+}
+`;
+
+exports[`sagas/Teamcity requestBuild 1`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "CALL": Object {
+    "args": Array [
+      "DCEMAIN",
+    ],
+    "context": null,
+    "fn": [Function],
+  },
+}
+`;
+
+exports[`sagas/Teamcity requestBuild 2`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "PUT": Object {
+    "action": Object {
+      "build": Object {
+        "buildId": "DCEMAIN",
+        "buildName": "DCE MAIN",
+        "buildStatus": "Successful",
+        "interval": 6000,
+        "lastUpdated": "2017-01-05T18:38:23.2244277+13:00",
+      },
+      "type": "RECEIVE_BUILD",
+    },
+    "channel": null,
+  },
+}
+`;

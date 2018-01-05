@@ -1,9 +1,10 @@
 import { Action, Reducer } from "redux/index";
 import * as Model from "../models/Builds";
 
-const initialState: Model.BuildState = { buildState: [] };
+export const initialState: Model.BuildState = { buildState: [] };
 
 export const reducer: Reducer<Model.BuildState> = (state: Model.BuildState = initialState, action: Action) => {
+    // console.log(JSON.stringify(state));
     switch (action.type) {
         case Model.ActionType.RECEIVE_BUILD:
         const receiveAction = action as (Model.ReceiveBuildsAction);
@@ -21,6 +22,6 @@ export const reducer: Reducer<Model.BuildState> = (state: Model.BuildState = ini
     default:
         break;
     }
-    // console.log(state);
+    // console.log(JSON.stringify(state));
     return state;
 };

@@ -2,6 +2,8 @@ image : microsoft/aspnetcore-build:2.0.3-stretch
 
 stages: 
   - build
+  - test
+  - deploy
 
 cache:
   paths:
@@ -17,3 +19,25 @@ build:
  script:
   - './1.setup.ps1'
   - './2.build.ps1'
+
+test:
+  stage: test
+  script:
+  - './4.test.ps1'
+  artifacts:
+    paths:
+      - src/website/coverage/
+
+pages:
+  stage: deploy
+  dependencies:
+    - test
+  script:
+    - cd ..
+    - mv src/website/coverage/lcov-report/ public/
+  artifacts:
+    paths:
+      - public
+    expire_in: 30 days
+  only:
+    - master

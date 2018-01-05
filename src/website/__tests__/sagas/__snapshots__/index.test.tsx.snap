@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`sagas/index rootSaga 1`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "FORK": Object {
+    "args": Array [
+      "REQUEST_BUILD",
+      [Function],
+    ],
+    "context": null,
+    "fn": [Function],
+  },
+}
+`;
+
+exports[`sagas/index rootSaga 2`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "FORK": Object {
+    "args": Array [
+      "RECEIVE_BUILD",
+      [Function],
+    ],
+    "context": null,
+    "fn": [Function],
+  },
+}
+`;

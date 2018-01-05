@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components/BuildWindows/BuildWindow.test Test BuildWindow 1`] = `
+<div>
+  <div
+    className="widget widget-build-window successful"
+  >
+    <h1
+      className="title"
+      data-bind="name"
+    >
+       
+       
+    </h1>
+    <h3
+      data-bind="status"
+    >
+       
+       
+    </h3>
+    <p
+      data-showif="show-health"
+    >
+      <img
+        data-bind-src="image"
+        src={undefined}
+      />
+    </p>
+    <p
+      className="context-info"
+    >
+      <span
+        data-showif="duration"
+      >
+        Ran for
+        <span
+          data-bind="duration | durationFormat"
+        >
+           an hour
+        </span>
+        ,
+      </span>
+      <span
+        data-bind="time | dateFormat"
+        data-showif="time"
+      >
+        6 days ago
+      </span>
+    </p>
+    <p
+      className="more-info"
+    >
+      <a
+        data-bind-href="link"
+      >
+        View on 
+        <span
+          data-bind="server"
+        >
+          TeamCity
+        </span>
+      </a>
+    </p>
+    <p
+      className="updated-at"
+      data-bind="updatedAtMessage"
+    >
+      Last updated at 
+    </p>
+  </div>
+</div>
+`;
