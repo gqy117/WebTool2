@@ -1,4 +1,4 @@
-﻿import * as React from "react";
+import * as React from "react";
 import * as ReactDOM from "react-dom";
 import * as ShallowRenderer from "react-test-renderer/shallow";
 import { actionCreators } from "../../../ClientApp/actions/Builds";
