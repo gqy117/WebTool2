@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "AdvancedPeopleDashboard": {
+    "WebTool2": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {

@@ -14,6 +14,6 @@
   </ItemGroup>
   
   <ItemGroup>
-    <ProjectReference Include="..\Models\Models.csproj" />
+    <ProjectReference Include="..\Webtool2.Models\WebTool2.Models.csproj" />
   </ItemGroup>
 </Project>

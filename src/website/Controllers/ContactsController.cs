@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Models;
-using Repository;
-using Services;
+using WebTool2.Models;
+using WebTool2.Services;
 
-namespace AdvancedPeopleDashboard.Controllers
+namespace WebTool2.Controllers
 {
     [Route("api/[controller]")]
     public class ContactsController : Controller

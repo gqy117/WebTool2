@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Models;
-using Repository;
+using WebTool2.Models;
+using WebTool2.Repository;
 
-namespace Services
+namespace WebTool2.Services
 {
     public abstract class ServiceBase
     {

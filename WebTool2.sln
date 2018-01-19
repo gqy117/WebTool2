@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdvancedPeopleDashboard", "src\website\AdvancedPeopleDashboard.csproj", "{9FCB664D-7C78-4E10-A679-264B05D40B64}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebTool2", "src\website\WebTool2.csproj", "{9FCB664D-7C78-4E10-A679-264B05D40B64}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository", "src\Repository\Repository.csproj", "{0EBFCFB4-A381-4B0E-8ACA-E917D8B0C00C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebTool2.Repository", "src\Webtool2.Repository\WebTool2.Repository.csproj", "{0EBFCFB4-A381-4B0E-8ACA-E917D8B0C00C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "src\Services\Services.csproj", "{98CE43F9-1276-4F3D-9743-E9D48A275ED1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebTool2.Services", "src\Webtool2.Services\WebTool2.Services.csproj", "{98CE43F9-1276-4F3D-9743-E9D48A275ED1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "src\Models\Models.csproj", "{B8D31E66-C4BA-4783-931C-929480A29CB3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebTool2.Models", "src\Webtool2.Models\WebTool2.Models.csproj", "{B8D31E66-C4BA-4783-931C-929480A29CB3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

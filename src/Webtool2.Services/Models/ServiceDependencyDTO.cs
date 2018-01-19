@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Repository;
+using WebTool2.Repository;
 
-namespace Models
+namespace WebTool2.Models
 {
     public class ServiceDependencyDTO
     {
