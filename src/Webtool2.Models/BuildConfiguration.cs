@@ -1,4 +1,4 @@
-﻿namespace Models
+﻿namespace WebTool2.Models
 {
     public class BuildConfiguration
     {

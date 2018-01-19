@@ -8,11 +8,11 @@ using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Models;
-using Repository;
-using Services;
+using WebTool2.Models;
+using WebTool2.Repository;
+using WebTool2.Services;
 
-namespace AdvancedPeopleDashboard
+namespace WebTool2
 {
     public class Startup
     {

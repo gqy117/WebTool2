@@ -131,7 +131,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Services\Services.csproj" />
+    <ProjectReference Include="..\Webtool2.Services\WebTool2.Services.csproj" />
   </ItemGroup>
 
   <Target Name="Cleanwwwroot" AfterTargets="Clean">

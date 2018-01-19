@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AdvancedPeopleDashboard.Controllers
+namespace WebTool2.Controllers
 {
     public class HomeController : Controller
     {

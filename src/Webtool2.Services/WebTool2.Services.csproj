@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Models\Models.csproj" />
-    <ProjectReference Include="..\Repository\Repository.csproj" />
+    <ProjectReference Include="..\Webtool2.Models\WebTool2.Models.csproj" />
+    <ProjectReference Include="..\Webtool2.Repository\WebTool2.Repository.csproj" />
   </ItemGroup>
 
 </Project>

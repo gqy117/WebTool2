@@ -1,8 +1,8 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
-using Models;
+using WebTool2.Models;
 
-namespace Repository
+namespace WebTool2.Repository
 {
     public class ContactContext : DbContext
     {
