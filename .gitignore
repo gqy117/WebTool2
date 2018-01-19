@@ -238,3 +238,5 @@ _Pvt_Extensions
 src/website/ClientApp/**/*.js
 src/website/ClientApp/**/*.js.map
 src/website/coverage/
+src/website/appsettings.Development.json
+src/website/appsettings.Development

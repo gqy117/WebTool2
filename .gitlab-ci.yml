@@ -27,17 +27,3 @@ test:
   artifacts:
     paths:
       - src/website/coverage/
-
-pages:
-  stage: deploy
-  dependencies:
-    - test
-  script:
-    - cd ..
-    - mv src/website/coverage/lcov-report/ public/
-  artifacts:
-    paths:
-      - public
-    expire_in: 30 days
-  only:
-    - master

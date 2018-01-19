@@ -1,5 +1,7 @@
-import * as Model from "../models/Builds";
+import * as BuildModel from "../models/Builds";
+import * as ContactModel from "../models/Contacts";
 import * as Builds from "./Builds";
+import * as Contacts from "./Contacts";
 import * as Counter from "./Counter";
 import * as WeatherForecasts from "./WeatherForecasts";
 
@@ -7,7 +9,8 @@ import * as WeatherForecasts from "./WeatherForecasts";
 export interface ApplicationState {
     counter: Counter.CounterState;
     weatherForecasts: WeatherForecasts.WeatherForecastsState;
-    builds: Model.BuildState;
+    builds: BuildModel.BuildState;
+    contacts: ContactModel.ContactState;
 }
 
 // Whenever an action is dispatched, Redux will update each top-level application state property using
@@ -15,6 +18,7 @@ export interface ApplicationState {
 // acts on the corresponding ApplicationState property type.
 export const reducers = {
     builds: Builds.reducer,
+    contacts: Contacts.reducer,
     counter: Counter.reducer,
     weatherForecasts: WeatherForecasts.reducer,
 };

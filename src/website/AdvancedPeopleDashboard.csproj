@@ -26,14 +26,44 @@
 
   <ItemGroup>
     <None Remove="ClientApp\actions\Builds.ts" />
+    <None Remove="ClientApp\actions\Contacts.ts" />
+    <None Remove="ClientApp\components\Contacts\ContactBody.tsx" />
+    <None Remove="ClientApp\components\Contacts\ContactForm\Address.tsx" />
+    <None Remove="ClientApp\components\Contacts\ContactForm\BirthdayFrom.tsx" />
+    <None Remove="ClientApp\components\Contacts\ContactForm\BirthdayTo.tsx" />
+    <None Remove="ClientApp\components\Contacts\ContactForm\Gender.tsx" />
+    <None Remove="ClientApp\components\Contacts\ContactForm\Name.tsx" />
+    <None Remove="ClientApp\components\Contacts\ContactForm\SearchTextbox.tsx" />
+    <None Remove="ClientApp\components\Contacts\ContactForm\Selector.tsx" />
+    <None Remove="ClientApp\components\Contacts\ContactHead.tsx" />
+    <None Remove="ClientApp\components\Contacts\ContactTable\Cell.tsx" />
+    <None Remove="ClientApp\components\Contacts\ContactTable\Cell\DefaultCell.tsx" />
+    <None Remove="ClientApp\components\Contacts\ContactTable\Cell\Email.tsx" />
+    <None Remove="ClientApp\components\Contacts\ContactTable\Cell\Gender.tsx" />
+    <None Remove="ClientApp\components\Contacts\ContactTable\Cell\Phone.tsx" />
+    <None Remove="ClientApp\components\Contacts\ContactTable\Loading.tsx" />
+    <None Remove="ClientApp\components\Contacts\index.tsx" />
     <None Remove="ClientApp\components\BuildWindows\index.tsx" />
     <None Remove="ClientApp\containers\BuildWindows\BuildWindow.tsx" />
+    <None Remove="ClientApp\containers\Contacts\ContactForm.tsx" />
+    <None Remove="ClientApp\containers\Contacts\ContactForm\base.tsx" />
+    <None Remove="ClientApp\containers\Contacts\ContactForm\Gender.tsx" />
+    <None Remove="ClientApp\containers\Contacts\ContactForm\SearchTextbox.tsx" />
+    <None Remove="ClientApp\containers\Contacts\ContactTable.tsx" />
+    <None Remove="ClientApp\containers\Contacts\ContactTable\Loading.tsx" />
+    <None Remove="ClientApp\containers\Contacts\index.tsx" />
+    <None Remove="ClientApp\css\loading.scss" />
     <None Remove="ClientApp\images\index.ts" />
+    <None Remove="ClientApp\models\Cell.tsx" />
+    <None Remove="ClientApp\models\Selector.ts" />
+    <None Remove="ClientApp\sagas\Contacts.ts" />
     <None Remove="ClientApp\sagas\index.ts" />
     <None Remove="ClientApp\sagas\teamcity.ts" />
     <None Remove="ClientApp\utilities\Dictionary.ts" />
     <None Remove="ClientApp\utilities\index.ts" />
+    <None Remove="ClientApp\utilities\Nameof.ts" />
     <None Remove="ClientApp\utilities\Polling.ts" />
+    <None Remove="ClientApp\utilities\Tooltip.tsx" />
     <None Remove="__tests__\containers\BuildWindows\BuildWindow.test.tsx" />
     <None Remove="__tests__\empty-module.ts" />
     <None Remove="__tests__\reducers\Builds.ts" />
@@ -41,15 +71,48 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\actions\Contacts.ts" />
     <TypeScriptCompile Include="ClientApp\actions\Builds.ts" />
+    <TypeScriptCompile Include="ClientApp\components\Contacts\ContactBody.tsx" />
+    <TypeScriptCompile Include="ClientApp\components\Contacts\ContactForm\BirthdayTo.tsx" />
+    <TypeScriptCompile Include="ClientApp\components\Contacts\ContactForm\BirthdayFrom.tsx" />
+    <TypeScriptCompile Include="ClientApp\components\Contacts\ContactForm\index.tsx" />
+    <TypeScriptCompile Include="ClientApp\components\Contacts\ContactForm\Address.tsx" />
+    <TypeScriptCompile Include="ClientApp\components\Contacts\ContactForm\Name.tsx" />
+    <TypeScriptCompile Include="ClientApp\components\Contacts\ContactForm\Gender.tsx" />
+    <TypeScriptCompile Include="ClientApp\components\Contacts\ContactForm\Selector.tsx" />
+    <TypeScriptCompile Include="ClientApp\components\Contacts\ContactForm\SearchTextbox.tsx" />
+    <TypeScriptCompile Include="ClientApp\components\Contacts\ContactHead.tsx" />
+    <TypeScriptCompile Include="ClientApp\components\Contacts\ContactTable\Cell\DefaultCell.tsx" />
+    <TypeScriptCompile Include="ClientApp\components\Contacts\ContactTable\Cell\Email.tsx" />
+    <TypeScriptCompile Include="ClientApp\components\Contacts\ContactTable\Cell\Gender.tsx" />
+    <TypeScriptCompile Include="ClientApp\components\Contacts\ContactTable\Cell\index.tsx" />
+    <TypeScriptCompile Include="ClientApp\components\Contacts\ContactTable\Cell\Phone.tsx" />
+    <TypeScriptCompile Include="ClientApp\components\Contacts\ContactTable\Columns\index.tsx" />
+    <TypeScriptCompile Include="ClientApp\components\Contacts\ContactTable\Loading.tsx" />
+    <TypeScriptCompile Include="ClientApp\components\Contacts\index.tsx" />
     <TypeScriptCompile Include="ClientApp\components\BuildWindows\TeamCityBuildWindow.tsx" />
     <TypeScriptCompile Include="ClientApp\components\BuildWindows\index.tsx" />
     <TypeScriptCompile Include="ClientApp\containers\BuildWindows\BuildWindow.tsx" />
+    <TypeScriptCompile Include="ClientApp\containers\Contacts\ContactForm\Base.tsx" />
+    <TypeScriptCompile Include="ClientApp\containers\Contacts\ContactForm\index.tsx" />
+    <TypeScriptCompile Include="ClientApp\containers\Contacts\ContactForm\Gender.tsx" />
+    <TypeScriptCompile Include="ClientApp\containers\Contacts\ContactForm\SearchTextbox.tsx" />
+    <TypeScriptCompile Include="ClientApp\containers\Contacts\ContactTable\index.tsx" />
+    <TypeScriptCompile Include="ClientApp\containers\Contacts\ContactTable\Loading.tsx" />
+    <TypeScriptCompile Include="ClientApp\containers\Contacts\index.tsx" />
     <TypeScriptCompile Include="ClientApp\css\index.tsx" />
+    <TypeScriptCompile Include="ClientApp\css\loading.scss" />
     <TypeScriptCompile Include="ClientApp\images\index.ts" />
+    <TypeScriptCompile Include="ClientApp\models\Cell.tsx" />
+    <TypeScriptCompile Include="ClientApp\models\Selector.ts" />
+    <TypeScriptCompile Include="ClientApp\models\SearchTextbox.ts" />
     <TypeScriptCompile Include="ClientApp\sagas\index.ts" />
+    <TypeScriptCompile Include="ClientApp\sagas\Contacts.ts" />
     <TypeScriptCompile Include="ClientApp\sagas\TeamCity.ts" />
     <TypeScriptCompile Include="ClientApp\utilities\Dictionary.ts" />
+    <TypeScriptCompile Include="ClientApp\utilities\Nameof.ts" />
+    <TypeScriptCompile Include="ClientApp\utilities\Tooltip.tsx" />
     <TypeScriptCompile Include="ClientApp\utilities\Polling.ts" />
     <TypeScriptCompile Include="ClientApp\utilities\index.ts" />
     <TypeScriptCompile Include="__tests__\components\BuildWindows\BuildWindow.test.tsx" />
@@ -65,6 +128,10 @@
     <Folder Include="__tests__\containers\BuildWindows\__snapshots__\" />
     <Folder Include="__tests__\reducers\__snapshots__\" />
     <Folder Include="__tests__\sagas\__snapshots__\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Services\Services.csproj" />
   </ItemGroup>
 
   <Target Name="Cleanwwwroot" AfterTargets="Clean">

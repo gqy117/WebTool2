@@ -5,8 +5,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Models;
+using Repository;
+using Services;
 
 namespace AdvancedPeopleDashboard
 {
@@ -22,7 +26,22 @@ namespace AdvancedPeopleDashboard
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddResponseCompression();
             services.AddMvc();
+            this.ConfigureDependency(services);
+        }
+
+        private void ConfigureDependency(IServiceCollection services)
+        {
+            this.ConfigDbContext(services);
+            services.AddTransient<ServiceDependencyDTO>();
+            services.AddTransient<ContactService>();
+        }
+
+        private void ConfigDbContext(IServiceCollection services)
+        {
+            string connectionString = Configuration.GetSection("Connection").Value;
+            services.AddDbContext<ContactContext>(options => options.UseSqlite(connectionString));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,6 +59,7 @@ namespace AdvancedPeopleDashboard
             else
             {
                 app.UseExceptionHandler("/Home/Error");
+                app.UseResponseCompression();
             }
 
             app.UseStaticFiles();
