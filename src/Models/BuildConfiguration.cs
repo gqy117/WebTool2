@@ -1,4 +1,4 @@
-﻿namespace AdvancedPeopleDashboard
+﻿namespace Models
 {
     public class BuildConfiguration
     {

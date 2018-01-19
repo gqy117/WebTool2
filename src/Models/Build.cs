@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AdvancedPeopleDashboard
+namespace Models
 {
     public class Build
     {

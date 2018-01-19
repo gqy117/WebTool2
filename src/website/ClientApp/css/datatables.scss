@@ -1,0 +1,96 @@
+﻿.m-portlet {
+    font-size: 16px;
+
+    .m-portlet__head {
+        display: table;
+        padding: 0;
+        width: 100%;
+        height: 5.1rem;
+        border-bottom: 1px solid #ebedf2;
+
+        .m-portlet__head-caption {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: left;
+        }
+    }
+
+    .m-portlet__body {
+    }
+
+    .m-portlet-table {
+        clear: both;
+
+        .gender {
+            width: 25px;
+            height: 25px;
+            background-size: cover;
+        }
+
+        .male {
+            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOPSURBVGhD7ZhNaNRAFMdXBUURERWlUjbJdvFQ8aAHwYMIgh/gXdGTiAoWRO1FTwqCioiVtknapX5eK4InRfy4CH4hIkLxKFgUKlY3M2HFr43/SZ91ks12k93NboT84NHdvMl77z+TeZltJiUlJSUlCM3kt1WD3Y9immG9Vk1u43MRNqkZ7BWFax+qwYsQ4zRiEGVRuPbRJCGcwrWPZgjBo/WNwrUPRbf2qiY7WMtQ8GiFADKsyBiFSzaawXuDBPw1CHlMQ5NLLRHCEi+kmoicad+UvydaiKbzY3Kx0+ZeZ4fka4kVMpMI1/8/CKklQpB4IVVFYK/QEJeWCum8WJ6fHfiqKcPWBm2Qr8mZfDm5AgkrQhC7kOyw3ZEz2Qkkf4pkv+VklPAT7CoOfTsyjjOLboskQhCbkHz/50U4apxDgpKcYCbD+Oc4uW6KKkIQi5AuvZhH0rdy4NBmsHLw9eoiBE0Xopj2WiSdlIP6DTPPcFb6GeQLtBoiBE0VIvYDChyXA7pBDfYdxRSwuTeLDe8Oxn4QG98twOBj/numLYQIgWZa+zD2yz9jd8gVHRT1yF8IhL3IDxe7aEgwo84crNKRylUSzYFtpFGtQXQdbxHuSjycXoEQqKa9DTP5yxPH4E/I3RrEzPsKeKdc+rqY3KFRTH7UEwem6PZ2cseLqpcUf/KczneTOxp4zDAJnj2Dx26EvPGCRIflxHg8PmZOObPJHRnc3+OJZ7IP5IoX7AXdm5hfI1ddTHUzTzxn5aC1lNzxgZ59S04KYSfJVR9YTX8H69L5avLGB5b+npxUPl7XC+LYnphDxfXkig8809c9SU1+nlx10a1PLPTFc0RDIXd84NE660na4DlHNeytcjzxbsn3l+eROz6CEjcyg6LdyvEaPgCGRcwWknv+O4jkl8kdCXFyRrP44YllsOPkjh90mT45OValDHG7yB2KjoKzAHFeynEQg9X6JdlUVhXYMqyCJReBblZSh/hOGjIjnSPFJRDxwHs/zOCnaUjrUHV2oLIQd2Wu5AqlLA3zgncGxu2BiPf+e3HtjehgNLK1oPB+f0GuiQaATYtVuoBZ7hUvTXy+gb8TweP5pNgvFLYNuIe+KmJCGlZiPDtor6OI7QWzvd/fycKYu09G+AoKkwymGgDrq2wCgfasZb876qV71JmrDfEtWKEzeOxwnGF3IQ4HTTaA7z1VG0FKSkpKSiaT+QOTrZKYj7Y1RgAAAABJRU5ErkJggg==);
+        }
+
+        .female {
+            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMhSURBVGhD7Zq7ixRBEMZHBZ/g6Xk7M6sLh6AgJxgYiIkut92zHK4aKKsgCKIgd4EiGpxg4CsQ9S8wUPGMxEhBMx9g4DMQNDDwAWIgCoIcBnpet18tdbDdO+5L5uEyPyjumOr6uqqnu6cb1snodfRQda7KBWXliYvKlTfx91HN6H9XXlBuKaA23Dx96KWyT3nyDJL+rj2pmxm1gZ1W/SOLOTwdIKkKRvtrWNLNjGKUL7ewTLIgmWMo5HdYou0YxSpXHGW5ZEARo+HJySn47mtPnNKuOEjt8Owskn4Mmw6LoXYsGy/KDzZjJH/aCSHRCeUPD3KzBpRfGkLcnYY4aKl8aRM3iwftnJyNjl8ZidAU8UoHuElTtOPMwls6UR/PGi9Jm5tFj8rJvXYSsOPsbhsUc97WwQDtYXf0YD4/NBJwxQsaZXa3jXaqc1DM63otWlvsjhZVKPfTNLI6387ujsEmsMvQ8uQv3Vdcwu7oQBEVq+NJtWpkHrs7RhU2LsB0+mFoxvFtoQVtdOqKJ+zqGrzRZ4amJ/azKzrwBsatTm+xq2tIw9SU4+yKDnR62OjUlQ/Y1TWkYWh64hC7okP7QdXsVH5iV9eQhqGZEzvZFR1qQK6u77TWcb60nt0dg2P9OltP58tr2B0tGMF39R1jKlxnV8dgs7hiasm37Iqe2mHQ6FxMKy8osbttsANuQOJThpYrzrE7etRysQwJTFoJfFHe8Fpu0hK1olhAzEdDgy5l+eIAN4kH7DRH6pOYSQS2u9Vxha67GIjPjfExbLs2fIK9aydTS8iVT2GjtY1hsDifvvyYeiu1F+zDW7gXHiNux3ryrQfJLWo4QHZhKOI53flZNhl0futCTKeJsATbMRRxgwaE5ZIHd5QdmE5vwpINMxTwnmI4PF3Ubo5esA0FXcbCNb41nPwHPL+GN1hJbD10Cs15u5DE10E3ZIWkjayQtJEVkjb+m0KUL4v4uF36q7niql0IPQttO2PQZPn4wL16zE70X400WT4+skKaWDKF9MoaaUW2/aaNrJC0kRWSNnqmEPqdCb4b3wxL229PMiLDcf4AygyRnX70cnMAAAAASUVORK5CYII=);
+        }
+
+        .phone {
+            color: #34bfa3;
+        }
+
+        .email {
+            color: #4482FF;
+            cursor: pointer;
+        }
+    }
+}
+
+.m-form {
+    .m-form-search {
+        float: left;
+        padding: 7px 10px 7px 10px;
+    }
+
+    .m-form-search-last {
+        padding-bottom: 20px;
+    }
+
+    .m-form__control.m-birthday {
+        width: 100px;
+    }
+
+    .m-form__control.m-name {
+        width: 100px;
+    }
+
+    .m-form__control.m-gender {
+        width: 100px;
+    }
+
+    .m-form__control.m-address {
+        width: 100px;
+    }
+
+    .m-form__group.m-form__group--inline > .m-form__label {
+        display: table-cell;
+        vertical-align: middle;
+        margin: 0;
+        padding-right: 0.5rem;
+        width: 80px;
+    }
+
+    .m-form__group.m-form__group--inline > .m-form__label.m-form__label-no-wrap {
+        white-space: nowrap;
+    }
+
+    .m-form__group.m-form__group--inline > .m-form__label > label {
+        margin: 0;
+    }
+
+    .m-form__group.m-form__group--inline > .m-form__control {
+        display: table-cell;
+        vertical-align: middle;
+        margin: 0;
+    }
+}
