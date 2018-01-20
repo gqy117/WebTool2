@@ -10,6 +10,8 @@ export default class Email extends React.Component<EmailProps, {}> {
         const props: RowRenderProps = this.props.rowRenderProps;
         const mailTo: string = `mailto: ${props.value}`;
 
-        return <a className="email" href={mailTo} data-tip={props.value}>{props.value} <Tooltip /></a>;
+        return <Tooltip overlay={props.value}>
+            <a className="email" href={mailTo}>{props.value}</a>
+        </Tooltip>;
     }
 }

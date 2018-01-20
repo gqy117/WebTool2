@@ -11,6 +11,8 @@ export default class Gender extends React.Component<GenderProps, {}> {
         const props: RowRenderProps = this.props.rowRenderProps;
         const css: string = `gender ${Model.GenderCssDic[props.value]}`;
 
-        return <div className={css} data-tip={props.value}> <Tooltip /></div>;
+        return <Tooltip overlay={props.value}>
+            <div className={css}></div>
+        </Tooltip>;
     }
 }

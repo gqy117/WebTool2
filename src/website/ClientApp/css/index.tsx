@@ -1,4 +1,5 @@
 import "./application.scss";
+import "./bootstrap.scss";
 import "./datatables.scss";
 import "./loading.scss";
 import "./react-table.scss";

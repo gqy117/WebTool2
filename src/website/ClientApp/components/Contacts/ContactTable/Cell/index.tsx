@@ -10,6 +10,8 @@ export default class Cell extends React.Component<CellProps, {}> {
         const className = this.props.className;
         const value = this.props.rowRenderProps.value;
 
-        return <div className={className} data-tip={value}>{value} <Tooltip /></div>;
+        return <Tooltip overlay={value}>
+            <div className={className}>{value}</div>
+        </Tooltip>;
     }
 }

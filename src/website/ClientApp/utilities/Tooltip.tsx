@@ -1,9 +1,12 @@
 ﻿import * as React from "react";
-import * as ReactTooltip from "react-tooltip";
+import * as OverlayTrigger from "react-bootstrap/lib/OverlayTrigger";
+import * as RBTooltip from "react-bootstrap/lib/Tooltip";
 import * as Model from "../models/Tooltip";
 
 export class Tooltip extends React.Component<Model.TooltipProps, {}> {
     public render() {
-        return <ReactTooltip type="info" />;
+        return <OverlayTrigger placement="top" overlay={<RBTooltip id="tooltip">{this.props.overlay}</RBTooltip>}>
+            {this.props.children}
+        </OverlayTrigger>;
     }
 }
