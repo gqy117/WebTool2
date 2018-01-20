@@ -1,0 +1,5 @@
+
+.icon-location:before { content: '\e800'; } /* '' */
+.icon-birthday:before { content: '\f1fd'; } /* '' */
+.icon-venus-mars:before { content: '\f228'; } /* '' */
+.icon-id-card:before { content: '\f2c2'; } /* '' */

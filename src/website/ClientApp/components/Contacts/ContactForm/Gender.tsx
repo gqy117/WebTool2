@@ -17,6 +17,9 @@ export default class Gender extends React.Component<GenderProps, {}> {
                 <div className="m-form__label">
                     <label>Gender:</label>
                 </div>
+                <div className="m-form-icon-gender">
+                    <i className="icon-venus-mars"></i>
+                </div>
                 <div className="m-form__control m-gender">
                     <Selector
                         id="m_form_gender"

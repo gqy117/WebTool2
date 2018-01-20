@@ -14,6 +14,8 @@ export default class Address extends React.Component<AddressProps, {}> {
 
         return <SearchTextbox
             className="m-form__control m-address"
+            iconClassName="icon-location"
+            iconDivClassName="m-form-icon-address"
             fieldValue={this.props.address}
             queryContacts={Actions.actionCreators.queryContacts}
             placeholder="eg: 上海"

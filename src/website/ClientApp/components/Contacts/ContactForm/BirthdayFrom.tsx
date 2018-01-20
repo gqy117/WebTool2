@@ -14,6 +14,8 @@ export default class BirthdayFrom extends React.Component<BirthdayFromProps, {}>
 
         return <SearchTextbox
             className="m-form__control m-birthday"
+            iconClassName="icon-birthday"
+            iconDivClassName="m-form-icon-birthday"
             fieldValue={this.props.birthdayFrom}
             queryContacts={Actions.actionCreators.queryContacts}
             placeholder="eg: 1985"

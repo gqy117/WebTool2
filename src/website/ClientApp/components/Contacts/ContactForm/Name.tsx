@@ -14,6 +14,8 @@ export default class Name extends React.Component<NameProps, {}> {
 
         return <SearchTextbox
             className="m-form__control m-name"
+            iconClassName="icon-id-card"
+            iconDivClassName="m-form-icon-name"
             fieldValue={this.props.name}
             queryContacts={Actions.actionCreators.queryContacts}
             placeholder="eg: 吴蔚"

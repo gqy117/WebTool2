@@ -14,13 +14,14 @@ export default class BirthdayTo extends React.Component<BirthdayToProps, {}> {
 
         return <SearchTextbox
             className="m-form__control m-birthday"
+            iconClassName="icon-birthday"
+            iconDivClassName="m-form-icon-birthday"
             fieldValue={this.props.birthdayTo}
             queryContacts={Actions.actionCreators.queryContacts}
             placeholder="eg: 1987"
             fieldName={fieldName}
             label="To"
             id="birthdayToSearch"
-            isLast={true}
         />;
     }
 }
