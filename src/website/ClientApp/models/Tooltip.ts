@@ -1,3 +1,3 @@
 export interface TooltipProps {
-    type?: string;
+    overlay?: string;
 }
