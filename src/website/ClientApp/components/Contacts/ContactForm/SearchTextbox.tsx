@@ -19,6 +19,9 @@ export default class SearchTextbox extends React.Component<SearchTextboxProps, {
                 <div className="m-form__label">
                     <label>{props.label}:</label>
                 </div>
+                <div className={props.iconDivClassName}>
+                    <i className={props.iconClassName}></i>
+                </div>
                 <div className={props.className}>
                     <input type="text" className="form-control m-input m-input--solid"
                         placeholder={props.placeholder}

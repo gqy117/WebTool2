@@ -172,3 +172,7 @@ h3 {
 .clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; overflow: hidden; }
 .clearfix:after { clear: both; }
 .clearfix { zoom: 1; }
+
+.navbar.navbar-inverse {
+    background-color: #2c2e3e;
+}

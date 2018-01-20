@@ -1,2 +1,2 @@
-cd ../src/website/publish
+cd ../publish
 dotnet ./WebTool2.dll
