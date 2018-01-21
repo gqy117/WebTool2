@@ -1,7 +1,17 @@
 import { Action, Reducer } from "redux/index";
 import * as Model from "../models/Contacts";
 
-export const initialState: Model.ContactState = { contactState: [], query: { isFetching: false }, };
+export const initialState: Model.ContactState = {
+    contactState: [],
+    query: {
+        address: "",
+        birthdayFrom: "",
+        birthdayTo: "",
+        gender: Model.GenderKey.All,
+        isFetching: false,
+        name: "",
+    },
+};
 
 export const reducer: Reducer<Model.ContactState> = (state: Model.ContactState = initialState, action: Action) => {
     // console.log(JSON.stringify(state));

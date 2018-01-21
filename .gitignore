@@ -183,6 +183,8 @@ ClientBin/
 *.publishsettings
 orleans.codegen.cs
 
+!src/website/WebTool2.pfx
+
 node_modules
 
 # RIA/Silverlight projects

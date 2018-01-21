@@ -1,5 +1,5 @@
 import "./application.scss";
-import "./bootstrap.scss";
+import "./bootstrap/bootstrap.scss";
 import "./datatables.scss";
 import "./fontello";
 import "./loading.scss";
