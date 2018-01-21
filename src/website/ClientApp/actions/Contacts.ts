@@ -3,7 +3,7 @@ import { ApplicationState } from "../reducers";
 
 export const actionCreators = {
     queryContacts: (name: string, value: string) => (dispatch: any, getState: () => ApplicationState) => {
-        // console.log(name);
+        // console.log(value);
 
         const queryChangeAction: Model.QueryChangedAction = { type: Model.ActionType.QUERY_CHANGED, name, value };
         dispatch(queryChangeAction);

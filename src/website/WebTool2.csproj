@@ -71,6 +71,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="ClientApp\css\bootstrap\config.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <TypeScriptCompile Include="ClientApp\actions\Contacts.ts" />
     <TypeScriptCompile Include="ClientApp\actions\Builds.ts" />
     <TypeScriptCompile Include="ClientApp\components\Contacts\ContactBody.tsx" />
@@ -132,6 +136,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Webtool2.Services\WebTool2.Services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="WebTool2.pfx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
   <Target Name="Cleanwwwroot" AfterTargets="Clean">

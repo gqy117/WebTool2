@@ -57,8 +57,25 @@
         line-height: 35px;
     }
 
-    .m-form-search-last {
-        padding-bottom: 20px;
+    .dropdown-menu{
+        min-width: 70px;
+    }
+
+    .dropdown.btn-group.btn-group-sm.btn-group-Default {
+        width: 100%;
+        color: black;
+
+        .dropdown-gender-all a {
+            color: #34bfa3;
+        }
+
+        .dropdown-gender-male a {
+            color: #36a3f7;
+        }
+
+        .dropdown-gender-female a {
+            color: #f4516c;
+        }
     }
 
     $default-textbox-width: 95px;

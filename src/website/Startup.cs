@@ -4,44 +4,31 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using WebTool2.Models;
-using WebTool2.Repository;
-using WebTool2.Services;
 
 namespace WebTool2
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        private readonly IHostingEnvironment Environment;
+        private readonly IConfiguration Configuration;
+
+        public Startup(IConfiguration configuration, IHostingEnvironment environment)
         {
             Configuration = configuration;
+            this.Environment = environment;
         }
-
-        public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddResponseCompression();
-            services.AddMvc();
-            this.ConfigureDependency(services);
-        }
-
-        private void ConfigureDependency(IServiceCollection services)
-        {
-            this.ConfigDbContext(services);
-            services.AddTransient<ServiceDependencyDTO>();
-            services.AddTransient<ContactService>();
-        }
-
-        private void ConfigDbContext(IServiceCollection services)
-        {
-            string connectionString = Configuration.GetSection("Connection").Value;
-            services.AddDbContext<ContactContext>(options => options.UseSqlite(connectionString));
+            services.ConfigureMvc(this.Environment);
+            services.ConfigureGzip();
+            services.ConfigureDependency(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

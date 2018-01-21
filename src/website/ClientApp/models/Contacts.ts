@@ -47,6 +47,18 @@ export const enum Gender {
     F = "F",
 }
 
+export const enum GenderKey {
+    All = "0",
+    Male = "1",
+    Female = "2",
+}
+
+export const enum GenderValue {
+    All = "All",
+    Male = "Male",
+    Female = "Female",
+}
+
 export const enum GenderCss {
     Default = "",
     M = "male",
@@ -57,4 +69,10 @@ export const GenderCssDic = new Dictionary<string>([
     { k: Gender.Default, v: GenderCss.Default },
     { k: Gender.M, v: GenderCss.M },
     { k: Gender.F, v: GenderCss.F },
+]);
+
+export const GenderSelectorDic = new Dictionary<string>([
+    { k: GenderKey.All, v: GenderValue.All },
+    { k: GenderKey.Male, v: GenderValue.Male },
+    { k: GenderKey.Female, v: GenderValue.Female },
 ]);

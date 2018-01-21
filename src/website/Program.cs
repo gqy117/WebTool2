@@ -20,7 +20,7 @@ namespace WebTool2
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
-                .UseUrls("http://0.0.0.0:12314")
+                .UseKestrel(options => options.ConfigureEndpoints())
                 .Build();
     }
 }
