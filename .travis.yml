@@ -1,0 +1,16 @@
+dist: trusty
+sudo: false
+language: csharp
+mono: none
+dotnet: 2.0.3
+
+install:
+  - nvm install 8.4.0
+  - nvm use 8.4.0
+
+before_script:
+  - 'cd ./scripts; chmod +x -R .'
+
+script:    
+  - './1.setup.ps1'
+  - './2.build.ps1'
