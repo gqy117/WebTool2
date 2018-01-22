@@ -1,5 +1,9 @@
 **.net Core** + **React** + **Typescript** project.
 
+Branch  | Build Status |
+-------- | :------------: |
+master | [![Build Status](https://travis-ci.org/gqy117/WebTool2.svg?branch=master)](https://travis-ci.org/gqy117/WebTool2) |
+
 ### Backend
 
 (1) Use **dot net Core MVC** running on **Linux** and **Docker**.
