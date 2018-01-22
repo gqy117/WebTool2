@@ -5,6 +5,7 @@
   "scripts": {
     "ts": "node_modules/.bin/tsc",
     "lint": "node_modules/.bin/tslint --project .",
+    "webpack": "node_modules/.bin/webpack",
     "test": "jest --coverage"
   },
   "jest": {
