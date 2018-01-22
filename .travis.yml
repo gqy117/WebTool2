@@ -14,3 +14,4 @@ before_script:
 script:    
   - './1.setup.ps1'
   - './2.build.ps1'
+  - './4.test.ps1'
