@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/src/website/AdvancedPeopleDashboard.csproj"
+                "${workspaceFolder}/src/website/WebTool2.csproj"
             ],
             "problemMatcher": "$msCompile",
             "group": {
@@ -21,7 +21,7 @@
             "type": "process",
             "args": [
                 "clean",
-                "${workspaceFolder}/src/website/AdvancedPeopleDashboard.csproj"
+                "${workspaceFolder}/src/website/WebTool2.csproj"
             ],
             "problemMatcher": "$msCompile",
             "group": {
