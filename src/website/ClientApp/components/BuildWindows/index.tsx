@@ -1,6 +1,5 @@
 ﻿import * as React from "react";
 import { RouteComponentProps } from "react-router-dom";
-import * as Model from "../../models/Builds";
 import TeamCityBuildWindow from "./TeamCityBuildWindow";
 
 export default class BuildWindows extends React.Component<RouteComponentProps<{}>, {}> {

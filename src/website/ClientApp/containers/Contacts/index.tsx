@@ -9,7 +9,6 @@ export default connect(
     (state: ApplicationState, ownProps: Model.ContactQuery) => {
         const result: Model.ContactState = state.contacts;
 
-        // console.log(result);
         return result;
     },
     Actions.actionCreators

@@ -7,7 +7,7 @@ import { ApplicationState } from "../../../reducers";
 export default connect(
     (state: ApplicationState) => {
         const result: Model.ContactState = state.contacts;
-        // console.log(result);
+
         return result;
     },
     {}
