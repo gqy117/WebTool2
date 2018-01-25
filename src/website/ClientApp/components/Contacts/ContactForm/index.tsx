@@ -12,9 +12,6 @@ type ContactFormProps =
 
 export default class ContactForm extends React.Component<ContactFormProps, {}> {
     public render() {
-        const query: Model.ContactQuery = this.props || {} as Model.ContactQuery;
-        // console.log(query);
-
         return <div className="m-form m-form--label-align-right m--margin-top-20 m--margin-bottom-30">
             <div className="align-items-center">
                 <div className="col-xl-8 order-2 order-xl-1">

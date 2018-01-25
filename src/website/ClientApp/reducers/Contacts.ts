@@ -14,7 +14,6 @@ export const initialState: Model.ContactState = {
 };
 
 export const reducer: Reducer<Model.ContactState> = (state: Model.ContactState = initialState, action: Action) => {
-    // console.log(JSON.stringify(state));
     let query: any;
 
     switch (action.type) {
@@ -29,7 +28,6 @@ export const reducer: Reducer<Model.ContactState> = (state: Model.ContactState =
                 query,
             };
             break;
-
         case Model.ActionType.QUERY_CHANGED:
             const nAction = action as (Model.QueryChangedAction);
             query = { ...state.query };
@@ -40,12 +38,11 @@ export const reducer: Reducer<Model.ContactState> = (state: Model.ContactState =
                 ...state,
                 query,
             };
-            // console.log("name changed");
             break;
         case Model.ActionType.REQUEST_CONTACT:
         default:
             break;
     }
-    // console.log(JSON.stringify(state));
+
     return state;
 };
