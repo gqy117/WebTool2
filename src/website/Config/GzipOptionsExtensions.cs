@@ -20,6 +20,7 @@ namespace WebTool2
                 {
                     "text/css",
                     "application/javascript",
+                    "image/svg+xml",
                 };
             });
 
