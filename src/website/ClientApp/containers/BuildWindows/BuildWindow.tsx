@@ -10,7 +10,6 @@ import { Dictionary } from "../../utilities";
 
 export default connect(
     (state: ApplicationState, ownProps: Model.BuildConfigration) => {
-        // console.log(state);
         const build: Model.Build = (state.builds.buildState as Model.Build[]).find((x) => x.buildId === ownProps.buildId) || {};
         const buildView: Model.BuildViewDTO = new BuildWindowConverter().convertBuildView(build);
 

@@ -1,8 +1,8 @@
-import "./application.scss";
+import "./application.styl";
 import "./bootstrap/bootstrap.scss";
-import "./datatables.scss";
+import "./datatables.styl";
 import "./fontello";
-import "./loading.scss";
+import "./loading.styl";
 import "./react-table.scss";
-import "./site.scss";
-import "./widget.scss";
+import "./site.styl";
+import "./widget.styl";

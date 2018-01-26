@@ -22,6 +22,6 @@ master | [![Build Status](https://travis-ci.org/gqy117/WebTool2.svg?branch=maste
 (5) Use **Webpack** to bundle and minimise css/js files.
 
 ### CSS
-(1) **Sass** as a preprocessor of css.
+(1) **Sass** **Stylus** as a preprocessor of css.
 
 (2) **Bootstrap** as UI framework.
