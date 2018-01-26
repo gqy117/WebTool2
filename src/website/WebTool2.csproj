@@ -106,7 +106,6 @@
     <TypeScriptCompile Include="ClientApp\containers\Contacts\ContactTable\Loading.tsx" />
     <TypeScriptCompile Include="ClientApp\containers\Contacts\index.tsx" />
     <TypeScriptCompile Include="ClientApp\css\index.tsx" />
-    <TypeScriptCompile Include="ClientApp\css\loading.scss" />
     <TypeScriptCompile Include="ClientApp\images\index.ts" />
     <TypeScriptCompile Include="ClientApp\models\Cell.tsx" />
     <TypeScriptCompile Include="ClientApp\models\Selector.ts" />

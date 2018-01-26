@@ -1,0 +1,88 @@
+﻿$background-color = #222222
+$text-color = white
+$background-successful-color-1 = rgb(3, 160, 110)
+$background-warning-color-1 = #e82711
+$background-warning-color-2 = #9b2d23
+$text-warning-color = white
+$background-danger-color-1 = #eeae32
+$background-danger-color-2 = #ff9618
+$text-danger-color = white
+
+@keyframes status-warning-background
+  0%
+    background-color: $background-warning-color-1;
+  50%
+    background-color: $background-warning-color-2;
+  100%
+    background-color: $background-warning-color-1;
+
+@keyframes status-danger-background
+  0%
+    background-color: $background-danger-color-1;
+  50%
+    background-color: $background-danger-color-2;
+  100%
+    background-color: $background-danger-color-1;
+
+.widget
+  padding: 25px 12px
+  text-align: center
+  width: 386px
+  display: table-cell
+  vertical-align: middle
+
+.widget-build-window
+  border-radius: 15px
+  float: left
+  margin: 2px
+  .title
+    color: rgba(255, 255, 255, 0.7)
+  .context-info
+    color: white
+  .value
+    color: white
+  .more-info
+    color: rgba(255, 255, 255, 0.7)
+  .updated-at
+    color: rgba(0, 0, 0, 0.3)
+  .small
+    font-size: 0.6em
+
+.status
+  .icon-warning-sign
+    display: inline-block
+
+.widget.status-successful
+  @extend .status
+  background-color: $background-successful-color-1
+  animation: status-successful-background 2s ease infinite
+  .title, .more-info
+    color: $text-color
+
+.widget.status-warning
+  @extend .status
+  background-color: $background-warning-color-1
+  animation: status-warning-background 2s ease infinite
+  .title, .more-info
+    color: $text-warning-color
+
+.widget.status-danger
+  @extend .status
+  color: $text-danger-color
+  background-color: $background-danger-color-1
+  animation: status-danger-background 2s ease infinite
+  .title, .more-info
+    color: $text-danger-color
+
+.more-info
+  font-size: 15px
+  bottom: 32px
+  cursor: pointer
+
+.context-info
+  font-size: 10px
+  bottom: 60px
+
+.updated-at
+  font-size: 15px
+  bottom: 12px

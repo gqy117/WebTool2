@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CheckerPlugin = require('awesome-typescript-loader').CheckerPlugin;
 const merge = require('webpack-merge');
+const stylus_plugin = require('nib');
 
 module.exports = (env) => {
     const isDevBuild = !(env && env.prod);
@@ -18,7 +19,7 @@ module.exports = (env) => {
         module: {
 
             rules: [
-                { test: /\.ts|\.tsx$/, enforce: 'pre', loader: 'tslint-loader', options: { emitErrors: false, failOnHint: true, }},
+                { test: /\.ts|\.tsx$/, enforce: 'pre', loader: 'tslint-loader', options: { emitErrors: false, failOnHint: true, } },
                 { test: /\.tsx?$/, include: /ClientApp/, use: ['awesome-typescript-loader?silent=true'] },
                 { test: /\.(png|jpg|jpeg|gif|svg)$/, use: 'url-loader?limit=25000' }
             ]
@@ -36,26 +37,27 @@ module.exports = (env) => {
         module: {
             rules: [
                 { test: /\.(css|scss)$/, use: ExtractTextPlugin.extract({ use: [cssLoader, 'sass-loader'] }) },
+                { test: /\.(styl)$/, use: ['style-loader', cssLoader, { loader: 'stylus-loader', options: { use: [stylus_plugin()] }} ] },
                 { test: /\.(eot|ttf|woff|woff2)$/, loader: 'file-loader' },
             ]
         },
-        output: { path: path.join(__dirname, clientBundleOutputDir) },
-        plugins: [
-            new ExtractTextPlugin('site.css'),
-            new webpack.DllReferencePlugin({
-                context: __dirname,
-                manifest: require('./wwwroot/dist/vendor-manifest.json')
-            })
-        ].concat(isDevBuild ? [
-            // Plugins that apply in development builds only
-            new webpack.SourceMapDevToolPlugin({
-                filename: '[file].map', // Remove this line if you prefer inline source maps
-                moduleFilenameTemplate: path.relative(clientBundleOutputDir, '[resourcePath]') // Point sourcemap entries to the original file locations on disk
-            })
-        ] : [
-            // Plugins that apply in production builds only
-            new webpack.optimize.UglifyJsPlugin()
-        ])
+                output: { path: path.join(__dirname, clientBundleOutputDir) },
+                plugins: [
+                    new ExtractTextPlugin('site.css'),
+                    new webpack.DllReferencePlugin({
+                        context: __dirname,
+                        manifest: require('./wwwroot/dist/vendor-manifest.json')
+                    })
+                ].concat(isDevBuild ? [
+                    // Plugins that apply in development builds only
+                    new webpack.SourceMapDevToolPlugin({
+                        filename: '[file].map', // Remove this line if you prefer inline source maps
+                        moduleFilenameTemplate: path.relative(clientBundleOutputDir, '[resourcePath]') // Point sourcemap entries to the original file locations on disk
+                    })
+                ] : [
+                        // Plugins that apply in production builds only
+                        new webpack.optimize.UglifyJsPlugin()
+                    ])
     });
 
     // Configuration for server-side (prerendering) bundle suitable for running in Node

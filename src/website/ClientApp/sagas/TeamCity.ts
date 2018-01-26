@@ -15,8 +15,6 @@ export function* requestBuild(action: Model.RequestBuildsAction) {
     const build: Model.Build = yield call((buildId: string) => fetch(composeUrl(buildId)).then((r) => r.json()), action.buildId);
     build.interval = action.interval;
 
-    console.log(build);
-
     const receivedBuildEvent: Model.ReceiveBuildsAction = { type: Model.ActionType.RECEIVE_BUILD, build };
     yield put(receivedBuildEvent);
 }

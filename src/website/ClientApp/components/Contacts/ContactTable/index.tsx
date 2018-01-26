@@ -28,7 +28,7 @@ export default class ContactTable extends React.Component<ContactTableProps, {}>
                 loading={query.isFetching}
                 data={list}
                 columns={columns}
-                defaultPageSize={12}
+                defaultPageSize={10}
                 showPageSizeOptions={false}
                 LoadingComponent={Loading}
             >
