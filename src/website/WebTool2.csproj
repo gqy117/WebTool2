@@ -53,6 +53,7 @@
     <None Remove="ClientApp\containers\Contacts\ContactTable\Loading.tsx" />
     <None Remove="ClientApp\containers\Contacts\index.tsx" />
     <None Remove="ClientApp\css\loading.scss" />
+    <None Remove="ClientApp\css\loading.ts" />
     <None Remove="ClientApp\images\index.ts" />
     <None Remove="ClientApp\models\Cell.tsx" />
     <None Remove="ClientApp\models\Selector.ts" />
@@ -106,6 +107,7 @@
     <TypeScriptCompile Include="ClientApp\containers\Contacts\ContactTable\Loading.tsx" />
     <TypeScriptCompile Include="ClientApp\containers\Contacts\index.tsx" />
     <TypeScriptCompile Include="ClientApp\css\index.tsx" />
+    <TypeScriptCompile Include="ClientApp\css\loading.ts" />
     <TypeScriptCompile Include="ClientApp\images\index.ts" />
     <TypeScriptCompile Include="ClientApp\models\Cell.tsx" />
     <TypeScriptCompile Include="ClientApp\models\Selector.ts" />
