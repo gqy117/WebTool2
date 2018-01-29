@@ -76,3 +76,5 @@ export const GenderSelectorDic = new Dictionary<string>([
     { k: GenderKey.Male, v: GenderValue.Male },
     { k: GenderKey.Female, v: GenderValue.Female },
 ]);
+
+export type DefaultCellProps = ContactQuery;

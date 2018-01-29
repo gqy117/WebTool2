@@ -1,13 +1,12 @@
 ﻿import * as React from "react";
+import { StyledLoading } from "../../../css/loading";
 import * as Model from "../../../models/Contacts";
 
-type DefaultCellProps = Model.ContactQuery;
-
-export default class Loading extends React.Component<DefaultCellProps, {}> {
+export default class Loading extends React.Component<Model.DefaultCellProps, {}> {
     public render() {
         return this.props.isFetching ?
-            <div className="m-loader m-loader--brand m-loader--lg">
-            </div>
+            <StyledLoading>
+            </StyledLoading>
             : null;
     }
 }
