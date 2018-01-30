@@ -39,6 +39,7 @@ module.exports = (env) => {
                 { test: /\.(css|scss)$/, use: ExtractTextPlugin.extract({ use: [cssLoader, 'sass-loader'] }) },
                 { test: /\.(styl)$/, use: ['style-loader', cssLoader, { loader: 'stylus-loader', options: { use: [stylus_plugin()] }} ] },
                 { test: /\.(eot|ttf|woff|woff2)$/, loader: 'file-loader' },
+                { test: /\.(ico)$/, loader: 'file-loader?name=[name].[ext]' },
             ]
         },
                 output: { path: path.join(__dirname, clientBundleOutputDir) },
