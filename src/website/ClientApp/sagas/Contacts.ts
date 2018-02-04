@@ -11,5 +11,5 @@ export function* requestContacts(action: Model.RequestContactsAction) {
 }
 
 function composeUrl(contactQuery: Model.ContactQuery): string {
-    return `api/Contacts/Index?${queryString.stringify(contactQuery)}`;
+    return `api/Contacts/?${queryString.stringify(contactQuery)}`;
 }

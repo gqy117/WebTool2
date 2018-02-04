@@ -16,7 +16,7 @@ namespace WebTool2.Controllers
             this.ContactService = contactService;
         }
 
-        [HttpGet("[action]")]
+        [HttpGet]
         public IList<Contact> Index(ContactQuery query)
         {
             return this.ContactService.GetContacts(query);
