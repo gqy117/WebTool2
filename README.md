@@ -1,9 +1,8 @@
 **.net Core** + **React** + **Typescript** project.
 
-Branch  | Build Status |
--------- | :------------: |
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e2c0b2d2a68548c190f413a253626bc9)](https://www.codacy.com/app/gqy117/WebTool2?utm_source=github.com&utm_medium=referral&utm_content=gqy117/WebTool2&utm_campaign=badger)
-master | [![Build Status](https://travis-ci.org/gqy117/WebTool2.svg?branch=master)](https://travis-ci.org/gqy117/WebTool2) |
+Branch  | Build Status | Codacy |
+-------- | :------------: | :------------: |
+master | [![Build Status](https://travis-ci.org/gqy117/WebTool2.svg?branch=master)](https://travis-ci.org/gqy117/WebTool2) | [![Codacy Badge](https://api.codacy.com/project/badge/Grade/4454aa3f3b5740cab9599e3d8af769a4)](https://www.codacy.com/app/gqy117/WebTool2?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=gqy117/WebTool2&amp;utm_campaign=Badge_Grade) |
 
 ### Backend
 
