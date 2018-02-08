@@ -1,4 +1,3 @@
-import * as moment from "moment-timezone";
 import * as React from "react";
 import { connect } from "react-redux";
 import * as Actions from "../../actions/Builds";
@@ -53,20 +52,6 @@ export class BuildWindowConverter {
     }
 
     public convertLastUpdated(lastUpdated?: string): string {
-        let result = "";
-
-        if (lastUpdated) {
-            let d = moment(lastUpdated);
-
-            if (this.Timezone) {
-                d = d.tz(this.Timezone);
-            } else {
-                d = d.local();
-            }
-
-            result = d.format("HH:mm:ss");
-        }
-
-        return result;
+        return new Date(lastUpdated as string).toLocaleTimeString();
     }
 }
