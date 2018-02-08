@@ -26,9 +26,10 @@ namespace WebTool2
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.ConfigureIdentity(this.Configuration);
             services.ConfigureMvc(this.Environment);
             services.ConfigureGzip();
-            services.ConfigureDependency(Configuration);
+            services.ConfigureDependency(this.Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,6 +51,8 @@ namespace WebTool2
             }
 
             app.UseStaticFiles();
+
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {
