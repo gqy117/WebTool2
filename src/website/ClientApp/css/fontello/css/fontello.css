@@ -2,9 +2,6 @@
   font-family: 'fontello';
   src: url('../font/fontello.eot?78933091');
   src: url('../font/fontello.eot?78933091#iefix') format('embedded-opentype'),
-       url('../font/fontello.woff2?78933091') format('woff2'),
-       url('../font/fontello.woff?78933091') format('woff'),
-       url('../font/fontello.ttf?78933091') format('truetype'),
        url('../font/fontello.svg?78933091#fontello') format('svg');
   font-weight: normal;
   font-style: normal;
