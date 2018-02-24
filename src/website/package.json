@@ -6,7 +6,7 @@
     "ts": "node_modules/.bin/tsc",
     "lint": "node_modules/.bin/tslint --project .",
     "webpack": "node_modules/.bin/webpack",
-    "test": "jest --coverage"
+    "test": "node_modules/.bin/jest --coverage"
   },
   "jest": {
     "transform": {
