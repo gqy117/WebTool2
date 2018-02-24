@@ -17,7 +17,6 @@ export default class Selector extends React.Component<SelectorProps, {}> {
         const title: string = Model.GenderSelectorDic[props.fieldValue as string];
 
         return <DropdownButton
-            bsSize="medium"
             block={true}
             title={title}
             id={`dropdown-basic-Default`}
