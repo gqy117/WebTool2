@@ -1,5 +1,5 @@
 import "./application.styl";
-import "./datatables.styl";
+import "./datatables.scss";
 import "./favicon.ico";
 import "./fontello";
 import "./react-table.scss";
