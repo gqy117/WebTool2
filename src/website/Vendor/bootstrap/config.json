@@ -382,9 +382,18 @@
     "@hr-border": "@gray-lighter"
   },
   "css": [
+    "type.less",
+    "grid.less",
+    "forms.less",
+    "buttons.less",
+    "responsive-utilities.less",
+    "navs.less",
+    "navbar.less",
+    "panels.less",
+    "component-animations.less",
     "dropdowns.less",
     "tooltip.less"
   ],
   "js": [],
-  "customizerUrl": "https://getbootstrap.com/docs/3.3/customize/?id=08431ef252cf75b8d458a968921178bc"
+  "customizerUrl": "https://getbootstrap.com/docs/3.3/customize/?id=d7e57b73db68359edd37104477f959fa"
 }
