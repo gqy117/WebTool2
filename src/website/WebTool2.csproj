@@ -72,6 +72,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="ClientApp\css\fontello\config.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <TypeScriptCompile Include="ClientApp\actions\Contacts.ts" />
     <TypeScriptCompile Include="ClientApp\actions\Builds.ts" />
     <TypeScriptCompile Include="ClientApp\components\Contacts\ContactBody.tsx" />
