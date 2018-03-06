@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using WebTool2.Models;
-using WebTool2.Repository;
-using WebTool2.Services;
-
-namespace WebTool2
+﻿namespace WebTool2
 {
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.DependencyInjection;
+    using Models;
+    using Repository;
+    using Services;
+
     public static class DependencyOptionsExtensions
     {
         public static void ConfigureDependency(this IServiceCollection services, IConfiguration configuration)

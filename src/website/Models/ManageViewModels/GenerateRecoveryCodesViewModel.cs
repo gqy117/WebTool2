@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace WebTool2.ManageViewModels
+﻿namespace WebTool2.ManageViewModels
 {
     public class GenerateRecoveryCodesViewModel
     {

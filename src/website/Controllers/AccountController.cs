@@ -1,21 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using WebTool2.Services;
-
-namespace WebTool2.Controllers
+﻿namespace WebTool2.Controllers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Security.Claims;
+    using System.Threading.Tasks;
+    using Microsoft.AspNetCore.Authentication;
+    using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Identity;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.AspNetCore.Mvc.Rendering;
+    using Microsoft.Extensions.Logging;
+    using Microsoft.Extensions.Options;
+    using WebTool2.Services;
+
     [Authorize]
     [Route("[controller]/[action]")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Globalization", "SA1101:PrefixLocalCallsWithThis", Justification = "Auto-generated file")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Globalization", "SA1513:ClosingCurlyBracketMustBeFollowedByBlankLine", Justification = "Auto-generated file")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Globalization", "SA1309:FieldNamesMustNotBeginWithUnderscore", Justification = "Auto-generated file")]
     public class AccountController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
@@ -369,8 +372,8 @@ namespace WebTool2.Controllers
                 // visit https://go.microsoft.com/fwlink/?LinkID=532713
                 var code = await _userManager.GeneratePasswordResetTokenAsync(user);
                 var callbackUrl = Url.ResetPasswordCallbackLink(user.Id, code, Request.Scheme);
-                await _emailSender.SendEmailAsync(model.Email, "Reset Password",
-                   $"Please reset your password by clicking here: <a href='{callbackUrl}'>link</a>");
+                await _emailSender.SendEmailAsync(model.Email, "Reset Password", $"Please reset your password by clicking here: <a href='{callbackUrl}'>link</a>");
+
                 return RedirectToAction(nameof(ForgotPasswordConfirmation));
             }
 
@@ -428,14 +431,11 @@ namespace WebTool2.Controllers
             return View();
         }
 
-
         [HttpGet]
         public IActionResult AccessDenied()
         {
             return View();
         }
-
-        #region Helpers
 
         private void AddErrors(IdentityResult result)
         {
@@ -447,16 +447,14 @@ namespace WebTool2.Controllers
 
         private IActionResult RedirectToLocal(string returnUrl)
         {
-            if (Url.IsLocalUrl(returnUrl))
+            if (this.Url.IsLocalUrl(returnUrl))
             {
-                return Redirect(returnUrl);
+                return this.Redirect(returnUrl);
             }
             else
             {
-                return RedirectToAction(nameof(HomeController.Index), "Home");
+                return this.RedirectToAction(nameof(HomeController.Index), "Home");
             }
         }
-
-        #endregion
     }
 }
