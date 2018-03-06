@@ -4,6 +4,16 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningsAsErrors></WarningsAsErrors>
+    <NoWarn>1701;1702;1705;SA1652;SA1633;SA1503</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="StyleCop.Analyzers" Version="1.0.2" />
+  </ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\Webtool2.Models\WebTool2.Models.csproj" />
     <ProjectReference Include="..\Webtool2.Repository\WebTool2.Repository.csproj" />

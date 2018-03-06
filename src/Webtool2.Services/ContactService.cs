@@ -1,19 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using WebTool2.Models;
-using WebTool2.Repository;
-
-namespace WebTool2.Services
+﻿namespace WebTool2.Services
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using WebTool2.Models;
+
     public class ContactService : ServiceBase
     {
-        private IQueryable<Contact> Contacts;
-        private ContactQuery Query;
-
-        public ContactService(ServiceDependencyDTO dependencies) : base(dependencies)
+        public ContactService(ServiceDependencyDTO dependencies)
+            : base(dependencies)
         {
         }
+
+        private IQueryable<Contact> Contacts { get; set; }
+
+        private ContactQuery Query { get; set; }
 
         public IList<Contact> GetContacts(ContactQuery query)
         {
@@ -40,11 +41,11 @@ namespace WebTool2.Services
             if (this.Query.Name.Contains("%"))
             {
                 string name = this.Query.Name.Replace("%", string.Empty);
-                this.Contacts = Contacts.Where(x => x.Name.Contains(name));
+                this.Contacts = this.Contacts.Where(x => x.Name.Contains(name));
             }
             else
             {
-                this.Contacts = Contacts.Where(x => x.Name == this.Query.Name);
+                this.Contacts = this.Contacts.Where(x => x.Name == this.Query.Name);
             }
         }
 
