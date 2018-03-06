@@ -1,17 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Security.Cryptography.X509Certificates;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Server.Kestrel.Core;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using WebTool2.Models;
-
-namespace WebTool2
+﻿namespace WebTool2
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Net;
+    using System.Security.Cryptography.X509Certificates;
+    using Microsoft.AspNetCore.Hosting;
+    using Microsoft.AspNetCore.Server.Kestrel.Core;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.DependencyInjection;
+    using Models;
+
     public static class KestrelServerOptionsExtensions
     {
         public static void ConfigureEndpoints(this KestrelServerOptions options)
@@ -50,8 +49,7 @@ namespace WebTool2
 
                 foreach (var address in ipAddresses)
                 {
-                    options.Listen(address, port,
-                        listenOptions =>
+                    options.Listen(address, port, listenOptions =>
                         {
                             if (config.Scheme == "https")
                             {

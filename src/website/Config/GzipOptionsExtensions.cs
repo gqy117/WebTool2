@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.ResponseCompression;
-using Microsoft.Extensions.DependencyInjection;
-
-namespace WebTool2
+﻿namespace WebTool2
 {
+    using Microsoft.AspNetCore.Builder;
+    using Microsoft.AspNetCore.ResponseCompression;
+    using Microsoft.Extensions.DependencyInjection;
+
     public static class GzipOptionsExtensions
     {
         public static void ConfigureGzip(this IServiceCollection services)

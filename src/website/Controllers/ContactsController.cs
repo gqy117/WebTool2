@@ -1,25 +1,25 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Microsoft.AspNetCore.Mvc;
-using WebTool2.Models;
-using WebTool2.Services;
-
-namespace WebTool2.Controllers
+﻿namespace WebTool2.Controllers
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using Microsoft.AspNetCore.Mvc;
+    using WebTool2.Models;
+    using WebTool2.Services;
+
     [Route("api/[controller]")]
     public class ContactsController : Controller
     {
-        private readonly ContactService ContactService;
+        private readonly ContactService contactService;
 
         public ContactsController(ContactService contactService)
         {
-            this.ContactService = contactService;
+            this.contactService = contactService;
         }
 
         [HttpGet]
         public IList<Contact> Index(ContactQuery query)
         {
-            return this.ContactService.GetContacts(query);
+            return this.contactService.GetContacts(query);
         }
     }
 }
