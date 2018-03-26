@@ -5,12 +5,6 @@ stages:
   - test
   - deploy
 
-cache:
-  paths:
-  - ./src/website/node_modules
-  - ~/.nuget
-  - ~/.local/share/NuGet/Cache
-
 before_script:
   - 'cd ./scripts; chmod +x -R .'
 

@@ -1,0 +1,8 @@
+version: '3'
+services:
+  web:
+    image: gqy117/webtool2
+    ports:
+    - "12315:12315"
+    volumes:
+    - /home/vagrant/DBs:/DBs
