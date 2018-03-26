@@ -5,4 +5,4 @@ services:
     ports:
     - "12315:12315"
     volumes:
-    - /home/vagrant/DBs:/DBs
+    - /DBs:/DBs
