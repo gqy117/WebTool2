@@ -10,7 +10,8 @@ ADD publish /WebTool2
 RUN apt-get update \
   && curl -SL "$NODE_DOWNLOAD_URL" --output nodejs.tar.gz \
   && tar -xzf "nodejs.tar.gz" -C /usr/local --strip-components=1 \
-  && rm nodejs.tar.gz
+  && rm nodejs.tar.gz \
+  && rm -rf /var/lib/apt/lists/*
 
 EXPOSE 12315
 
