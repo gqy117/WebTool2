@@ -9,26 +9,8 @@ jobs:
 
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - npm-cache-{{ checksum "src/website/package.json" }}
-
-      - restore_cache:
-          keys:
-            - nuget-cache
 
       - run: chmod +x -R ./$SCRIPTS;
       - run: cd ./$SCRIPTS; ./1.setup.ps1
       - run: cd ./$SCRIPTS; ./2.build.ps1
       - run: cd ./$SCRIPTS; ./4.test.ps1
-
-      - save_cache:
-          key: npm-cache-{{ checksum "src/website/package.json" }}
-          paths:
-            - src/website/node_modules
-
-      - save_cache:
-          key: nuget-cache
-          paths:
-            - ~/.nuget
-            - ~/.local/share/NuGet/Cache
