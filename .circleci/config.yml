@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: microsoft/aspnetcore:2.1.0-preview1-stretch-slim
+      - image: microsoft/aspnetcore-build:2.1.300-preview1-stretch
     working_directory: ~/repo
     environment:
        SCRIPTS: scripts
