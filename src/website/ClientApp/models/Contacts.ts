@@ -7,6 +7,7 @@ export interface ContactQuery {
     address?: string;
     birthdayFrom?: string;
     birthdayTo?: string;
+    phone?: string;
 }
 
 export interface ContactState {
