@@ -13,9 +13,9 @@ export default class Phone extends React.Component<PhoneProps, {}> {
         const fieldName: string = Nameof((x: Model.ContactQuery) => x.phone);
 
         return <SearchTextbox
-            className="m-form__control m-birthday"
-            iconClassName="icon-birthday"
-            iconDivClassName="m-form-icon-birthday"
+            className="m-form__control m-mobile"
+            iconClassName="icon-mobile"
+            iconDivClassName="m-form-icon-phone"
             fieldValue={this.props.phone}
             queryContacts={Actions.actionCreators.queryContacts}
             placeholder="eg: 18012345678"
