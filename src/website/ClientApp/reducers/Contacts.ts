@@ -10,6 +10,7 @@ export const initialState: Model.ContactState = {
         gender: Model.GenderKey.All,
         isFetching: false,
         name: "",
+        phone: "",
     },
 };
 
