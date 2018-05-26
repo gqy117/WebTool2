@@ -22,7 +22,7 @@
             this.Query = query;
             this.Contacts = this.Context.Contacts;
 
-            if (this.IsQueryReady(query))
+            if (this.IsQueryReady())
             {
                 this.FilterName();
                 this.FilterGender();
@@ -36,7 +36,7 @@
             return result;
         }
 
-        private bool IsQueryReady(ContactQuery query)
+        private bool IsQueryReady()
         {
             return this.IsNameFilled()
                 || this.IsPhoneFilled();
@@ -93,8 +93,8 @@
             {
                 string phone = this.Query.Phone.Replace(" ", string.Empty);
 
-                this.Contacts = this.Contacts.Where(x => this.Query.Phone == x.Tel ||
-                                                         this.Query.Phone == x.Mobile);
+                this.Contacts = this.Contacts.Where(x => phone == x.Tel ||
+                                                         phone == x.Mobile);
             }
         }
 
