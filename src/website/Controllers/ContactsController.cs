@@ -9,9 +9,9 @@
     [Route("api/[controller]")]
     public class ContactsController : Controller
     {
-        private readonly ContactServiceElasticSearch contactService;
+        private readonly ContactService contactService;
 
-        public ContactsController(ContactServiceElasticSearch contactService)
+        public ContactsController(ContactService contactService)
         {
             this.contactService = contactService;
         }

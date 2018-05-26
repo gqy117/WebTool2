@@ -1,28 +1,27 @@
 ﻿namespace WebTool2.Services
 {
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
+    using Nest;
     using WebTool2.Models;
+    using WebTool2.Repository;
 
-    public class ContactService : ServiceBase
+    public class ContactService
     {
-        public ContactService(ServiceDependencyDTO dependencies)
-            : base(dependencies)
+        public ContactService(IContactRepository repository)
         {
+            this.Repository = repository;
         }
 
-        private IQueryable<Contact> Contacts { get; set; }
+        private IContactRepository Repository { get; set; }
 
-        private ContactQuery Query { get; set; }
+        private ContactQuery Conditions { get; set; }
 
         public IList<Contact> GetContacts(ContactQuery query)
         {
             IList<Contact> result = new List<Contact>();
-            this.Query = query;
-            this.Contacts = this.Context.Contacts;
+            this.Conditions = query;
 
-            if (this.IsQueryReady())
+            if (this.IsQueryReady(query))
             {
                 this.FilterName();
                 this.FilterGender();
@@ -30,13 +29,13 @@
                 this.FilterBirthday();
                 this.FilterPhone();
 
-                result = this.Contacts.ToList();
+                result = this.Repository.Search();
             }
 
             return result;
         }
 
-        private bool IsQueryReady()
+        private bool IsQueryReady(ContactQuery query)
         {
             return this.IsNameFilled()
                 || this.IsPhoneFilled();
@@ -47,23 +46,15 @@
             if (!this.IsNameFilled())
                 return;
 
-            if (this.Query.Name.Contains("%"))
-            {
-                string name = this.Query.Name.Replace("%", string.Empty);
-                this.Contacts = this.Contacts.Where(x => x.Name.Contains(name));
-            }
-            else
-            {
-                this.Contacts = this.Contacts.Where(x => x.Name == this.Query.Name);
-            }
+            this.Repository.FilterName(this.Conditions.Name);
         }
 
         private void FilterGender()
         {
-            if (this.Query.Gender == Gender.All)
+            if (this.Conditions.Gender == Gender.All)
                 return;
 
-            this.Contacts = this.Contacts.Where(x => x.Gender == this.Query.Gender.ToString());
+            this.Repository.FilterGender(this.Conditions.Gender.ToString());
         }
 
         private void FilterAddress()
@@ -71,56 +62,59 @@
             if (!this.IsAddressFilled())
                 return;
 
-            this.Contacts = this.Contacts.Where(x => x.Address.Contains(this.Query.Address));
+            this.Repository.FilterAddress(this.Conditions.Address);
         }
 
         private void FilterBirthday()
         {
-            if (this.IsBirthdayFromFilled())
-            {
-                this.Contacts = this.Contacts.Where(x => x.Birthday.CompareTo(this.Query.BirthdayFrom) > 0);
-            }
+            if (!this.IsBirthdayFilled())
+                return;
 
-            if (this.IsBirthdayToFilled())
-            {
-                this.Contacts = this.Contacts.Where(x => x.Birthday.CompareTo(this.Query.BirthdayTo) < 0);
-            }
+            this.Repository.FilterBirthday(
+                this.Conditions.BirthdayFrom,
+                this.Conditions.BirthdayTo,
+                this.IsBirthdayFromFilled(),
+                this.IsBirthdayToFilled());
         }
 
         private void FilterPhone()
         {
             if (this.IsPhoneFilled())
             {
-                string phone = this.Query.Phone.Replace(" ", string.Empty);
+                string phone = this.Conditions.Phone.Replace(" ", string.Empty);
 
-                this.Contacts = this.Contacts.Where(x => phone == x.Tel ||
-                                                         phone == x.Mobile);
+                this.Repository.FilterPhone(phone);
             }
         }
 
         private bool IsAddressFilled()
         {
-            return !string.IsNullOrWhiteSpace(this.Query.Address);
+            return !string.IsNullOrWhiteSpace(this.Conditions.Address);
+        }
+
+        private bool IsBirthdayFilled()
+        {
+            return this.IsBirthdayFromFilled() || this.IsBirthdayToFilled();
         }
 
         private bool IsBirthdayFromFilled()
         {
-            return !string.IsNullOrWhiteSpace(this.Query.BirthdayFrom);
+            return !string.IsNullOrWhiteSpace(this.Conditions.BirthdayFrom);
         }
 
         private bool IsBirthdayToFilled()
         {
-            return !string.IsNullOrWhiteSpace(this.Query.BirthdayTo);
+            return !string.IsNullOrWhiteSpace(this.Conditions.BirthdayTo);
         }
 
         private bool IsPhoneFilled()
         {
-            return !string.IsNullOrWhiteSpace(this.Query.Phone);
+            return !string.IsNullOrWhiteSpace(this.Conditions.Phone);
         }
 
         private bool IsNameFilled()
         {
-            return !string.IsNullOrWhiteSpace(this.Query.Name);
+            return !string.IsNullOrWhiteSpace(this.Conditions.Name);
         }
     }
 }

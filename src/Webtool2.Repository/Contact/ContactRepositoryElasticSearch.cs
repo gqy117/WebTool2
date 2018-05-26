@@ -6,7 +6,7 @@
     using Nest;
     using WebTool2.Models;
 
-    public class ContactRepositoryElasticSearch
+    public class ContactRepositoryElasticSearch : IContactRepository
     {
         public ContactRepositoryElasticSearch(ElasticClient client)
         {
