@@ -23,4 +23,5 @@ deploy:
   skip_cleanup: true
   provider: script
   script: './5.docker.ps1'
-  
+  on:
+    branch: master
