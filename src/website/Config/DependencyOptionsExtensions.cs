@@ -17,7 +17,7 @@
             ConfigElasticClient(services, configuration);
 
             services.AddTransient<ServiceDependencyDTO>();
-            services.AddTransient<IContactRepository, ContactRepositorySQL>();
+            services.AddTransient<IContactRepository, ContactRepositoryElasticSearch>();
             services.AddTransient<ContactService>();
         }
 

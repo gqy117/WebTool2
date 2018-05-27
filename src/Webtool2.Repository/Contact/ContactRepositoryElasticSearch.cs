@@ -25,7 +25,7 @@
 
         public IList<Contact> Search()
         {
-            this.BuildSearch();
+            this.BuildSearchDescriptor();
 
             var response = this.ElasticClient.Search<Contact>(q => this.SearchDescriptor);
 
@@ -41,7 +41,7 @@
                 Field = nameof(Contact.Name),
                 Value = name,
             }
-                .UsePinyinAnalyzer();
+            .UsePinyinAnalyzer();
 
             this.Filter.Add(query);
         }
@@ -111,7 +111,7 @@
             this.Filter.Add(query);
         }
 
-        private void BuildSearch()
+        private void BuildSearchDescriptor()
         {
             this.SearchDescriptor
                 .Query(q => q.Bool(b1 =>

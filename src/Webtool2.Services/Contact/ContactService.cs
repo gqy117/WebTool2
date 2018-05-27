@@ -1,7 +1,6 @@
 ﻿namespace WebTool2.Services
 {
     using System.Collections.Generic;
-    using Nest;
     using WebTool2.Models;
     using WebTool2.Repository;
 
@@ -21,7 +20,7 @@
             IList<Contact> result = new List<Contact>();
             this.Conditions = query;
 
-            if (this.IsQueryReady(query))
+            if (this.IsQueryReady())
             {
                 this.FilterName();
                 this.FilterGender();
@@ -35,7 +34,7 @@
             return result;
         }
 
-        private bool IsQueryReady(ContactQuery query)
+        private bool IsQueryReady()
         {
             return this.IsNameFilled()
                 || this.IsPhoneFilled();
