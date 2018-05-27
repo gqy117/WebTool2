@@ -4,9 +4,11 @@ import { call, put, } from "redux-saga/effects";
 import * as Model from "../models/Contacts";
 
 export function* requestContacts(action: Model.RequestContactsAction) {
-    const contacts: Model.Contact[] = yield call((contactQuery: Model.ContactQuery) => fetch(composeUrl(contactQuery)).then((r) => r.json()), action.contactQuery);
+    const contactResultSet: Model.ContactResultSet = yield call((contactQuery: Model.ContactQuery) =>
+        fetch(composeUrl(contactQuery)).then((r) => r.json()), action.contactQuery);
 
-    const receivedBuildEvent: Model.ReceiveContactsAction = { type: Model.ActionType.RECEIVE_CONTACT, contacts };
+    console.log(`saga..`);
+    const receivedBuildEvent: Model.ReceiveContactsAction = { type: Model.ActionType.RECEIVE_CONTACT, contactResultSet };
     yield put(receivedBuildEvent);
 }
 

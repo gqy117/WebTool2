@@ -2,7 +2,12 @@ import { Action, Reducer } from "redux/index";
 import * as Model from "../models/Contacts";
 
 export const initialState: Model.ContactState = {
-    contactState: [],
+    contactState: {
+        contacts: [],
+        paging: {
+            page: 0
+        } as Model.ControlledStateOverrideProps,
+    },
     query: {
         address: "",
         birthdayFrom: "",
@@ -25,7 +30,7 @@ export const reducer: Reducer<Model.ContactState> = (state: Model.ContactState =
 
             state = {
                 ...state,
-                contactState: receiveAction.contacts,
+                contactState: receiveAction.contactResultSet,
                 query,
             };
             break;

@@ -15,9 +15,14 @@
 
         private ContactQuery Conditions { get; set; }
 
-        public IList<Contact> GetContacts(ContactQuery query)
+        public ContactResultSet GetContacts(ContactQuery query)
         {
-            IList<Contact> result = new List<Contact>();
+            ContactResultSet resultSet = new ContactResultSet
+            {
+                Contacts = new List<Contact>(),
+                Paging = new Paging(),
+            };
+
             this.Conditions = query;
 
             if (this.IsQueryReady())
@@ -28,10 +33,11 @@
                 this.FilterBirthday();
                 this.FilterPhone();
 
-                result = this.Repository.Search();
+                resultSet.Contacts = this.Repository.Search();
+                resultSet.Paging.Pages = 10;
             }
 
-            return result;
+            return resultSet;
         }
 
         private bool IsQueryReady()

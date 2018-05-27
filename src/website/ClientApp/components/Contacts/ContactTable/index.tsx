@@ -20,20 +20,22 @@ export default class ContactTable extends React.Component<ContactTableProps, {}>
 
     public render() {
         const query: Model.ContactQuery = this.props.query as Model.ContactQuery;
-        const list: Model.Contact[] = this.props.contactState as Model.Contact[];
+        const result: Model.ContactResultSet = this.props.contactState as Model.ContactResultSet;
         const columns: Column[] = this.columns.getColumns();
 
         return <div className="m-portlet-table">
             <ReactTable
                 loading={query.isFetching}
-                data={list}
+                data={result.contacts}
                 columns={columns}
+                pages={result.paging.pages}
                 defaultPageSize={10}
                 showPageSizeOptions={false}
                 LoadingComponent={Loading}
                 manual={true}
                 onFetchData={(state: ControlledStateOverrideProps, instance) => {
-                    console.log(state);
+                    console.log("onFetchData");
+                    query.paging.page = state.page;
                 }}
             />
         </div>;

@@ -1,4 +1,6 @@
+import { ControlledStateOverrideProps, } from "react-table";
 import { Dictionary } from "../utilities";
+export { ControlledStateOverrideProps, } from "react-table";
 
 export interface ContactQuery {
     isFetching?: boolean;
@@ -8,11 +10,17 @@ export interface ContactQuery {
     birthdayFrom?: string;
     birthdayTo?: string;
     phone?: string;
+    paging?: ControlledStateOverrideProps;
 }
 
 export interface ContactState {
     query?: ContactQuery;
-    contactState?: Contact[];
+    contactState?: ContactResultSet;
+}
+
+export interface ContactResultSet {
+    contacts?: Contact[];
+    paging?: ControlledStateOverrideProps;
 }
 
 export interface Contact {
@@ -39,7 +47,7 @@ export interface RequestContactsAction {
 
 export interface ReceiveContactsAction {
     type: ActionType.RECEIVE_CONTACT;
-    contacts: Contact[];
+    contactResultSet: ContactResultSet;
 }
 
 export const enum Gender {

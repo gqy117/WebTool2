@@ -17,7 +17,7 @@
         }
 
         [HttpGet]
-        public IList<Contact> Index(ContactQuery query)
+        public ContactResultSet Index(ContactQuery query)
         {
             return this.contactService.GetContacts(query);
         }
