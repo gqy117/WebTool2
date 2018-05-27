@@ -8,6 +8,7 @@
     "experimentalDecorators": true,
     "sourceMap": true,
     "skipDefaultLibCheck": true,
+    "strictNullChecks": false,
     "strict": true,
     "lib": [ "es6", "dom" ],
     "types": [ "webpack-env", "jest" ]
