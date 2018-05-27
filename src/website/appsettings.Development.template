@@ -6,6 +6,7 @@
       "Microsoft": "Information"
     }
   },
+  "ElasticSearch": "http://localhost:9200",
   "Connection": "Data Source=C:\\Users\\Leo.Li\\Documents\\Contacts.db",
   "Identity": "Data Source=C:\\Users\\Leo.Li\\Documents\\Identity.db"
 }
