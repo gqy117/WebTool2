@@ -43,7 +43,9 @@
         private void FilterName()
         {
             if (!this.IsNameFilled())
+            {
                 return;
+            }
 
             this.Repository.FilterName(this.Conditions.Name);
         }
@@ -51,7 +53,9 @@
         private void FilterGender()
         {
             if (this.Conditions.Gender == Gender.All)
+            {
                 return;
+            }
 
             this.Repository.FilterGender(this.Conditions.Gender.ToString());
         }
@@ -59,7 +63,9 @@
         private void FilterAddress()
         {
             if (!this.IsAddressFilled())
+            {
                 return;
+            }
 
             this.Repository.FilterAddress(this.Conditions.Address);
         }
@@ -67,7 +73,9 @@
         private void FilterBirthday()
         {
             if (!this.IsBirthdayFilled())
+            {
                 return;
+            }
 
             this.Repository.FilterBirthday(
                 this.Conditions.BirthdayFrom,

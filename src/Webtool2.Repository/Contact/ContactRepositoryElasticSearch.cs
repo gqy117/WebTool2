@@ -19,9 +19,9 @@
 
         private ElasticClient ElasticClient { get; set; }
 
-        private IList<QueryContainer> Query { get; set; } = new List<QueryContainer>();
+        private IList<QueryContainer> Query { get; } = new List<QueryContainer>();
 
-        private IList<QueryContainer> Filter { get; set; } = new List<QueryContainer>();
+        private IList<QueryContainer> Filter { get; } = new List<QueryContainer>();
 
         public IList<Contact> Search()
         {
