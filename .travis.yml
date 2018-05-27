@@ -8,6 +8,7 @@ services:
   - docker
 
 stages:
+  - build
   - name: deploy
     if: branch = master
 
@@ -18,12 +19,13 @@ install:
 before_script:
   - 'cd ./scripts; chmod +x -R .'
 
-script:    
-  - './1.setup.ps1'
-  - './2.build.ps1'
-  - './4.test.ps1'
-
 jobs:
   include:
+    - stage: build
+      script:
+        - './1.setup.ps1'
+        - './2.build.ps1'
+        - './4.test.ps1'
+
     - stage: deploy
       script: './5.docker.ps1'
