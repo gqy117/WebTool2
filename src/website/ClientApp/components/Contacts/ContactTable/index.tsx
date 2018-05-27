@@ -1,7 +1,7 @@
 ﻿/* tslint:disable:object-literal-sort-keys */
 import * as React from "react";
 import ReactTable from "react-table";
-import { Column } from "react-table";
+import { Column, ControlledStateOverrideProps, } from "react-table";
 import Loading from "../../../containers/Contacts/ContactTable/Loading";
 import * as Model from "../../../models/Contacts";
 import Columns from "./Columns";
@@ -31,8 +31,11 @@ export default class ContactTable extends React.Component<ContactTableProps, {}>
                 defaultPageSize={10}
                 showPageSizeOptions={false}
                 LoadingComponent={Loading}
-            >
-            </ReactTable>
+                manual={true}
+                onFetchData={(state: ControlledStateOverrideProps, instance) => {
+                    console.log(state);
+                }}
+            />
         </div>;
     }
 }
