@@ -14,16 +14,8 @@ install:
 before_script:
   - 'cd ./scripts; chmod +x -R .'
 
-jobs:
-  include:
-    - stage: build
-      script:
-        - './1.setup.ps1'
-        - './2.build.ps1'
-
-    - stage: test
-      script: './4.test.ps1'
-
-    - stage: deploy
-      if: branch = master
-      script: './5.docker.ps1'
+script:    
+  - './1.setup.ps1'
+  - './2.build.ps1'
+  - './4.test.ps1'
+  - './5.docker.ps1'
