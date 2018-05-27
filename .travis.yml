@@ -4,6 +4,9 @@ language: csharp
 mono: none
 dotnet: 2.0.3
 
+services:
+  - docker
+
 install:
   - nvm install 8.4.0
   - nvm use 8.4.0
@@ -15,3 +18,9 @@ script:
   - './1.setup.ps1'
   - './2.build.ps1'
   - './4.test.ps1'
+
+deploy:
+  provider: script
+  script: './5.docker.ps1'
+  on:
+    branch: master

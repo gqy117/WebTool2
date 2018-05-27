@@ -11,6 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="NEST" Version="6.1.0" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.0.2" />
   </ItemGroup>
 
