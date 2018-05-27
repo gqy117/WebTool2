@@ -7,11 +7,6 @@ dotnet: 2.0.3
 services:
   - docker
 
-stages:
-  - build
-  - name: deploy
-    if: branch = master
-
 install:
   - nvm install 8.4.0
   - nvm use 8.4.0
@@ -25,7 +20,10 @@ jobs:
       script:
         - './1.setup.ps1'
         - './2.build.ps1'
-        - './4.test.ps1'
+
+    - stage: test
+      script: './4.test.ps1'
 
     - stage: deploy
+      if: branch = master
       script: './5.docker.ps1'
