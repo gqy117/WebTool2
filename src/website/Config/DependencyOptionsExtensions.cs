@@ -28,6 +28,8 @@
             var settings = new ConnectionSettings(new Uri(url))
                 .DefaultIndex("contacts");
 
+            settings.DisableDirectStreaming();
+
             var client = new ElasticClient(settings);
 
             services.AddSingleton(client);
