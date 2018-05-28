@@ -2,7 +2,12 @@ import { Action, Reducer } from "redux/index";
 import * as Model from "../models/Contacts";
 
 export const initialState: Model.ContactState = {
-    contactState: [],
+    contactState: {
+        contacts: [],
+        paging: {
+            page: 0
+        } as Model.ControlledStateOverrideProps,
+    },
     query: {
         address: "",
         birthdayFrom: "",
@@ -10,6 +15,9 @@ export const initialState: Model.ContactState = {
         gender: Model.GenderKey.All,
         isFetching: false,
         name: "",
+        paging: {
+            page: 0
+        } as Model.ControlledStateOverrideProps,
         phone: "",
     },
 };
@@ -25,10 +33,12 @@ export const reducer: Reducer<Model.ContactState> = (state: Model.ContactState =
 
             state = {
                 ...state,
-                contactState: receiveAction.contacts,
-                query,
+                contactState: receiveAction.contactResultSet,
+                query: query as Model.ContactQuery,
             };
+
             break;
+
         case Model.ActionType.QUERY_CHANGED:
             const nAction = action as (Model.QueryChangedAction);
             query = { ...state.query };
@@ -37,9 +47,24 @@ export const reducer: Reducer<Model.ContactState> = (state: Model.ContactState =
 
             state = {
                 ...state,
-                query,
+                query: query as Model.ContactQuery,
             };
+
             break;
+
+        case Model.ActionType.PAGE_CHANGED:
+            const pageChange = action as (Model.PageChangedAction);
+            query = { ...state.query };
+            query.paging.page = pageChange.page;
+            query.isFetching = true;
+
+            state = {
+                ...state,
+                query: query as Model.ContactQuery,
+            };
+
+            break;
+
         case Model.ActionType.REQUEST_CONTACT:
         default:
             break;

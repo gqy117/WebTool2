@@ -14,13 +14,23 @@
             this.Contacts = this.Context.Contacts;
         }
 
+        public ContactQuery Conditions { get; set; }
+
         private IQueryable<Contact> Contacts { get; set; }
 
         private ContactContext Context { get; set; }
 
-        public IList<Contact> Search()
+        public ContactResultSet Search()
         {
-            var result = this.Contacts.ToList();
+            var result = new ContactResultSet();
+
+            result.Contacts = this.Contacts.ToList();
+            result.Paging = new Paging
+            {
+                Page = this.Conditions.Paging.Page,
+                Pages = result.Contacts.Count / this.Conditions.Paging.PageSize,
+                PageSize = this.Conditions.Paging.PageSize,
+            };
 
             return result;
         }
