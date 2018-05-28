@@ -41,10 +41,7 @@ export default class ContactTable extends React.Component<ContactTableProps, {}>
                 showPageSizeOptions={false}
                 LoadingComponent={Loading}
                 manual={true}
-                onFetchData={(state: ControlledStateOverrideProps, instance: any) => {
-                    console.log("changepage");
-                    this.props.changePage(state.page);
-                }}
+                onFetchData={(state: ControlledStateOverrideProps, instance: any) => this.props.changePage(state.page)}
             />
         </div>;
     }
