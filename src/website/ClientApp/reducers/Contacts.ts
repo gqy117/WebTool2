@@ -31,9 +31,12 @@ export const reducer: Reducer<Model.ContactState> = (state: Model.ContactState =
             query = { ...state.query };
             query.isFetching = false;
 
-            state = { ...state };
-            state.contactState = receiveAction.contactResultSet;
-            state.query = query as Model.ContactQuery;
+            state = {
+                ...state,
+                contactState: receiveAction.contactResultSet,
+                query: query as Model.ContactQuery,
+            };
+
             break;
 
         case Model.ActionType.QUERY_CHANGED:
@@ -42,8 +45,11 @@ export const reducer: Reducer<Model.ContactState> = (state: Model.ContactState =
             query[nAction.name] = nAction.value;
             query.isFetching = true;
 
-            state = { ...state };
-            state.query = query as Model.ContactQuery;
+            state = {
+                ...state,
+                query: query as Model.ContactQuery,
+            };
+
             break;
 
         case Model.ActionType.PAGE_CHANGED:
@@ -52,8 +58,11 @@ export const reducer: Reducer<Model.ContactState> = (state: Model.ContactState =
             query.paging.page = pageChange.page;
             query.isFetching = true;
 
-            state = { ...state };
-            state.query = query as Model.ContactQuery;
+            state = {
+                ...state,
+                query: query as Model.ContactQuery,
+            };
+
             break;
 
         case Model.ActionType.REQUEST_CONTACT:
