@@ -89,7 +89,7 @@
 
             if (isToFilled)
             {
-                query.GreaterThanOrEqualTo = to;
+                query.LessThanOrEqualTo = to;
             }
 
             this.Filter.Add(query);
