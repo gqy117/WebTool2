@@ -51,6 +51,9 @@ export const reducer: Reducer<Model.ContactState> = (state: Model.ContactState =
             query = { ...state.query };
             query.paging.page = pageChange.page;
             query.isFetching = true;
+
+            state = { ...state };
+            state.query = query as Model.ContactQuery;
             break;
 
         case Model.ActionType.REQUEST_CONTACT:
