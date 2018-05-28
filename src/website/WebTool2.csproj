@@ -34,6 +34,7 @@
   <ItemGroup>
     <None Remove="ClientApp\actions\Builds.ts" />
     <None Remove="ClientApp\actions\Contacts.ts" />
+    <None Remove="ClientApp\actions\ContactsTable.ts" />
     <None Remove="ClientApp\components\Contacts\ContactBody.tsx" />
     <None Remove="ClientApp\components\Contacts\ContactForm\Address.tsx" />
     <None Remove="ClientApp\components\Contacts\ContactForm\BirthdayFrom.tsx" />
@@ -84,6 +85,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\actions\ContactsTable.ts" />
     <TypeScriptCompile Include="ClientApp\actions\Contacts.ts" />
     <TypeScriptCompile Include="ClientApp\actions\Builds.ts" />
     <TypeScriptCompile Include="ClientApp\components\Contacts\ContactBody.tsx" />

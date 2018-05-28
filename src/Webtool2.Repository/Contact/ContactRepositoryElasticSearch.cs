@@ -34,12 +34,8 @@
             var response = this.ElasticClient.Search<Contact>(q => this.SearchDescriptor);
 
             result.Contacts = response.Documents.ToList();
-            result.Paging = new Paging
-            {
-                Page = this.Conditions.Paging.Page,
-                Pages = response.Hits.Count / this.Conditions.Paging.PageSize,
-                PageSize = this.Conditions.Paging.PageSize,
-            };
+
+            this.SetPaging(response, result);
 
             return result;
         }
@@ -124,7 +120,7 @@
         private void BuildSearchDescriptor()
         {
             var paging = this.Conditions.Paging;
-            int from = (paging.Page - 1) * paging.PageSize;
+            int from = paging.Page * paging.PageSize;
             int size = paging.PageSize;
 
             this.SearchDescriptor
@@ -134,6 +130,18 @@
                     b1.Must(this.Query.ToArray())
                 .Filter(f => f.Bool(b2 =>
                     b2.Must(this.Filter.ToArray())))));
+        }
+
+        private void SetPaging(ISearchResponse<Contact> response, ContactResultSet result)
+        {
+            int pages = (int)Math.Ceiling((decimal)(response.Total / this.Conditions.Paging.PageSize));
+
+            result.Paging = new Paging
+            {
+                Page = this.Conditions.Paging.Page,
+                Pages = pages,
+                PageSize = this.Conditions.Paging.PageSize,
+            };
         }
     }
 }

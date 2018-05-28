@@ -5,7 +5,7 @@ export const initialState: Model.ContactState = {
     contactState: {
         contacts: [],
         paging: {
-            page: 0
+            page: 1
         } as Model.ControlledStateOverrideProps,
     },
     query: {
@@ -15,6 +15,9 @@ export const initialState: Model.ContactState = {
         gender: Model.GenderKey.All,
         isFetching: false,
         name: "",
+        paging: {
+            page: 1
+        } as Model.ControlledStateOverrideProps,
         phone: "",
     },
 };
@@ -31,8 +34,8 @@ export const reducer: Reducer<Model.ContactState> = (state: Model.ContactState =
             state = { ...state };
             state.contactState = receiveAction.contactResultSet;
             state.query = query as Model.ContactQuery;
-
             break;
+
         case Model.ActionType.QUERY_CHANGED:
             const nAction = action as (Model.QueryChangedAction);
             query = { ...state.query };
@@ -42,6 +45,14 @@ export const reducer: Reducer<Model.ContactState> = (state: Model.ContactState =
             state = { ...state };
             state.query = query as Model.ContactQuery;
             break;
+
+        case Model.ActionType.PAGE_CHANGED:
+            const pageChange = action as (Model.PageChangedAction);
+            query = { ...state.query };
+            query.paging.page = pageChange.page;
+            query.isFetching = true;
+            break;
+
         case Model.ActionType.REQUEST_CONTACT:
         default:
             break;

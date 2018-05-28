@@ -17,7 +17,7 @@
         }
 
         [HttpPost]
-        public ContactResultSet Index(ContactQuery query)
+        public ContactResultSet Index([FromBody]ContactQuery query)
         {
             return this.contactService.GetContacts(query);
         }

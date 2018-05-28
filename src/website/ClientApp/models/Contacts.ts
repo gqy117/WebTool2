@@ -30,6 +30,7 @@ export interface Contact {
 
 export const enum ActionType {
     QUERY_CHANGED = "QUERY_CHANGED",
+    PAGE_CHANGED = "PAGE_CHANGED",
     REQUEST_CONTACT = "REQUEST_CONTACT",
     RECEIVE_CONTACT = "RECEIVE_CONTACT",
 }
@@ -38,6 +39,11 @@ export interface QueryChangedAction {
     type: ActionType.QUERY_CHANGED;
     name: string;
     value: string;
+}
+
+export interface PageChangedAction {
+    type: ActionType.PAGE_CHANGED;
+    page: number;
 }
 
 export interface RequestContactsAction {
