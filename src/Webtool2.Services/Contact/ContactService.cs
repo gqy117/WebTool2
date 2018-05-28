@@ -27,14 +27,15 @@
 
             if (this.IsQueryReady())
             {
+                this.Repository.Conditions = this.Conditions;
+
                 this.FilterName();
                 this.FilterGender();
                 this.FilterAddress();
                 this.FilterBirthday();
                 this.FilterPhone();
 
-                resultSet.Contacts = this.Repository.Search();
-                resultSet.Paging.Pages = 10;
+                resultSet = this.Repository.Search();
             }
 
             return resultSet;

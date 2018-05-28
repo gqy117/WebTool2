@@ -15,6 +15,8 @@
             this.SearchDescriptor = new SearchDescriptor<Contact>();
         }
 
+        public ContactQuery Conditions { get; set; }
+
         private SearchDescriptor<Contact> SearchDescriptor { get; set; }
 
         private ElasticClient ElasticClient { get; set; }
@@ -23,13 +25,21 @@
 
         private IList<QueryContainer> Filter { get; } = new List<QueryContainer>();
 
-        public IList<Contact> Search()
+        public ContactResultSet Search()
         {
+            var result = new ContactResultSet();
+
             this.BuildSearchDescriptor();
 
             var response = this.ElasticClient.Search<Contact>(q => this.SearchDescriptor);
 
-            var result = response.Documents.ToList();
+            result.Contacts = response.Documents.ToList();
+            result.Paging = new Paging
+            {
+                Page = this.Conditions.Paging.Page,
+                Pages = response.Hits.Count / this.Conditions.Paging.PageSize,
+                PageSize = this.Conditions.Paging.PageSize,
+            };
 
             return result;
         }
@@ -113,7 +123,13 @@
 
         private void BuildSearchDescriptor()
         {
+            var paging = this.Conditions.Paging;
+            int from = (paging.Page - 1) * paging.PageSize;
+            int size = paging.PageSize;
+
             this.SearchDescriptor
+                .From(from)
+                .Size(size)
                 .Query(q => q.Bool(b1 =>
                     b1.Must(this.Query.ToArray())
                 .Filter(f => f.Bool(b2 =>

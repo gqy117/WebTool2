@@ -5,7 +5,9 @@
 
     public interface IContactRepository
     {
-        IList<Contact> Search();
+        ContactQuery Conditions { get; set; }
+
+        ContactResultSet Search();
 
         void FilterName(string name);
 

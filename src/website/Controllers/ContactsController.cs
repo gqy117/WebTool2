@@ -16,7 +16,7 @@
             this.contactService = contactService;
         }
 
-        [HttpGet]
+        [HttpPost]
         public ContactResultSet Index(ContactQuery query)
         {
             return this.contactService.GetContacts(query);
