@@ -28,7 +28,7 @@
             var settings = new ConnectionSettings(new Uri(url))
                 .DefaultIndex("contacts");
 
-            settings.DisableDirectStreaming();
+            // settings.DisableDirectStreaming();
 
             var client = new ElasticClient(settings);
 
