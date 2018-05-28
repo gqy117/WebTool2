@@ -5,7 +5,7 @@ export const initialState: Model.ContactState = {
     contactState: {
         contacts: [],
         paging: {
-            page: 1
+            page: 0
         } as Model.ControlledStateOverrideProps,
     },
     query: {
@@ -16,7 +16,7 @@ export const initialState: Model.ContactState = {
         isFetching: false,
         name: "",
         paging: {
-            page: 1
+            page: 0
         } as Model.ControlledStateOverrideProps,
         phone: "",
     },

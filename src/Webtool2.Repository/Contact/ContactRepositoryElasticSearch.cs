@@ -134,7 +134,7 @@
 
         private void SetPaging(ISearchResponse<Contact> response, ContactResultSet result)
         {
-            int pages = (int)Math.Ceiling((decimal)(response.Total / this.Conditions.Paging.PageSize));
+            int pages = (int)Math.Ceiling((decimal)response.Total / (decimal)this.Conditions.Paging.PageSize);
 
             result.Paging = new Paging
             {

@@ -15,7 +15,7 @@ type ContactTableProps =
 
 export default class ContactTable extends React.Component<ContactTableProps, {}> {
     private columns: Columns;
-    private page: number = 1;
+    private page: number = 0;
     private pageSize: number = 10;
 
     constructor() {
