@@ -29,7 +29,6 @@
                 .DefaultIndex("contacts");
 
             // settings.DisableDirectStreaming();
-
             var client = new ElasticClient(settings);
 
             services.AddSingleton(client);
