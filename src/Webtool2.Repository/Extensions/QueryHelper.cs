@@ -11,5 +11,13 @@
 
             return query;
         }
+
+        public static T UseStandardAnalyzer<T>(this T query)
+            where T : FieldNameQueryBase
+        {
+            query.Field = $"{query.Field.Name}.standard";
+
+            return query;
+        }
     }
 }
