@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Text.RegularExpressions;
     using Nest;
     using WebTool2.Models;
 
@@ -42,14 +43,14 @@
 
         public void FilterName(string name)
         {
-            var query = new WildcardQuery
+            if (this.ContainsPinyin(name))
             {
-                Field = nameof(Contact.Name),
-                Value = name,
+                this.FilterNameByPinyin(name);
             }
-            .UsePinyinAnalyzer();
-
-            this.Filter.Add(query);
+            else
+            {
+                this.FilterNameByChinese(name);
+            }
         }
 
         public void FilterGender(string gender)
@@ -142,6 +143,35 @@
                 Pages = pages,
                 PageSize = this.Conditions.Paging.PageSize,
             };
+        }
+
+        private void FilterNameByChinese(string name)
+        {
+            var query = new WildcardQuery
+                {
+                    Field = nameof(Contact.Name),
+                    Value = name,
+                }
+                .UsePinyinAnalyzer();
+
+            this.Filter.Add(query);
+        }
+
+        private void FilterNameByPinyin(string name)
+        {
+            var query = new MatchPhraseQuery
+            {
+                Query = name,
+                Field = nameof(Contact.Name),
+            }
+            .UsePinyinAnalyzer();
+
+            this.Filter.Add(query);
+        }
+
+        private bool ContainsPinyin(string name)
+        {
+            return Regex.IsMatch(name, "[a-zA-Z]+");
         }
     }
 }
