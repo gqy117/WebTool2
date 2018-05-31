@@ -19,5 +19,19 @@
 
             return query;
         }
+
+        public static Field ToPinyin(this Field field)
+        {
+            field = new Field($"{field.Name}.pinyin");
+
+            return field;
+        }
+
+        public static Field ToChinese(this Field field)
+        {
+            field = new Field($"{field.Name}.standard");
+
+            return field;
+        }
     }
 }
