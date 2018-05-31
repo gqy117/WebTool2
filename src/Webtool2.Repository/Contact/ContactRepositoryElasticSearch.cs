@@ -159,17 +159,14 @@
 
         private void FilterNameByPinyin(string name)
         {
-            var pinyin = new Field(nameof(Contact.Name)).ToPinyin();
-            var chinese = new Field(nameof(Contact.Name)).ToChinese();
-
-            var multiQuery = new MultiMatchQuery
+            var query = new MatchPhraseQuery
             {
                 Query = name,
-                Fields = new[] { pinyin, chinese },
-                Type = TextQueryType.MostFields,
-            };
+                Field = nameof(Contact.Name),
+            }
+            .UsePinyinAnalyzer();
 
-            this.Filter.Add(multiQuery);
+            this.Filter.Add(query);
         }
 
         private bool ContainsPinyin(string name)
