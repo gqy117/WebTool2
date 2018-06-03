@@ -2,7 +2,7 @@ dist: trusty
 sudo: false
 language: csharp
 mono: none
-dotnet: 2.1.300-preview1-008174
+dotnet: 2.1.300
 
 services:
   - docker
