@@ -1,4 +1,4 @@
-FROM 2.1.0-aspnetcore-runtime-alpine3.7
+FROM microsoft/dotnet:2.1.0-aspnetcore-runtime-alpine3.7
 MAINTAINER Leo.Li <gqy117@gmail.com>
 WORKDIR /WebTool2
 
