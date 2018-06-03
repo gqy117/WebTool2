@@ -1,4 +1,4 @@
-image : microsoft/dotnet:2.1.300-sdk-alpine3.7
+image : gqy117/dotnet-2.1.300-sdk-alpine3.7-npm
 
 stages: 
   - build
@@ -9,6 +9,6 @@ before_script:
 build:
  stage: build
  script:
-  - './1.setup.ps1'
-  - './2.build.ps1'
-  - './4.test.ps1'
+  - './1.setup.sh'
+  - './2.build.sh'
+  - './4.test.sh'
