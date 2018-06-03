@@ -15,13 +15,13 @@ before_script:
   - 'cd ./scripts; chmod +x -R .'
 
 script:    
-  - './1.setup.ps1'
-  - './2.build.ps1'
-  - './4.test.ps1'
+  - './1.setup.sh'
+  - './2.build.sh'
+  - './4.test.sh'
 
 deploy:
   skip_cleanup: true
   provider: script
-  script: './5.docker.ps1'
+  script: './5.docker.sh'
   on:
     branch: master
