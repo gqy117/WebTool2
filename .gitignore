@@ -242,3 +242,4 @@ src/website/ClientApp/**/*.js.map
 src/website/coverage/
 src/website/appsettings.Development.json
 src/website/appsettings.Development
+.idea/

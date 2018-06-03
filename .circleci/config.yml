@@ -2,33 +2,15 @@ version: 2
 jobs:
   build:
     docker:
-      - image: microsoft/aspnetcore-build:2.0.3-stretch
+      - image: gqy117/dotnet-2.1.300-sdk-alpine3.7-npm
     working_directory: ~/repo
     environment:
        SCRIPTS: scripts
 
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - npm-cache-{{ checksum "src/website/package.json" }}
-
-      - restore_cache:
-          keys:
-            - nuget-cache
 
       - run: chmod +x -R ./$SCRIPTS;
-      - run: cd ./$SCRIPTS; ./1.setup.ps1
-      - run: cd ./$SCRIPTS; ./2.build.ps1
-      - run: cd ./$SCRIPTS; ./4.test.ps1
-
-      - save_cache:
-          key: npm-cache-{{ checksum "src/website/package.json" }}
-          paths:
-            - src/website/node_modules
-
-      - save_cache:
-          key: nuget-cache
-          paths:
-            - ~/.nuget
-            - ~/.local/share/NuGet/Cache
+      - run: cd ./$SCRIPTS; ./1.setup.sh
+      - run: cd ./$SCRIPTS; ./2.build.sh
+      - run: cd ./$SCRIPTS; ./4.test.sh
