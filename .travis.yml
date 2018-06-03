@@ -18,7 +18,6 @@ script:
   - './1.setup.sh'
   - './2.build.sh'
   - './4.test.sh'
-  - './5.docker.sh'
 
 deploy:
   skip_cleanup: true
