@@ -1,4 +1,4 @@
-image: microsoft/dotnet:2.1.300-sdk-stretch
+image: gqy117/dotnet-2.1.300-sdk-alpine3.7-npm
 
 pipelines:
   default:
@@ -7,6 +7,6 @@ pipelines:
           - dotnetcore
         script:
           - 'cd ./scripts; chmod +x -R .'
-          - './1.setup.ps1'
-          - './2.build.ps1'
-          - './4.test.ps1'
+          - 'sh ./1.setup.ps1'
+          - 'sh ./2.build.ps1'
+          - 'sh ./4.test.ps1'
