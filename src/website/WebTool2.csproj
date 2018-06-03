@@ -34,12 +34,14 @@
   <ItemGroup>
     <None Remove="ClientApp\actions\Builds.ts" />
     <None Remove="ClientApp\actions\Contacts.ts" />
+    <None Remove="ClientApp\actions\ContactsTable.ts" />
     <None Remove="ClientApp\components\Contacts\ContactBody.tsx" />
     <None Remove="ClientApp\components\Contacts\ContactForm\Address.tsx" />
     <None Remove="ClientApp\components\Contacts\ContactForm\BirthdayFrom.tsx" />
     <None Remove="ClientApp\components\Contacts\ContactForm\BirthdayTo.tsx" />
     <None Remove="ClientApp\components\Contacts\ContactForm\Gender.tsx" />
     <None Remove="ClientApp\components\Contacts\ContactForm\Name.tsx" />
+    <None Remove="ClientApp\components\Contacts\ContactForm\Phone.tsx" />
     <None Remove="ClientApp\components\Contacts\ContactForm\SearchTextbox.tsx" />
     <None Remove="ClientApp\components\Contacts\ContactForm\Selector.tsx" />
     <None Remove="ClientApp\components\Contacts\ContactHead.tsx" />
@@ -83,9 +85,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\actions\ContactsTable.ts" />
     <TypeScriptCompile Include="ClientApp\actions\Contacts.ts" />
     <TypeScriptCompile Include="ClientApp\actions\Builds.ts" />
     <TypeScriptCompile Include="ClientApp\components\Contacts\ContactBody.tsx" />
+    <TypeScriptCompile Include="ClientApp\components\Contacts\ContactForm\Phone.tsx" />
     <TypeScriptCompile Include="ClientApp\components\Contacts\ContactForm\BirthdayTo.tsx" />
     <TypeScriptCompile Include="ClientApp\components\Contacts\ContactForm\BirthdayFrom.tsx" />
     <TypeScriptCompile Include="ClientApp\components\Contacts\ContactForm\index.tsx" />

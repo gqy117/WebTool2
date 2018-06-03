@@ -11,5 +11,9 @@
         public string BirthdayFrom { get; set; }
 
         public string BirthdayTo { get; set; }
+
+        public string Phone { get; set; }
+
+        public Paging Paging { get; set; }
     }
 }

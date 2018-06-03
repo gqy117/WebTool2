@@ -1,17 +1,22 @@
 ﻿/* tslint:disable:object-literal-sort-keys */
 import * as React from "react";
 import ReactTable from "react-table";
-import { Column } from "react-table";
+import { Column, ControlledStateOverrideProps, } from "react-table";
+import * as Actions from "../../../actions/ContactsTable";
 import Loading from "../../../containers/Contacts/ContactTable/Loading";
 import * as Model from "../../../models/Contacts";
+import { Nameof } from "../../../utilities/Nameof";
 import Columns from "./Columns";
 
 type ContactTableProps =
     Model.ContactQuery
-    & Model.ContactState;
+    & Model.ContactState
+    & typeof Actions.actionCreators;
 
 export default class ContactTable extends React.Component<ContactTableProps, {}> {
     private columns: Columns;
+    private page: number = 0;
+    private pageSize: number = 10;
 
     constructor() {
         super();
@@ -20,19 +25,24 @@ export default class ContactTable extends React.Component<ContactTableProps, {}>
 
     public render() {
         const query: Model.ContactQuery = this.props.query as Model.ContactQuery;
-        const list: Model.Contact[] = this.props.contactState as Model.Contact[];
+        const result: Model.ContactResultSet = this.props.contactState as Model.ContactResultSet;
         const columns: Column[] = this.columns.getColumns();
+
+        query.paging.page = this.page;
+        query.paging.pageSize = this.pageSize;
 
         return <div className="m-portlet-table">
             <ReactTable
                 loading={query.isFetching}
-                data={list}
+                data={result.contacts}
                 columns={columns}
-                defaultPageSize={10}
+                pages={result.paging.pages}
+                defaultPageSize={query.paging.pageSize}
                 showPageSizeOptions={false}
                 LoadingComponent={Loading}
-            >
-            </ReactTable>
+                manual={true}
+                onFetchData={(state: ControlledStateOverrideProps, instance: any) => this.props.changePage(state.page)}
+            />
         </div>;
     }
 }

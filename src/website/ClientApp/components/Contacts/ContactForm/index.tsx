@@ -4,6 +4,7 @@ import BirthdayFrom from "../../../containers/Contacts/ContactForm/BirthdayFrom"
 import BirthdayTo from "../../../containers/Contacts/ContactForm/BirthdayTo";
 import Gender from "../../../containers/Contacts/ContactForm/Gender";
 import Name from "../../../containers/Contacts/ContactForm/Name";
+import Phone from "../../../containers/Contacts/ContactForm/Phone";
 import * as Model from "../../../models/Contacts";
 
 type ContactFormProps =
@@ -22,6 +23,7 @@ export default class ContactForm extends React.Component<ContactFormProps, {}> {
                         <Address />
                         <BirthdayFrom />
                         <BirthdayTo />
+                        <Phone />
 
                     </div>
                 </div>

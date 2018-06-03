@@ -80,9 +80,13 @@
         color: #f4516c;
     }
 
-    $default-textbox-width: 95px;
+    $default-textbox-width: 110px;
 
     .m-form__control.m-birthday {
+        width: $default-textbox-width;
+    }
+
+    .m-form__control.m-mobile {
         width: $default-textbox-width;
     }
 
@@ -139,5 +143,10 @@
     .m-form-icon-birthday {
         @extend %m-form-icon;
         color: #ffb822;
+    }
+
+    .m-form-icon-phone {
+        @extend %m-form-icon;
+        color: #716aca;
     }
 }
