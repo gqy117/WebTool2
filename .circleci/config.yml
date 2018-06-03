@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: microsoft/dotnet:2.1.300-sdk-alpine3.7
+      - image: gqy117/dotnet-2.1.300-sdk-alpine3.7-npm
     working_directory: ~/repo
     environment:
        SCRIPTS: scripts
@@ -11,6 +11,6 @@ jobs:
       - checkout
 
       - run: chmod +x -R ./$SCRIPTS;
-      - run: cd ./$SCRIPTS; ./1.setup.ps1
-      - run: cd ./$SCRIPTS; ./2.build.ps1
-      - run: cd ./$SCRIPTS; ./4.test.ps1
+      - run: cd ./$SCRIPTS; ./1.setup.sh
+      - run: cd ./$SCRIPTS; ./2.build.sh
+      - run: cd ./$SCRIPTS; ./4.test.sh
