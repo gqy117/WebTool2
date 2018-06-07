@@ -6,7 +6,7 @@
     using Nest;
     using WebTool2.Models;
 
-    public class ContactRepositorySQL : IContactRepository
+    public class ContactRepositorySQL : ContactRepository, IContactRepository
     {
         public ContactRepositorySQL(ContactContext context)
         {
@@ -24,13 +24,11 @@
         {
             var result = new ContactResultSet();
 
-            result.Contacts = this.Contacts.ToList();
-            result.Paging = new Paging
-            {
-                Page = this.Conditions.Paging.Page,
-                Pages = result.Contacts.Count / this.Conditions.Paging.PageSize,
-                PageSize = this.Conditions.Paging.PageSize,
-            };
+            int count = this.Contacts.Count();
+
+            result.Contacts = this.GetResult();
+
+            this.SetPagingResult(result, count);
 
             return result;
         }
@@ -74,6 +72,27 @@
         {
             this.Contacts = this.Contacts.Where(x => phone == x.Tel ||
                                                      phone == x.Mobile);
+        }
+
+        private IList<Contact> GetResult()
+        {
+            var paging = this.Conditions.Paging;
+            int from = paging.Page * paging.PageSize;
+            int size = paging.PageSize;
+
+            return this.Contacts.Skip(from).Take(size).ToList();
+        }
+
+        private void SetPagingResult(ContactResultSet result, int count)
+        {
+            int pages = this.CalculatePages(count, this.Conditions.Paging.PageSize);
+
+            result.Paging = new Paging
+            {
+                Page = this.Conditions.Paging.Page,
+                Pages = pages,
+                PageSize = this.Conditions.Paging.PageSize,
+            };
         }
     }
 }
