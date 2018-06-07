@@ -5,7 +5,7 @@ import * as Model from "../models/Tooltip";
 
 export class Tooltip extends React.Component<Model.TooltipProps, {}> {
     public render() {
-        return <OverlayTrigger placement="top" overlay={<RBTooltip id="tooltip">{this.props.overlay}</RBTooltip>}>
+        return <OverlayTrigger placement="top" overlay={<RBTooltip id="tooltip"><div>Eg:<br />刘德华<br />刘德hua<br />刘*<br />刘德?</div></RBTooltip>}>
             {this.props.children}
         </OverlayTrigger>;
     }
