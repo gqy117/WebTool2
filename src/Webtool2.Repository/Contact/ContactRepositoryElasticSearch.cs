@@ -7,7 +7,7 @@
     using Nest;
     using WebTool2.Models;
 
-    public class ContactRepositoryElasticSearch : IContactRepository
+    public class ContactRepositoryElasticSearch : ContactRepository, IContactRepository
     {
         public ContactRepositoryElasticSearch(ElasticClient client)
         {
@@ -135,7 +135,7 @@
 
         private void SetPaging(ISearchResponse<Contact> response, ContactResultSet result)
         {
-            int pages = (int)Math.Ceiling((decimal)response.Total / (decimal)this.Conditions.Paging.PageSize);
+            int pages = this.CalculatePages(response.Total, this.Conditions.Paging.PageSize);
 
             result.Paging = new Paging
             {
@@ -148,10 +148,10 @@
         private void FilterNameByChinese(string name)
         {
             var query = new WildcardQuery
-                {
-                    Field = nameof(Contact.Name),
-                    Value = name,
-                }
+            {
+                Field = nameof(Contact.Name),
+                Value = name,
+            }
                 .UsePinyinAnalyzer();
 
             this.Filter.Add(query);
