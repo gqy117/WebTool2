@@ -3,7 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using Nest;
+    using Microsoft.EntityFrameworkCore;
     using WebTool2.Models;
 
     public class ContactRepositorySQL : ContactRepository, IContactRepository
@@ -37,7 +37,7 @@
         {
             if (name.Contains("%"))
             {
-                this.Contacts = this.Contacts.Where(x => x.Name.Contains(name));
+                this.Contacts = this.Contacts.Where(x => EF.Functions.Like(x.Name, name));
             }
             else
             {
