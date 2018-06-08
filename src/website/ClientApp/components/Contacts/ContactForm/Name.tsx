@@ -12,6 +12,13 @@ type NameProps =
 export default class Name extends React.Component<NameProps, {}> {
     public render() {
         const fieldName: string = Nameof((x: Model.ContactQuery) => x.name);
+        const tooltip: JSX.Element = <div>Eg: <br />
+            刘德华<br />
+            刘德hua<br />
+            刘dehua<br />
+            刘*<br />
+            刘德?
+        </div>;
 
         return <SearchTextbox
                     className="m-form__control m-name"
@@ -19,6 +26,7 @@ export default class Name extends React.Component<NameProps, {}> {
                     iconDivClassName="m-form-icon-name"
                     fieldValue={this.props.name}
                     queryContacts={Actions.actionCreators.queryContacts}
+                    tooltip={tooltip}
                     placeholder="eg: 吴蔚"
                     fieldName={fieldName}
                     label="Name"

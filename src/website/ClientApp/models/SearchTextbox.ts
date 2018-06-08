@@ -8,4 +8,5 @@
     label: string;
     placeholder: string;
     isLast?: boolean;
+    tooltip?: JSX.Element;
 }

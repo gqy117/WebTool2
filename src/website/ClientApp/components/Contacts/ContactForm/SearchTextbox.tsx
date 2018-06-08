@@ -14,7 +14,7 @@ export default class SearchTextbox extends React.Component<SearchTextboxProps, {
     public render() {
         const props: SearchTextboxModel.SearchText = this.props || {} as SearchTextboxModel.SearchText;
         const outerCss: string = `m-form-search ${props.isLast ? "m-form-search-last" : ""}`;
-        const tooltip = "<div>刘德华<br />刘德hua<br />刘dehua<br />刘*<br />刘德?</div>";
+        const icon: JSX.Element = this.getIconDiv(props);
 
         return <div className={outerCss}>
             <div className="m-form__group m-form__group--inline">
@@ -22,9 +22,7 @@ export default class SearchTextbox extends React.Component<SearchTextboxProps, {
                     <label>{props.label}:</label>
                 </div>
                 <div className={props.iconDivClassName}>
-                    <Tooltip overlay={tooltip}>
-                        <i className={props.iconClassName}></i>
-                    </Tooltip>
+                    {icon}
                 </div>
                 <div className={props.className}>
                     <input type="text" className="form-control m-input m-input--solid"
@@ -36,11 +34,26 @@ export default class SearchTextbox extends React.Component<SearchTextboxProps, {
 
                     <span className="m-input-icon__icon m-input-icon__icon--left">
                         <span>
-                            <i className="la la-search"></i>
+                            <i className="la la-search"/>
                         </span>
                     </span>
                 </div>
             </div>
         </div>;
+    }
+
+    private getIconDiv(props: SearchTextboxModel.SearchText) {
+        const iDiv: JSX.Element = <i className={props.iconClassName}/>;
+        let icon: JSX.Element;
+
+        if (props.tooltip) {
+            icon = <Tooltip overlay={props.tooltip}>
+                {iDiv}
+            </Tooltip>;
+        } else {
+            icon = iDiv;
+        }
+
+        return icon;
     }
 }
