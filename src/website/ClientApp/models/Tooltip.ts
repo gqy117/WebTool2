@@ -1,3 +1,3 @@
 export interface TooltipProps {
-    overlay?: string;
+    overlay: JSX.Element;
 }
