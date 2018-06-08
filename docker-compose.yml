@@ -3,7 +3,7 @@ services:
   web:
     image: gqy117/webtool2
     ports:
-      - "12315:12315"
+      - "443:12315"
     volumes:
       - /DBs:/DBs
 
