@@ -38,6 +38,8 @@
 
             this.SetPaging(response, result);
 
+            Console.WriteLine(response.DebugInformation);
+
             return result;
         }
 
