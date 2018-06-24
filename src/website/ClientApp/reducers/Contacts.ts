@@ -1,3 +1,5 @@
+import * as queryString from "query-string";
+import { LOCATION_CHANGE, LocationChangeAction} from "react-router-redux";
 import { Action, Reducer } from "redux/index";
 import * as Model from "../models/Contacts";
 
@@ -63,6 +65,17 @@ export const reducer: Reducer<Model.ContactState> = (state: Model.ContactState =
                 query: query as Model.ContactQuery,
             };
 
+            break;
+
+        case LOCATION_CHANGE:
+            const locationChange = action as (LocationChangeAction);
+            const queryFromUrl = queryString.parse(locationChange.payload.search);
+            query = { ...state.query };
+            query.name = queryFromUrl.name;
+            state = {
+                ...state,
+                query: query as Model.ContactQuery,
+            };
             break;
 
         case Model.ActionType.REQUEST_CONTACT:
