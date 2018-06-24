@@ -2,6 +2,7 @@ import * as queryString from "query-string";
 import { LOCATION_CHANGE, LocationChangeAction} from "react-router-redux";
 import { Action, Reducer } from "redux/index";
 import * as Model from "../models/Contacts";
+import { ContactQuery } from "../models/Contacts";
 
 export const initialState: Model.ContactState = {
     contactState: {
@@ -17,15 +18,14 @@ export const initialState: Model.ContactState = {
         gender: Model.GenderKey.All,
         isFetching: false,
         name: "",
-        paging: {
-            page: 0
-        } as Model.ControlledStateOverrideProps,
+        page: 0,
+        pageSize: 10,
         phone: "",
     },
 };
 
 export const reducer: Reducer<Model.ContactState> = (state: Model.ContactState = initialState, action: Action) => {
-    let query: any;
+    let query: ContactQuery;
 
     switch (action.type) {
         case Model.ActionType.RECEIVE_CONTACT:
@@ -44,7 +44,7 @@ export const reducer: Reducer<Model.ContactState> = (state: Model.ContactState =
         case Model.ActionType.QUERY_CHANGED:
             const nAction = action as (Model.QueryChangedAction);
             query = { ...state.query };
-            query[nAction.name] = nAction.value;
+            (query as any)[nAction.name] = nAction.value;
             query.isFetching = true;
 
             state = {
@@ -57,7 +57,7 @@ export const reducer: Reducer<Model.ContactState> = (state: Model.ContactState =
         case Model.ActionType.PAGE_CHANGED:
             const pageChange = action as (Model.PageChangedAction);
             query = { ...state.query };
-            query.paging.page = pageChange.page;
+            query.page = pageChange.page;
             query.isFetching = true;
 
             state = {

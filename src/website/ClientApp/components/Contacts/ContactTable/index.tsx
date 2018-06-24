@@ -28,8 +28,8 @@ export default class ContactTable extends React.Component<ContactTableProps, {}>
         const result: Model.ContactResultSet = this.props.contactState as Model.ContactResultSet;
         const columns: Column[] = this.columns.getColumns();
 
-        query.paging.page = this.page;
-        query.paging.pageSize = this.pageSize;
+        query.page = this.page;
+        query.pageSize = this.pageSize;
 
         return <div className="m-portlet-table">
             <ReactTable
@@ -37,7 +37,7 @@ export default class ContactTable extends React.Component<ContactTableProps, {}>
                 data={result.contacts}
                 columns={columns}
                 pages={result.paging.pages}
-                defaultPageSize={query.paging.pageSize}
+                defaultPageSize={query.pageSize}
                 showPageSizeOptions={false}
                 LoadingComponent={Loading}
                 manual={true}

@@ -10,7 +10,8 @@ export interface ContactQuery {
     birthdayFrom?: string;
     birthdayTo?: string;
     phone?: string;
-    paging?: ControlledStateOverrideProps;
+    page?: number;
+    pageSize?: number;
 }
 
 export interface ContactState {

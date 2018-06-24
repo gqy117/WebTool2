@@ -5,5 +5,7 @@
         int PageSize { get; set; }
 
         int Page { get; set; }
+
+        int Pages { get; set; }
     }
 }
