@@ -2,7 +2,7 @@
     for (const fieldName of Object.keys(obj)) {
         const value = obj[fieldName];
 
-        if (value === "") {
+        if (!value) {
             delete obj[fieldName];
         }
     }

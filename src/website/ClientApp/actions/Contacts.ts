@@ -31,8 +31,4 @@ function removeFields(refinedQuery: Model.ContactQuery) {
     if (refinedQuery.gender === "0") {
         delete refinedQuery.gender;
     }
-
-    if (refinedQuery.page === 0) {
-        delete refinedQuery.page;
-    }
 }

@@ -1,27 +1,22 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
-
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
     <TypeScriptToolsVersion>2.4</TypeScriptToolsVersion>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <NoWarn>1701;1702;1705;SA1652;SA1633;SA1503</NoWarn>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <WarningsAsErrors />
   </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.0" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.0.2" />
   </ItemGroup>
-
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.1" />
   </ItemGroup>
-
   <ItemGroup>
     <!-- Files not to publish (note that the 'dist' subfolders are re-added below) -->
     <Compile Remove="__tests__\__snapshots__\**" />
@@ -30,7 +25,6 @@
     <EmbeddedResource Remove="__tests__\__snapshots__\**" />
     <None Remove="__tests__\__snapshots__\**" />
   </ItemGroup>
-
   <ItemGroup>
     <None Remove="ClientApp\actions\Builds.ts" />
     <None Remove="ClientApp\actions\Contacts.ts" />
@@ -79,11 +73,9 @@
     <None Remove="__tests__\reducers\Builds.ts" />
     <None Remove="__tests__\sagas\Teamcity.test.tsx" />
   </ItemGroup>
-
   <ItemGroup>
     <Content Include="ClientApp\css\fontello\config.json" />
   </ItemGroup>
-
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\actions\ContactsTable.ts" />
     <TypeScriptCompile Include="ClientApp\actions\Contacts.ts" />
@@ -138,14 +130,12 @@
     <TypeScriptCompile Include="__tests__\sagas\index.test.tsx" />
     <TypeScriptCompile Include="__tests__\sagas\Teamcity.test.tsx" />
   </ItemGroup>
-
   <ItemGroup>
     <Folder Include="__tests__\components\BuildWindows\__snapshots__\" />
     <Folder Include="__tests__\containers\BuildWindows\__snapshots__\" />
     <Folder Include="__tests__\reducers\__snapshots__\" />
     <Folder Include="__tests__\sagas\__snapshots__\" />
   </ItemGroup>
-
   <ItemGroup>
     <None Include="Views\Account\AccessDenied.cshtml" />
     <None Include="Views\Account\ConfirmEmail.cshtml" />
@@ -161,29 +151,24 @@
     <None Include="Views\Account\ResetPasswordConfirmation.cshtml" />
     <None Include="Views\Account\SignedOut.cshtml" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\Webtool2.Services\WebTool2.Services.csproj" />
   </ItemGroup>
-
   <ItemGroup>
     <None Update="WebTool2.pfx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-
   <Target Name="Cleanwwwroot" AfterTargets="Clean">
     <Message Importance="high" Text="Cleaning 'wwwroot' and 'ClientApp\dist' folders..." />
     <RemoveDir Directories="wwwroot; ClientApp\dist" />
-	</Target>
-
+  </Target>
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">
     <!-- Ensure Node.js is installed -->
     <Exec Command="node --version" ContinueOnError="true">
       <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
     </Exec>
     <Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build and run this project. To continue, please install Node.js from https://nodejs.org/, and then restart your command prompt or IDE." />
-
     <!-- In development, the dist files won't exist on the first run or when cloning to
          a different machine, so rebuild them if not already present. -->
     <Message Importance="high" Text="Performing first-run Webpack build..." />
@@ -191,14 +176,12 @@
     <Exec Command="node node_modules/webpack/bin/webpack.js" />
     <Exec Command="npm run lint" />
   </Target>
-
   <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
     <!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
     <Exec Command="npm i --no-optional" />
     <Exec Command="node node_modules/webpack/bin/webpack.js --config webpack.config.vendor.js --env.prod" />
     <Exec Command="node node_modules/webpack/bin/webpack.js --env.prod" />
     <Exec Command="npm run lint" />
-
     <!-- Include the newly-built files in the publish output -->
     <ItemGroup>
       <DistFiles Include="wwwroot\dist\**; ClientApp\dist\**" />
@@ -208,5 +191,4 @@
       </ResolvedFileToPublish>
     </ItemGroup>
   </Target>
-
 </Project>

@@ -1,8 +1,8 @@
-import { LOCATION_CHANGE, LocationChangeAction} from "react-router-redux";
+import { LOCATION_CHANGE, LocationChangeAction } from "react-router-redux";
 import { Action, Reducer } from "redux/index";
-import * as Model from "../models/Contacts";
-import { ContactQuery } from "../models/Contacts";
-import { toObject } from "../utilities";
+import * as Model from "../../models/Contacts";
+import { ContactQuery } from "../../models/Contacts";
+import { toObject } from "../../utilities/index";
 
 export const initialState: Model.ContactState = {
     contactState: {
