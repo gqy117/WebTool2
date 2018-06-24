@@ -30,7 +30,7 @@ namespace WebTool2
             services.ConfigureIdentity(this.Configuration);
             services.ConfigureMvc(this.Environment);
             services.ConfigureGzip();
-            services.ConfigureDependency(this.Configuration);
+            services.ConfigureDependency(this.Configuration, this.Environment);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

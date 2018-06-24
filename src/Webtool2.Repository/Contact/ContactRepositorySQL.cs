@@ -76,7 +76,7 @@
 
         private IList<Contact> GetResult()
         {
-            var paging = this.Conditions.Paging;
+            IPaging paging = this.Conditions;
             int from = paging.Page * paging.PageSize;
             int size = paging.PageSize;
 
@@ -85,13 +85,14 @@
 
         private void SetPagingResult(ContactResultSet result, int count)
         {
-            int pages = this.CalculatePages(count, this.Conditions.Paging.PageSize);
+            int pages = this.CalculatePages(count, this.Conditions.PageSize);
+            int page = CalculatePage(pages, this.Conditions.Page);
 
             result.Paging = new Paging
             {
-                Page = this.Conditions.Paging.Page,
+                Page = page,
                 Pages = pages,
-                PageSize = this.Conditions.Paging.PageSize,
+                PageSize = this.Conditions.PageSize,
             };
         }
     }
