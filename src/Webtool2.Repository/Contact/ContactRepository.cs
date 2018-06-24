@@ -16,7 +16,8 @@
 
         protected int CalculatePage(int pages, int page)
         {
-            return page > pages - 1 ? pages - 1 : page;
+            page = page > pages - 1 ? pages - 1 : page;
+            return Math.Max(0, page);
         }
     }
 }
