@@ -2,7 +2,7 @@ import { LOCATION_CHANGE, LocationChangeAction} from "react-router-redux";
 import { Action, Reducer } from "redux/index";
 import * as Model from "../models/Contacts";
 import { ContactQuery } from "../models/Contacts";
-import { mapQueryStringToObject } from "../utilities";
+import { toObject } from "../utilities";
 
 export const initialState: Model.ContactState = {
     contactState: {
@@ -73,7 +73,7 @@ export const reducer: Reducer<Model.ContactState> = (state: Model.ContactState =
             const locationChange = action as (LocationChangeAction);
             query = { ...state.query };
 
-            mapQueryStringToObject(query, locationChange.payload.search);
+            toObject(query, locationChange.payload.search);
 
             state = {
                 ...state,

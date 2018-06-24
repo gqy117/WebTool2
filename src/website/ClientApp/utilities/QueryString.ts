@@ -1,7 +1,7 @@
 import { Search } from "history";
 import * as queryString from "query-string";
 
-export function mapQueryStringToObject(oldQuery: any, param: Search) {
+export function toObject(oldQuery: any, param: Search) {
     const queryFromUrl = queryString.parse(param);
 
     for (const fieldName of Object.keys(oldQuery)) {
