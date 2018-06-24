@@ -8,10 +8,14 @@ export const actionCreators = {
         const queryChangeAction: Model.QueryChangedAction = { type: Model.ActionType.QUERY_CHANGED, name, value };
         dispatch(queryChangeAction);
 
-        const newRoute = queryString.stringify(getState().contacts.query);
-        dispatch(push(`/?${newRoute}`));
-
-        const requestContactsAction: Model.RequestContactsAction = { type: Model.ActionType.REQUEST_CONTACT, contactQuery: getState().contacts.query as Model.ContactQuery };
-        dispatch(requestContactsAction);
+        updateUrlAndFetchData(getState, dispatch);
     },
 };
+
+export function updateUrlAndFetchData(getState: () => ApplicationState, dispatch: any) {
+    const newRoute = queryString.stringify(getState().contacts.query);
+    dispatch(push(`/?${newRoute}`));
+
+    const requestContactsAction: Model.RequestContactsAction = {type: Model.ActionType.REQUEST_CONTACT, contactQuery: getState().contacts.query as Model.ContactQuery};
+    dispatch(requestContactsAction);
+}
