@@ -86,7 +86,7 @@
         private void SetPagingResult(ContactResultSet result, int count)
         {
             int pages = this.CalculatePages(count, this.Conditions.PageSize);
-            int page = this.CalculatePage(pages, this.Conditions.Page);
+            int page = CalculatePage(pages, this.Conditions.Page);
 
             result.Paging = new Paging
             {
