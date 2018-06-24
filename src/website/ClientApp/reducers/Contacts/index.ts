@@ -1,8 +1,19 @@
-import { LOCATION_CHANGE, LocationChangeAction } from "react-router-redux";
+import { LOCATION_CHANGE } from "react-router-redux";
 import { Action, Reducer } from "redux/index";
 import * as Model from "../../models/Contacts";
-import { ContactQuery } from "../../models/Contacts";
-import { toObject } from "../../utilities/index";
+import { Dictionary, toObject} from "../../utilities/index";
+import { IReduce } from "./IReduce";
+import { LocationChanged } from "./locationChanged";
+import { PageChanged } from "./pageChanged";
+import { QueryChanged } from "./queryChanged";
+import { ReceiveContact } from "./receiveContact";
+
+const Reducers = new Dictionary<IReduce>([
+    { k: Model.ActionType.RECEIVE_CONTACT, v: new ReceiveContact() as IReduce },
+    { k: Model.ActionType.QUERY_CHANGED, v: new QueryChanged() as IReduce },
+    { k: Model.ActionType.PAGE_CHANGED, v: new PageChanged() as IReduce },
+    { k: LOCATION_CHANGE, v: new LocationChanged() as IReduce },
+]);
 
 export const initialState: Model.ContactState = {
     contactState: {
@@ -25,65 +36,10 @@ export const initialState: Model.ContactState = {
 };
 
 export const reducer: Reducer<Model.ContactState> = (state: Model.ContactState = initialState, action: Action) => {
-    let query: ContactQuery;
+    const contactReducer = Reducers[action.type];
 
-    switch (action.type) {
-        case Model.ActionType.RECEIVE_CONTACT:
-            const receiveAction = action as (Model.ReceiveContactsAction);
-            const paging = receiveAction.contactResultSet.paging;
-            query = { ...state.query };
-            query.isFetching = false;
-            query.page = paging.page;
-
-            state = {
-                ...state,
-                contactState: receiveAction.contactResultSet,
-                query: query as Model.ContactQuery,
-            };
-
-            break;
-
-        case Model.ActionType.QUERY_CHANGED:
-            const nAction = action as (Model.QueryChangedAction);
-            query = { ...state.query };
-            (query as any)[nAction.name] = nAction.value;
-            query.isFetching = true;
-
-            state = {
-                ...state,
-                query: query as Model.ContactQuery,
-            };
-
-            break;
-
-        case Model.ActionType.PAGE_CHANGED:
-            const pageChange = action as (Model.PageChangedAction);
-            query = { ...state.query };
-            query.page = pageChange.page;
-            query.isFetching = true;
-
-            state = {
-                ...state,
-                query: query as Model.ContactQuery,
-            };
-
-            break;
-
-        case LOCATION_CHANGE:
-            const locationChange = action as (LocationChangeAction);
-            query = { ...state.query };
-
-            toObject(query, locationChange.payload.search);
-
-            state = {
-                ...state,
-                query: query as Model.ContactQuery,
-            };
-            break;
-
-        case Model.ActionType.REQUEST_CONTACT:
-        default:
-            break;
+    if (contactReducer) {
+        state = contactReducer.reduce(state, action);
     }
 
     return state;
