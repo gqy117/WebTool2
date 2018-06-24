@@ -1,8 +1,8 @@
-import * as queryString from "query-string";
 import { LOCATION_CHANGE, LocationChangeAction} from "react-router-redux";
 import { Action, Reducer } from "redux/index";
 import * as Model from "../models/Contacts";
 import { ContactQuery } from "../models/Contacts";
+import { mapQueryStringToObject } from "../utilities";
 
 export const initialState: Model.ContactState = {
     contactState: {
@@ -69,18 +69,9 @@ export const reducer: Reducer<Model.ContactState> = (state: Model.ContactState =
 
         case LOCATION_CHANGE:
             const locationChange = action as (LocationChangeAction);
-            const queryFromUrl: Model.ContactQuery = queryString.parse(locationChange.payload.search);
             query = { ...state.query };
-            query.isFetching = true;
 
-            query.page = Number(queryFromUrl.page) || query.page;
-            query.pageSize = Number(queryFromUrl.pageSize) || query.pageSize;
-            query.name = queryFromUrl.name || query.name;
-            query.address = queryFromUrl.address || query.address;
-            query.birthdayFrom = queryFromUrl.birthdayFrom || query.birthdayFrom;
-            query.birthdayTo = queryFromUrl.birthdayTo || query.birthdayTo;
-            query.phone = queryFromUrl.phone || query.phone;
-            query.gender = queryFromUrl.gender || query.gender;
+            mapQueryStringToObject(query, locationChange.payload.search);
 
             state = {
                 ...state,
