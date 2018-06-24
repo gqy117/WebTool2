@@ -13,5 +13,10 @@
         {
             return (int)Math.Ceiling((decimal)count / (decimal)pageSize);
         }
+
+        protected int CalculatePage(int pages, int page)
+        {
+            return page > pages - 1 ? pages - 1 : page;
+        }
     }
 }

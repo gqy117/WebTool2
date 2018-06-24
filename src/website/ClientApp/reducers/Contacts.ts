@@ -30,8 +30,10 @@ export const reducer: Reducer<Model.ContactState> = (state: Model.ContactState =
     switch (action.type) {
         case Model.ActionType.RECEIVE_CONTACT:
             const receiveAction = action as (Model.ReceiveContactsAction);
+            const paging = receiveAction.contactResultSet.paging;
             query = { ...state.query };
             query.isFetching = false;
+            query.page = paging.page;
 
             state = {
                 ...state,
