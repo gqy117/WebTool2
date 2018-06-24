@@ -69,9 +69,19 @@ export const reducer: Reducer<Model.ContactState> = (state: Model.ContactState =
 
         case LOCATION_CHANGE:
             const locationChange = action as (LocationChangeAction);
-            const queryFromUrl = queryString.parse(locationChange.payload.search);
+            const queryFromUrl: Model.ContactQuery = queryString.parse(locationChange.payload.search);
             query = { ...state.query };
-            query.name = queryFromUrl.name;
+            query.isFetching = true;
+
+            query.page = Number(queryFromUrl.page) || query.page;
+            query.pageSize = Number(queryFromUrl.pageSize) || query.pageSize;
+            query.name = queryFromUrl.name || query.name;
+            query.address = queryFromUrl.address || query.address;
+            query.birthdayFrom = queryFromUrl.birthdayFrom || query.birthdayFrom;
+            query.birthdayTo = queryFromUrl.birthdayTo || query.birthdayTo;
+            query.phone = queryFromUrl.phone || query.phone;
+            query.gender = queryFromUrl.gender || query.gender;
+
             state = {
                 ...state,
                 query: query as Model.ContactQuery,
