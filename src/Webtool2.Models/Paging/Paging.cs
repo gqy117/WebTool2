@@ -1,6 +1,6 @@
 ﻿namespace WebTool2.Models
 {
-    public class Paging
+    public class Paging : IPaging
     {
         public int PageSize { get; set; }
 

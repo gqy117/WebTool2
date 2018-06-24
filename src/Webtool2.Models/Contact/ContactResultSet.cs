@@ -6,6 +6,6 @@
     {
         public IList<Contact> Contacts { get; set; }
 
-        public Paging Paging { get; set; }
+        public IPaging Paging { get; set; }
     }
 }

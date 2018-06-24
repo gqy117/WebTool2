@@ -122,7 +122,7 @@
 
         private void BuildSearchDescriptor()
         {
-            var paging = this.Conditions.Paging;
+            var paging = this.Conditions;
             int from = paging.Page * paging.PageSize;
             int size = paging.PageSize;
 
@@ -137,13 +137,13 @@
 
         private void SetPaging(ISearchResponse<Contact> response, ContactResultSet result)
         {
-            int pages = this.CalculatePages(response.Total, this.Conditions.Paging.PageSize);
+            int pages = this.CalculatePages(response.Total, this.Conditions.PageSize);
 
             result.Paging = new Paging
             {
-                Page = this.Conditions.Paging.Page,
+                Page = this.Conditions.Page,
                 Pages = pages,
-                PageSize = this.Conditions.Paging.PageSize,
+                PageSize = this.Conditions.PageSize,
             };
         }
 

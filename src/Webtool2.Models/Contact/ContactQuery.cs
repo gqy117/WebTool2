@@ -1,6 +1,6 @@
 ﻿namespace WebTool2.Models
 {
-    public class ContactQuery
+    public class ContactQuery : IPaging
     {
         public string Name { get; set; }
 
@@ -14,6 +14,8 @@
 
         public string Phone { get; set; }
 
-        public Paging Paging { get; set; }
+        public int PageSize { get; set; }
+
+        public int Page { get; set; }
     }
 }

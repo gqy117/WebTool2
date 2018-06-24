@@ -20,7 +20,6 @@
             ContactResultSet resultSet = new ContactResultSet
             {
                 Contacts = new List<Contact>(),
-                Paging = new Paging(),
             };
 
             this.Conditions = query;
