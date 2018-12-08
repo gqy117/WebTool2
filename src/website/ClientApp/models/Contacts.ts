@@ -29,57 +29,57 @@ export interface Contact {
     address: string;
 }
 
-export const enum ActionType {
-    QUERY_CHANGED = "QUERY_CHANGED",
-    PAGE_CHANGED = "PAGE_CHANGED",
-    REQUEST_CONTACT = "REQUEST_CONTACT",
-    RECEIVE_CONTACT = "RECEIVE_CONTACT",
+export const ActionType = {
+    PAGE_CHANGED: "PAGE_CHANGED",
+    QUERY_CHANGED: "QUERY_CHANGED",
+    RECEIVE_CONTACT: "RECEIVE_CONTACT",
+    REQUEST_CONTACT: "REQUEST_CONTACT",
+};
+
+export class QueryChangedAction {
+    public type = ActionType.QUERY_CHANGED;
+    public name: string;
+    public value: string;
 }
 
-export interface QueryChangedAction {
-    type: ActionType.QUERY_CHANGED;
-    name: string;
-    value: string;
+export class PageChangedAction {
+    public type = ActionType.PAGE_CHANGED;
+    public page: number;
 }
 
-export interface PageChangedAction {
-    type: ActionType.PAGE_CHANGED;
-    page: number;
+export class RequestContactsAction {
+    public type = ActionType.REQUEST_CONTACT;
+    public contactQuery: ContactQuery;
 }
 
-export interface RequestContactsAction {
-    type: ActionType.REQUEST_CONTACT;
-    contactQuery: ContactQuery;
+export class ReceiveContactsAction {
+    public type = ActionType.RECEIVE_CONTACT;
+    public contactResultSet: ContactResultSet;
 }
 
-export interface ReceiveContactsAction {
-    type: ActionType.RECEIVE_CONTACT;
-    contactResultSet: ContactResultSet;
-}
+export const Gender = {
+    Default: "",
+    F: "F",
+    M: "M",
+};
 
-export const enum Gender {
-    Default = "",
-    M = "M",
-    F = "F",
-}
+export const GenderKey = {
+    All: "0",
+    Female: "2",
+    Male: "1",
+};
 
-export const enum GenderKey {
-    All = "0",
-    Male = "1",
-    Female = "2",
-}
+export const GenderValue = {
+    All: "All",
+    Female: "Female",
+    Male: "Male",
+};
 
-export const enum GenderValue {
-    All = "All",
-    Male = "Male",
-    Female = "Female",
-}
-
-export const enum GenderCss {
-    Default = "",
-    M = "male",
-    F = "female",
-}
+export const GenderCss = {
+    Default: "",
+    F: "female",
+    M: "male",
+};
 
 export const GenderCssDic = new Dictionary<string>([
     { k: Gender.Default, v: GenderCss.Default },
