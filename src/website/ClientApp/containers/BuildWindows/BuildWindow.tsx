@@ -20,7 +20,7 @@ export default connect(
 export class BuildWindowConverter {
     public Timezone: string;
 
-    public CssStatusDic = new Dictionary<Model.CssStatus>([
+    public CssStatusDic = new Dictionary<string>([
         { k: Model.BuildStatus.FAILED, v: Model.CssStatus.WARNING },
         { k: Model.BuildStatus.SUCCESSFUL, v: Model.CssStatus.SUCCESSFUL },
     ]);

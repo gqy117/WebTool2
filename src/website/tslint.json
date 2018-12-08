@@ -6,6 +6,7 @@
     "max-line-length": [ false ],
     "interface-name": false,
     "no-string-literal": false,
+    "max-classes-per-file": false,
     "trailing-comma": false
   },
   "rulesDirectory": [
