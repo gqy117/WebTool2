@@ -10239,16 +10239,6 @@
       "integrity": "sha1-dc449SvwczxafwwRjYEzSiu19BI=",
       "dev": true
     },
-    "source-map-loader": {
-      "version": "0.2.4",
-      "resolved": "https://tourismholdinglimited.jfrog.io/tourismholdinglimited/api/npm/npm-cosmos-virtual/source-map-loader/-/source-map-loader-0.2.4.tgz",
-      "integrity": "sha1-wYsNxuI79m9nkkN1V8VpoR4HInE=",
-      "dev": true,
-      "requires": {
-        "async": "2.5.0",
-        "loader-utils": "1.1.0"
-      }
-    },
     "source-map-resolve": {
       "version": "0.5.0",
       "resolved": "https://registry.npmjs.org/source-map-resolve/-/source-map-resolve-0.5.0.tgz",
