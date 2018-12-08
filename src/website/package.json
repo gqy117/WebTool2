@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "ts": "node_modules/.bin/tsc",
-    "lint": "node_modules/.bin/tslint --project .",
+    "lint": "node_modules/.bin/tslint --project . -e '**/*.js'",
     "webpack": "node_modules/.bin/webpack",
     "test": "node_modules/.bin/jest --coverage"
   },
