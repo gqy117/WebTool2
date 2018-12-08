@@ -20,7 +20,7 @@ module.exports = (env) => {
         module: {
 
             rules: [
-                { test: /\.ts|\.tsx$/, enforce: 'pre', loader: 'babel-loader' },
+                { test: /\.ts|\.tsx$/, enforce: 'pre', loaders: ['babel-loader', 'ts-loader'] },
                 { test: /\.ts|\.tsx$/, enforce: 'pre', loader: 'tslint-loader', options: { emitErrors: false, failOnHint: true, } },
                 //{ test: /\.tsx?$/, include: /ClientApp/, use: ['awesome-typescript-loader?silent=true'] },
                 { test: /\.(png|jpg|jpeg|gif|svg)$/, use: 'url-loader?limit=25000' }
