@@ -1,7 +1,7 @@
 ﻿export class Polling {
     private action: () => void;
     private interval: number;
-    private pollingId: number;
+    private pollingId: any;
 
     constructor(action: () => void, interval: number = 300 * 1000) {
         this.action = action;

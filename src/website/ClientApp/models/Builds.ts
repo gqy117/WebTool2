@@ -28,35 +28,35 @@ export interface Build {
     lastUpdated?: string;
 }
 
-export const enum ActionType {
-    REQUEST_BUILD = "REQUEST_BUILD",
-    RECEIVE_BUILD = "RECEIVE_BUILD",
-    STOP_POLLING = "STOP_POLLING",
+export const ActionType = {
+    RECEIVE_BUILD: "RECEIVE_BUILD",
+    REQUEST_BUILD: "REQUEST_BUILD",
+    STOP_POLLING: "STOP_POLLING",
+};
+
+export const BuildStatus = {
+    FAILED: "Failed",
+    SUCCESSFUL: "Successful",
+};
+
+export const CssStatus = {
+    SUCCESSFUL: "status-successful",
+    WARNING: "status-warning",
+};
+
+export class RequestBuildsAction {
+    public type = ActionType.REQUEST_BUILD;
+    public buildId: string;
+    public interval: number;
 }
 
-export const enum BuildStatus {
-    SUCCESSFUL = "Successful",
-    FAILED = "Failed",
+export class ReceiveBuildsAction {
+    public type = ActionType.RECEIVE_BUILD;
+    public build: Build;
 }
 
-export const enum CssStatus {
-    SUCCESSFUL = "status-successful",
-    WARNING = "status-warning",
-}
-
-export interface RequestBuildsAction {
-    type: ActionType.REQUEST_BUILD;
-    buildId: string;
-    interval: number;
-}
-
-export interface ReceiveBuildsAction {
-    type: ActionType.RECEIVE_BUILD;
-    build: Build;
-}
-
-export interface StopPollingAction {
-    type: ActionType.STOP_POLLING;
+export class StopPollingAction {
+    public type = ActionType.STOP_POLLING;
 }
 
 export type KnownAction = RequestBuildsAction | ReceiveBuildsAction;

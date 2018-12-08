@@ -1,3 +1,4 @@
+import "@babel/polyfill";
 import "bootstrap";
 import { createBrowserHistory } from "history";
 import * as React from "react";

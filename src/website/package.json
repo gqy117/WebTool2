@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "ts": "node_modules/.bin/tsc",
-    "lint": "node_modules/.bin/tslint --project .",
+    "lint": "node_modules/.bin/tslint --project . -e '**/*.js'",
     "webpack": "node_modules/.bin/webpack",
     "test": "node_modules/.bin/jest --coverage"
   },
@@ -26,6 +26,13 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.2.0",
+    "@babel/plugin-proposal-class-properties": "^7.2.1",
+    "@babel/plugin-proposal-object-rest-spread": "^7.2.0",
+    "@babel/polyfill": "^7.0.0",
+    "@babel/preset-env": "^7.2.0",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.1.0",
     "@types/history": "4.6.0",
     "@types/jest": "^21.1.9",
     "@types/query-string": "^5.0.1",
@@ -45,6 +52,7 @@
     "aspnet-webpack": "^2.0.1",
     "aspnet-webpack-react": "^3.0.0",
     "awesome-typescript-loader": "3.2.1",
+    "babel-loader": "^8.0.4",
     "bootstrap": "3.3.7",
     "copy-webpack-plugin": "^4.3.1",
     "css-loader": "0.28.4",
@@ -78,10 +86,11 @@
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",
     "ts-jest": "^22.0.0",
+    "ts-loader": "^3.5.0",
     "tslint": "^5.7.0",
     "tslint-loader": "^3.5.3",
     "tslint-microsoft-contrib": "^5.0.1",
-    "typescript": "2.4.1",
+    "typescript": "^2.4.1",
     "url-loader": "0.5.9",
     "webpack": "2.5.1",
     "webpack-hot-middleware": "2.18.2",

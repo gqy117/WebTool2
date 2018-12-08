@@ -4,12 +4,7 @@ exports[`sagas/Teamcity pollingRaceCondition 1`] = `
 Object {
   "@@redux-saga/IO": true,
   "RACE": Object {
-    "keepPolling": Object {
-      "next": [Function],
-      "return": [Function],
-      "throw": [Function],
-      Symbol(Symbol.iterator): [Function],
-    },
+    "keepPolling": Object {},
     "stopPolling": Object {
       "@@redux-saga/IO": true,
       "TAKE": Object {

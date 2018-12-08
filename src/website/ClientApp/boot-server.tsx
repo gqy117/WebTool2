@@ -1,3 +1,4 @@
+import "@babel/polyfill";
 import { createServerRenderer, RenderResult } from "aspnet-prerendering";
 import { createMemoryHistory } from "history";
 import * as React from "react";
